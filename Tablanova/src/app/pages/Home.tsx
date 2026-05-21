@@ -361,7 +361,7 @@ export const Home = () => {
       ════════════════════════════════════════════════════════════════════ */}
       <section
         className="relative flex items-center -mt-[72px] overflow-hidden"
-        style={{ height: 'calc(100dvh + 72px)', minHeight: 'calc(600px + 72px)' }}
+        style={{ height: 'calc(100dvh + 72px)', minHeight: 'calc(580px + 72px)' }}
       >
         <div className="absolute inset-0">
           <img
@@ -372,8 +372,8 @@ export const Home = () => {
           <div className="absolute inset-0" style={{ background: 'linear-gradient(105deg, rgba(20,6,10,0.92) 45%, rgba(20,6,10,0.6) 100%)' }} />
         </div>
 
-        <div className="relative max-w-[1200px] mx-auto px-6 w-full" style={{ paddingTop: '72px', paddingBottom: '48px' }}>
-          <div className="grid lg:grid-cols-[1fr_360px] gap-16 items-end">
+        <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 w-full" style={{ paddingTop: '72px', paddingBottom: '48px' }}>
+          <div className="grid lg:grid-cols-[1fr_360px] gap-10 lg:gap-16 items-end">
 
             {/* Texto — columna izquierda */}
             <motion.div variants={heroContainer} initial="hidden" animate="visible">
@@ -385,7 +385,7 @@ export const Home = () => {
                 <motion.h1
                   variants={heroItem}
                   className="text-white"
-                  style={{ maxWidth: 660, fontSize: 'clamp(2.6rem, 5.5vw, 4.2rem)', lineHeight: 1.06, letterSpacing: '-0.03em', fontWeight: 600 }}
+                  style={{ maxWidth: 660, fontSize: 'clamp(2rem, 5.5vw, 4.2rem)', lineHeight: 1.06, letterSpacing: '-0.03em', fontWeight: 600 }}
                 >
                   Para el campo.<br />Para toda la vida.
                 </motion.h1>
@@ -458,13 +458,13 @@ export const Home = () => {
         </div>
 
         <motion.div
-          className="absolute left-0 right-0"
+          className="absolute left-0 right-0 hidden sm:block"
           style={{ bottom: 48 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4 }}
         >
-          <div className="max-w-[1200px] mx-auto px-6 flex flex-wrap items-center justify-start gap-x-8 gap-y-2">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-start gap-x-8 gap-y-2">
             <div className="flex items-center gap-6">
               {[
                 { value: '100%', label: 'Plástico reciclado' },
@@ -500,8 +500,8 @@ export const Home = () => {
       {/* ═══════════════════════════════════════════════════════════════════
           PRODUCTS
       ════════════════════════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: '#F5F0E8', padding: '120px 0' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#F5F0E8' }}>
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
 
           <motion.div
             className="grid lg:grid-cols-2 gap-12 items-end mb-14"
@@ -566,8 +566,8 @@ export const Home = () => {
       {/* ═══════════════════════════════════════════════════════════════════
           CLIENTS — text ticker
       ════════════════════════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: '#5E0F29', padding: '120px 0', overflow: 'hidden' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="overflow-hidden py-[60px] md:py-[120px]" style={{ backgroundColor: '#5E0F29' }}>
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <motion.div
             variants={reveal}
             initial="hidden"
@@ -665,8 +665,8 @@ export const Home = () => {
       {/* ═══════════════════════════════════════════════════════════════════
           COMPARISON
       ════════════════════════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: '#F5F0E8', padding: '120px 0' }}>
-        <div className="max-w-[860px] mx-auto px-6">
+      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#F5F0E8' }}>
+        <div className="max-w-[860px] mx-auto px-4 sm:px-6">
           <motion.div
             variants={revealStagger}
             initial="hidden"
@@ -792,15 +792,15 @@ export const Home = () => {
       {/* ═══════════════════════════════════════════════════════════════════
           PENSADO PARA EL AGRO
       ════════════════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden" style={{ padding: '120px 0' }}>
+      <section className="relative overflow-hidden py-[60px] md:py-[120px]">
         <img
           src={imgAgroBg}
           alt=""
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(105deg, rgba(15,25,8,0.88) 40%, rgba(15,25,8,0.65) 100%)' }} />
-        <div className="relative max-w-[1200px] mx-auto px-6">
-          <div className="grid lg:grid-cols-[1fr_1fr] gap-16 items-end">
+        <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-end">
 
             <motion.div
               variants={revealStagger}
@@ -867,8 +867,8 @@ export const Home = () => {
       {/* ═══════════════════════════════════════════════════════════════════
           PROJECTS CAROUSEL
       ════════════════════════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: '#fff', padding: '120px 0 80px' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#fff' }}>
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <motion.div
             className="text-center"
             variants={reveal}
@@ -889,7 +889,7 @@ export const Home = () => {
 
         <motion.div
           className="relative"
-          style={{ marginTop: 48 }}
+          style={{ marginTop: 32 }}
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={VIEWPORT}
@@ -1011,7 +1011,7 @@ export const Home = () => {
           </motion.button>
         </div>
 
-        <div className="max-w-[1200px] mx-auto px-6 mt-7 flex items-center gap-2">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 mt-7 flex items-center gap-2">
           {projects.map((_, i) => (
             <button
               key={i}
@@ -1033,7 +1033,7 @@ export const Home = () => {
         </motion.div>
 
         <motion.div
-          className="max-w-[1200px] mx-auto px-6 mt-10"
+          className="max-w-[1200px] mx-auto px-4 sm:px-6 mt-10"
           variants={reveal}
           initial="hidden"
           whileInView="visible"
@@ -1046,10 +1046,10 @@ export const Home = () => {
       {/* ═══════════════════════════════════════════════════════════════════
           NUMBERS
       ════════════════════════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: '#5E0F29', padding: '80px 0' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-[48px] md:py-[80px]" style={{ backgroundColor: '#5E0F29' }}>
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
             variants={revealStagger}
             initial="hidden"
             whileInView="visible"
@@ -1070,9 +1070,9 @@ export const Home = () => {
       {/* ═══════════════════════════════════════════════════════════════════
           SUSTENTABILIDAD
       ════════════════════════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: '#F5F0E8', padding: '120px 0' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid lg:grid-cols-[1fr_1fr] gap-16 items-center">
+      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#F5F0E8' }}>
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-center">
 
             <motion.div
               variants={revealStagger}
@@ -1157,8 +1157,8 @@ export const Home = () => {
       {/* ═══════════════════════════════════════════════════════════════════
           FAQ
       ════════════════════════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: '#fff', padding: '120px 0' }}>
-        <div className="max-w-[720px] mx-auto px-6">
+      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#fff' }}>
+        <div className="max-w-[720px] mx-auto px-4 sm:px-6">
           <motion.div
             variants={reveal}
             initial="hidden"
@@ -1220,8 +1220,8 @@ export const Home = () => {
       {/* ═══════════════════════════════════════════════════════════════════
           TESTIMONIALS
       ════════════════════════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: '#F5F0E8', padding: '120px 0' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#F5F0E8' }}>
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-[1fr_380px] gap-6 items-stretch">
 
             {/* LEFT: header + 2x2 grid */}
@@ -1330,14 +1330,14 @@ export const Home = () => {
       {/* ═══════════════════════════════════════════════════════════════════
           FINAL CTA
       ════════════════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden" style={{ padding: '120px 0' }}>
+      <section className="relative overflow-hidden py-[60px] md:py-[120px]">
         <img
           src={imgCtaBg}
           alt=""
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(105deg, rgba(20,6,10,0.92) 45%, rgba(20,6,10,0.6) 100%)' }} />
-        <div className="relative max-w-[800px] mx-auto px-6 text-center">
+        <div className="relative max-w-[800px] mx-auto px-4 sm:px-6 text-center">
           <motion.div
             variants={reveal}
             initial="hidden"

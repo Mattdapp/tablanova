@@ -126,12 +126,12 @@ export const Productos = () => {
         />
 
         <motion.div
-          className="relative max-w-[1200px] mx-auto px-6 w-full pb-16"
+          className="relative max-w-[1200px] mx-auto px-4 sm:px-6 w-full pb-10 md:pb-16"
           variants={heroContainer}
           initial="hidden"
           animate="visible"
         >
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-10">
 
             {/* Left: title */}
             <div style={{ maxWidth: 620 }}>
@@ -139,7 +139,7 @@ export const Productos = () => {
                 <motion.h1
                   variants={heroMask}
                   className="text-white"
-                  style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.06 }}
+                  style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.06 }}
                 >
                   Un material.<br />Múltiples soluciones.
                 </motion.h1>
@@ -150,8 +150,8 @@ export const Productos = () => {
               </motion.p>
             </div>
 
-            {/* Right: metadata */}
-            <motion.div variants={heroFade} className="flex flex-row md:flex-col gap-6 md:gap-3 flex-shrink-0 pb-1">
+            {/* Right: metadata — compact row on mobile, column on md+ */}
+            <motion.div variants={heroFade} className="flex flex-row md:flex-col gap-4 md:gap-3 flex-shrink-0 pb-1">
               {[
                 { label: 'Categoría', value: 'LÍNEA AGRO' },
                 { label: 'Material', value: 'PLÁSTICO RECICLADO' },
@@ -173,10 +173,10 @@ export const Productos = () => {
       </section>
 
       {/* ─── BRIEF ────────────────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: '#F5F0E8', padding: '80px 0' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-[48px] md:py-[80px]" style={{ backgroundColor: '#F5F0E8' }}>
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <motion.div
-            className="grid md:grid-cols-2 gap-12 lg:gap-24"
+            className="grid md:grid-cols-2 gap-10 lg:gap-24"
             initial="hidden"
             whileInView="visible"
             viewport={VIEWPORT}
@@ -211,7 +211,7 @@ export const Productos = () => {
 
       {/* ─── PRODUCTS ─────────────────────────────────────────────────────── */}
       <section style={{ backgroundColor: '#F5F0E8' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <motion.div
             variants={reveal}
             initial="hidden"
@@ -242,7 +242,7 @@ export const Productos = () => {
                 {/* Photo — 60% */}
                 <div
                   className="md:w-[60%] flex-shrink-0 overflow-hidden group"
-                  style={{ borderRadius: 20, margin: isReversed ? '32px 32px 32px 0' : '32px 0 32px 32px' }}
+                  style={{ borderRadius: 20, margin: isReversed ? 'clamp(16px,3vw,32px) clamp(16px,3vw,32px) clamp(16px,3vw,32px) 0' : 'clamp(16px,3vw,32px) 0 clamp(16px,3vw,32px) clamp(16px,3vw,32px)' }}
                 >
                   <img
                     src={product.image}
@@ -307,12 +307,12 @@ export const Productos = () => {
           );
         })}
 
-        <div style={{ paddingBottom: 120 }} />
+        <div className="pb-[60px] md:pb-[120px]" />
       </section>
 
       {/* ─── MOBILIARIO ───────────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: '#414B28', padding: '80px 0 120px' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="pt-[48px] md:pt-[80px] pb-[60px] md:pb-[120px]" style={{ backgroundColor: '#414B28' }}>
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <motion.div
             variants={reveal}
             initial="hidden"

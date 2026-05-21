@@ -51,18 +51,7 @@ interface Product {
 }
 
 const EASE = [0.16, 1, 0.3, 1] as const;
-const VIEWPORT = { once: true, margin: '-40px' } as const;
-
-const CATEGORY_EMOJI: Record<string, string> = {
-  Varillas: '🔩',
-  Varillones: '⚡',
-  Postes: '🏗️',
-  Tablas: '📋',
-  Tirantillos: '🔗',
-  Tranqueras: '🚪',
-  Bancos: '🪑',
-  Exterior: '🌿',
-};
+const VIEWPORT = { once: true, margin: '-80px' } as const;
 
 export const Catalogo = () => {
   const [selectedCategory, setSelectedCategory] = useState('Todos');
@@ -144,19 +133,19 @@ export const Catalogo = () => {
         />
 
         <motion.div
-          className="relative max-w-[1200px] mx-auto px-6 w-full pb-16"
+          className="relative max-w-[1200px] mx-auto px-4 sm:px-6 w-full pb-10 md:pb-16"
           variants={heroContainer}
           initial="hidden"
           animate="visible"
         >
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-10">
 
             <div style={{ maxWidth: 620 }}>
               <div className="overflow-hidden mb-4" style={{ paddingBottom: '0.15em' }}>
                 <motion.h1
                   variants={heroMask}
                   className="text-white"
-                  style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.06 }}
+                  style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.06 }}
                 >
                   Catálogo<br />de productos.
                 </motion.h1>
@@ -166,7 +155,7 @@ export const Catalogo = () => {
               </motion.p>
             </div>
 
-            <motion.div variants={heroFade} className="flex flex-row md:flex-col gap-6 md:gap-3 flex-shrink-0 pb-1">
+            <motion.div variants={heroFade} className="flex flex-row md:flex-col gap-4 md:gap-3 flex-shrink-0 pb-1">
               {[
                 { label: 'Tipo', value: 'CATÁLOGO COMPLETO' },
                 { label: 'Material', value: 'PLÁSTICO RECICLADO' },
@@ -187,8 +176,8 @@ export const Catalogo = () => {
         </motion.div>
       </section>
 
-      <section style={{ backgroundColor: '#F5F0E8', padding: '80px 0 100px' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="pt-[40px] pb-[60px] md:pt-[80px] md:pb-[100px]" style={{ backgroundColor: '#F5F0E8' }}>
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
 
         {/* ─── SEARCH & FILTERS ─────────────────────────────────────────── */}
         <motion.div

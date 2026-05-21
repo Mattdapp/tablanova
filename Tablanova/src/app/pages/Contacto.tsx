@@ -58,7 +58,7 @@ export const Contacto = () => {
         />
 
         <motion.div
-          className="relative max-w-[1200px] mx-auto px-6 w-full pb-16"
+          className="relative max-w-[1200px] mx-auto px-4 sm:px-6 w-full pb-10 md:pb-16"
           variants={heroContainer}
           initial="hidden"
           animate="visible"
@@ -69,7 +69,7 @@ export const Contacto = () => {
                 <motion.h1
                   variants={heroMask}
                   className="text-white"
-                  style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.06 }}
+                  style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.06 }}
                 >
                   Hablemos de<br />tu proyecto.
                 </motion.h1>
@@ -79,7 +79,7 @@ export const Contacto = () => {
               </motion.p>
             </div>
 
-            <motion.div variants={heroFade} className="flex flex-row md:flex-col gap-6 md:gap-3 flex-shrink-0 pb-1">
+            <motion.div variants={heroFade} className="flex flex-row md:flex-col gap-4 md:gap-3 flex-shrink-0 pb-1">
               {[
                 { label: 'Atención', value: 'PERSONALIZADA' },
                 { label: 'Respuesta', value: 'INMEDIATA' },
@@ -100,8 +100,8 @@ export const Contacto = () => {
       </section>
 
       {/* ─── CONTACTO ─────────────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: '#F5F0E8', padding: '120px 0' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#F5F0E8' }}>
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
 
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -206,8 +206,8 @@ export const Contacto = () => {
       </section>
 
       {/* ─── FAQ ──────────────────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: '#fff', padding: '120px 0' }}>
-        <div className="max-w-[720px] mx-auto px-6">
+      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#fff' }}>
+        <div className="max-w-[720px] mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -280,7 +280,7 @@ export const Contacto = () => {
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = '1')}
             >
               Escribinos por WhatsApp
-              <span style={{ width: 28, height: 28, borderRadius: '50%', backgroundColor: '#DB8F33', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <span style={{ width: 32, height: 32, borderRadius: '50%', backgroundColor: '#DB8F33', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 <ArrowRight size={13} color="#fff" />
               </span>
             </button>

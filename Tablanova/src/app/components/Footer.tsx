@@ -5,10 +5,10 @@ import logoImg from '../../assets/logo-tablanova.png';
 export const Footer = () => {
   return (
     <footer style={{ backgroundColor: '#5E0F29', overflow: 'hidden' }}>
-      <div className="max-w-[1200px] mx-auto px-6 pt-20 pb-0">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-16 md:pt-20 pb-0">
 
         {/* ── 4-column grid ─────────────────────────────────────────── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
 
           {/* Brand */}
           <div>

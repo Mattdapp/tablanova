@@ -117,19 +117,19 @@ export const Nosotros = () => {
         />
 
         <motion.div
-          className="relative max-w-[1200px] mx-auto px-6 w-full pb-16"
+          className="relative max-w-[1200px] mx-auto px-4 sm:px-6 w-full pb-10 md:pb-16"
           variants={heroContainer}
           initial="hidden"
           animate="visible"
         >
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-10">
 
             <div style={{ maxWidth: 620 }}>
               <div className="overflow-hidden mb-4" style={{ paddingBottom: '0.15em' }}>
                 <motion.h1
                   variants={heroMask}
                   className="text-white"
-                  style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.06 }}
+                  style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.06 }}
                 >
                   Fabricamos lo que<br />la madera no puede ser.
                 </motion.h1>
@@ -139,7 +139,7 @@ export const Nosotros = () => {
               </motion.p>
             </div>
 
-            <motion.div variants={heroFade} className="flex flex-row md:flex-col gap-6 md:gap-3 flex-shrink-0 pb-1">
+            <motion.div variants={heroFade} className="flex flex-row md:flex-col gap-4 md:gap-3 flex-shrink-0 pb-1">
               {[
                 { label: 'Empresa', value: 'FAMILIAR ARGENTINA' },
                 { label: 'Origen', value: 'ESPERANZA, SANTA FE' },
@@ -161,9 +161,9 @@ export const Nosotros = () => {
       </section>
 
       {/* ─── STORY ────────────────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: '#F5F0E8', padding: '120px 0' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#F5F0E8' }}>
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
 
             {/* Text */}
             <motion.div
@@ -221,7 +221,7 @@ export const Nosotros = () => {
               viewport={{ once: true, margin: '-80px' }}
               transition={{ ...SPRING_HERO, delay: 0.1 }}
             >
-              <div style={{ borderRadius: 20, overflow: 'hidden', height: 500 }}>
+              <div style={{ borderRadius: 20, overflow: 'hidden', height: 'clamp(280px, 50vw, 500px)' }}>
                 <img
                   src={imgNosotrosHero}
                   alt="Tablanova - instalación en campo"
@@ -237,9 +237,9 @@ export const Nosotros = () => {
       </section>
 
       {/* ─── NUMBERS ──────────────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: '#5E0F29', padding: '80px 0' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <section className="py-[48px] md:py-[80px]" style={{ backgroundColor: '#5E0F29' }}>
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
             {[
               { value: '100%', label: 'Plástico reciclado' },
               { value: '20+', label: 'Años de vida útil estimada' },
@@ -253,8 +253,8 @@ export const Nosotros = () => {
       </section>
 
       {/* ─── VALUES ───────────────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: '#F5F0E8', padding: '120px 0' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#F5F0E8' }}>
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
 
           {/* Section header */}
           <motion.div
@@ -273,7 +273,7 @@ export const Nosotros = () => {
           </motion.div>
 
           {/* Values grid — 2 columns, each row as flex row with icon + text */}
-          <div className="grid md:grid-cols-2 gap-x-16">
+          <div className="grid md:grid-cols-2 gap-x-10 md:gap-x-16">
             {values.map((value, index) => {
               const Icon = value.icon;
               return (
@@ -319,8 +319,8 @@ export const Nosotros = () => {
       </section>
 
       {/* ─── PROCESS ──────────────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: '#fff', padding: '120px 0' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#E8DCC8' }}>
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
 
           {/* Section header */}
           <motion.div
@@ -347,11 +347,11 @@ export const Nosotros = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ ...SPRING_HERO, delay: index * 0.08 }}
-                className="flex gap-8"
-                style={{ borderBottom: '1px solid #D1C4A8', padding: '36px 0' }}
+                className="flex gap-5 md:gap-8"
+                style={{ borderBottom: '1px solid #D1C4A8', padding: '28px 0' }}
               >
                 {/* Step number */}
-                <div style={{ fontSize: '3rem', fontWeight: 700, color: '#D1C4A8', letterSpacing: '-0.03em', width: 72, flexShrink: 0, lineHeight: 1 }}>
+                <div style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: '#D1C4A8', letterSpacing: '-0.03em', width: 52, flexShrink: 0, lineHeight: 1 }}>
                   {item.step}
                 </div>
                 {/* Content */}
@@ -371,8 +371,8 @@ export const Nosotros = () => {
       </section>
 
       {/* ─── CTA ──────────────────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: '#5E0F29', padding: '120px 0' }}>
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#5E0F29' }}>
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -405,7 +405,7 @@ export const Nosotros = () => {
                 }}
               >
                 Ver catálogo completo
-                <span style={{ width: 30, height: 30, borderRadius: '50%', backgroundColor: 'rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <span style={{ width: 32, height: 32, borderRadius: '50%', backgroundColor: 'rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <ArrowRight size={14} />
                 </span>
               </Link>

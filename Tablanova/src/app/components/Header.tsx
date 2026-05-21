@@ -77,7 +77,7 @@ export const Header = () => {
           {!isScrolled && (
             <motion.div
               key="full-nav"
-              className="max-w-[1200px] mx-auto px-6 h-full flex items-center justify-between gap-8"
+              className="max-w-[1200px] mx-auto px-4 sm:px-6 h-full flex items-center justify-between gap-8"
               variants={navContainer}
               initial="hidden"
               animate="visible"
@@ -161,7 +161,7 @@ export const Header = () => {
               className="md:hidden overflow-hidden"
               style={{ backgroundColor: '#5E0F29', borderTop: '1px solid rgba(255,255,255,0.12)' }}
             >
-              <div className="max-w-[1200px] mx-auto px-6 py-4 flex flex-col gap-1">
+              <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-4 flex flex-col gap-1">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
