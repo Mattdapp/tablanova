@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  /* ── Uso primario ─────────────────────────────────────────────── */
+  --color-bordeaux:   #5E0F29;   /* PANTONE 7421 C */
+  --color-mustard:    #DB8F33;   /* PANTONE 138 C  */
+
+  /* ── Uso suplementario ────────────────────────────────────────── */
+  --color-dark-green: #414B28;   /* PANTONE 7498 C */
+
+  /* ── Solo digital ────────────────────────────────────────────── */
+  --color-cream:      #F5F0E8;   /* fondo oficial de marca         */
+  --color-terracota:  #824530;   /* terracota media                */
+  --color-sienna:     #76391B;   /* marrón oscuro                  */
+
+  /* ── Derivados funcionales ───────────────────────────────────── */
+  --color-beige:      #DDD0B0;   /* variante más oscura del cream  */
+  --color-beige-light: #F5F0E8;  /* alias del cream para secciones */
+  --color-text:       #111827;
+  --color-text-muted: #6B7280;
+  --color-border:     #CFC4A2;   /* borde sobre cream              */
+  --color-white:      #FFFFFF;
+}
+
+@layer base {
+  body {
+    background-color: #F5F0E8;
+    color: #111827;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.65;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.65;
+  }
+
+  a {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
