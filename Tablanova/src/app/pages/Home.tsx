@@ -386,7 +386,7 @@ export const Home = () => {
                 <motion.h1
                   variants={heroItem}
                   className="text-white"
-                  style={{ maxWidth: 660, fontSize: 'clamp(2rem, 5.5vw, 4.2rem)', lineHeight: 1.06, letterSpacing: '-0.03em', fontWeight: 600 }}
+                  style={{ maxWidth: 660, fontSize: 'clamp(2.5rem, 5.5vw, 4.2rem)', lineHeight: 1.05, letterSpacing: '-0.03em', fontWeight: 600 }}
                 >
                   Para el campo.<br />Para toda la vida.
                 </motion.h1>
@@ -459,23 +459,23 @@ export const Home = () => {
         </div>
 
         <motion.div
-          className="absolute left-0 right-0 hidden sm:block"
-          style={{ bottom: 48 }}
+          className="absolute left-0 right-0"
+          style={{ bottom: 40 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4 }}
         >
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-start gap-x-8 gap-y-2">
-            <div className="flex items-center gap-6">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-2 pr-[88px] sm:pr-0 sm:flex sm:flex-wrap sm:items-center sm:gap-x-8 sm:gap-y-2">
               {[
                 { value: '100%', label: 'Plástico reciclado' },
                 { value: '20+', label: 'Años de vida útil estimada' },
                 { value: '0', label: 'Mantenimiento requerido' },
                 { value: 'ARG', label: 'Fabricado en Argentina' },
               ].map((s) => (
-                <div key={s.value} className="flex items-baseline gap-1.5">
-                  <span style={{ color: '#fff', fontSize: '0.82rem', fontWeight: 600, letterSpacing: '-0.01em' }}>{s.value}</span>
-                  <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.72rem' }}>{s.label}</span>
+                <div key={s.value} className="sm:flex sm:items-baseline sm:gap-1.5">
+                  <span className="block sm:inline" style={{ color: '#fff', fontSize: '0.85rem', fontWeight: 600, letterSpacing: '-0.01em' }}>{s.value}</span>
+                  <span className="block sm:inline" style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.72rem', lineHeight: 1.4 }}>{s.label}</span>
                 </div>
               ))}
             </div>
@@ -483,7 +483,7 @@ export const Home = () => {
         </motion.div>
 
         <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden sm:block"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
