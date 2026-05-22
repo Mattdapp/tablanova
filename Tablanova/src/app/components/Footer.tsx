@@ -5,13 +5,13 @@ import logoImg from '../../assets/logo-tablanova.png';
 export const Footer = () => {
   return (
     <footer style={{ backgroundColor: '#5E0F29', overflow: 'hidden' }}>
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-16 md:pt-20 pb-0">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-10 md:pt-20 pb-0">
 
         {/* ── 4-column grid ─────────────────────────────────────────── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 mb-10 md:mb-16">
 
           {/* Brand */}
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <div className="mb-5">
               <img
                 src={logoImg}
@@ -106,7 +106,7 @@ export const Footer = () => {
           </div>
 
           {/* Contacto */}
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <h4 className="text-white text-xs font-semibold uppercase mb-5" style={{ letterSpacing: '0.09em' }}>
               Contacto
             </h4>
