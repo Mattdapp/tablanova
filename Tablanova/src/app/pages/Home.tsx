@@ -1047,7 +1047,7 @@ export const Home = () => {
       {/* ═══════════════════════════════════════════════════════════════════
           NUMBERS
       ════════════════════════════════════════════════════════════════════ */}
-      <section className="py-[48px] md:py-[80px]" style={{ backgroundColor: '#5E0F29' }}>
+      <section className="pt-[72px] pb-[48px] md:py-[80px]" style={{ backgroundColor: '#5E0F29' }}>
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <motion.div
             className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
