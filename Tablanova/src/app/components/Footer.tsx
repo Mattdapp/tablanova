@@ -86,7 +86,7 @@ export const Footer = () => {
             <ul className="space-y-3">
               {[
                 { label: 'Inicio', href: '/' },
-                { label: 'Catálogo con precios', href: '/catalogo' },
+                { label: 'Catálogo', href: '/catalogo' },
                 { label: 'Nosotros', href: '/nosotros' },
                 { label: 'Contacto', href: '/contacto' },
               ].map(({ label, href }) => (

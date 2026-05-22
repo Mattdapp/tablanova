@@ -524,7 +524,7 @@ export const Home = () => {
                 Desarrollamos piezas de plástico reciclado para reemplazar la madera tradicional en aplicaciones rurales, ganaderas, agrícolas y de infraestructura exterior.
               </p>
               <div>
-                <PillCTA to="/catalogo">Ver catálogo con precios</PillCTA>
+                <PillCTA to="/catalogo">Ver catálogo</PillCTA>
               </div>
             </motion.div>
           </motion.div>
