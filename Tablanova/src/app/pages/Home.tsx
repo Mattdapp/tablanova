@@ -360,7 +360,7 @@ export const Home = () => {
           HERO
       ════════════════════════════════════════════════════════════════════ */}
       <section
-        className="relative flex items-end md:items-center -mt-[72px] overflow-hidden"
+        className="relative flex items-center -mt-[72px] overflow-hidden"
         style={{ height: 'calc(100dvh + 72px)', minHeight: 'calc(580px + 72px)' }}
       >
         <div className="absolute inset-0">
@@ -370,7 +370,7 @@ export const Home = () => {
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 hidden md:block" style={{ background: 'linear-gradient(105deg, rgba(20,6,10,0.92) 45%, rgba(20,6,10,0.6) 100%)' }} />
-          <div className="absolute inset-0 md:hidden" style={{ background: 'linear-gradient(to top, rgba(10,4,6,0.97) 0%, rgba(10,4,6,0.75) 45%, rgba(10,4,6,0.15) 100%)' }} />
+          <div className="absolute inset-0 md:hidden" style={{ background: 'linear-gradient(to bottom, rgba(10,4,6,0.35) 0%, rgba(10,4,6,0.72) 40%, rgba(10,4,6,0.88) 70%, rgba(10,4,6,0.92) 100%)' }} />
         </div>
 
         <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 w-full" style={{ paddingTop: '72px', paddingBottom: '40px' }}>
