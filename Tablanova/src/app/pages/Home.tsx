@@ -360,7 +360,7 @@ export const Home = () => {
           HERO
       ════════════════════════════════════════════════════════════════════ */}
       <section
-        className="relative flex items-center -mt-[72px] overflow-hidden"
+        className="relative flex items-end md:items-center -mt-[72px] overflow-hidden"
         style={{ height: 'calc(100dvh + 72px)', minHeight: 'calc(580px + 72px)' }}
       >
         <div className="absolute inset-0">
@@ -369,10 +369,11 @@ export const Home = () => {
             alt=""
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(105deg, rgba(20,6,10,0.92) 45%, rgba(20,6,10,0.6) 100%)' }} />
+          <div className="absolute inset-0 hidden md:block" style={{ background: 'linear-gradient(105deg, rgba(20,6,10,0.92) 45%, rgba(20,6,10,0.6) 100%)' }} />
+          <div className="absolute inset-0 md:hidden" style={{ background: 'linear-gradient(to top, rgba(10,4,6,0.97) 0%, rgba(10,4,6,0.75) 45%, rgba(10,4,6,0.15) 100%)' }} />
         </div>
 
-        <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 w-full" style={{ paddingTop: '72px', paddingBottom: '48px' }}>
+        <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 w-full" style={{ paddingTop: '72px', paddingBottom: '40px' }}>
           <div className="grid lg:grid-cols-[1fr_360px] gap-10 lg:gap-16 items-end">
 
             {/* Texto — columna izquierda */}
@@ -391,7 +392,7 @@ export const Home = () => {
                 </motion.h1>
               </div>
 
-              <div className="overflow-hidden" style={{ marginBottom: '1.5rem' }}>
+              <div className="hidden sm:block overflow-hidden" style={{ marginBottom: '1.5rem' }}>
                 <motion.p
                   variants={heroItem}
                   style={{ color: 'rgba(255,255,255,0.65)', maxWidth: 520, fontSize: '1.1rem', lineHeight: 1.65 }}
@@ -400,7 +401,7 @@ export const Home = () => {
                 </motion.p>
               </div>
 
-              <div className="overflow-hidden" style={{ marginBottom: '2.5rem' }}>
+              <div className="overflow-hidden" style={{ marginBottom: '1.75rem' }}>
                 <motion.p
                   variants={heroItem}
                   style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.9rem', letterSpacing: '0.04em' }}
@@ -409,7 +410,7 @@ export const Home = () => {
                 </motion.p>
               </div>
 
-              <motion.div variants={heroItemFade} className="flex flex-col sm:flex-row gap-3">
+              <motion.div variants={heroItemFade} className="flex flex-row flex-wrap gap-3">
                 <PillCTA to="/productos">Ver productos</PillCTA>
                 <PillCTA primary onClick={handleWhatsApp}>Cotizar mi proyecto</PillCTA>
               </motion.div>
