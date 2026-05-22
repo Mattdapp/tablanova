@@ -530,7 +530,7 @@ export const Home = () => {
           </motion.div>
 
           <motion.div
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4"
             variants={revealStagger}
             initial="hidden"
             whileInView="visible"
@@ -541,7 +541,7 @@ export const Home = () => {
                 key={i}
                 variants={reveal}
                 className="group relative overflow-hidden"
-                style={{ borderRadius: 16, aspectRatio: '3/4' }}
+                style={{ borderRadius: 12, aspectRatio: '3/4' }}
               >
                 <img
                   src={product.image}
@@ -550,11 +550,11 @@ export const Home = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.15) 55%, transparent 100%)' }} />
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <h3 className="text-white font-semibold mb-1" style={{ fontSize: '1.1rem', letterSpacing: '-0.01em' }}>
+                <div className="absolute bottom-0 left-0 right-0 p-3 md:p-5">
+                  <h3 className="text-white font-semibold mb-0.5 md:mb-1" style={{ fontSize: 'clamp(0.8rem, 2.5vw, 1.1rem)', letterSpacing: '-0.01em' }}>
                     {product.title}
                   </h3>
-                  <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.82rem', lineHeight: 1.5 }}>
+                  <p className="hidden sm:block" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.82rem', lineHeight: 1.5 }}>
                     {product.description}
                   </p>
                 </div>
