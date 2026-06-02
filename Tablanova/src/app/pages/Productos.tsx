@@ -106,7 +106,7 @@ export const Productos = () => {
   const handleWhatsApp = () => {
     const phone = '5493425683285';
     const msg = encodeURIComponent('Hola, quiero cotizar productos Tablanova para el campo');
-    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank', 'noopener,noreferrer');
   };
 
   return (

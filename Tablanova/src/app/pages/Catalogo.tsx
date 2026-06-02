@@ -108,7 +108,7 @@ export const Catalogo = () => {
     const msg = encodeURIComponent(
       `Hola, quiero consultar precio y disponibilidad de: ${product.name} (${product.dimensions})`
     );
-    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -202,12 +202,14 @@ export const Catalogo = () => {
                 style={{ border: '1px solid #D1C4A8', borderRadius: 10, backgroundColor: '#fff', color: '#111827' }}
                 onFocus={(e) => (e.currentTarget.style.borderColor = '#5E0F29')}
                 onBlur={(e) => (e.currentTarget.style.borderColor = '#D1C4A8')}
+                aria-label="Buscar productos"
               />
               {searchTerm && (
                 <button
                   onClick={() => setSearchTerm('')}
                   className="absolute right-4 top-1/2 -translate-y-1/2"
                   style={{ color: '#9CA3AF' }}
+                  aria-label="Limpiar búsqueda"
                 >
                   <X size={15} />
                 </button>
@@ -312,12 +314,12 @@ export const Catalogo = () => {
                     >
                       <div className="flex items-center gap-1" style={{ color: '#9CA3AF' }}>
                         {spec.icon}
-                        <span className="text-[10px] md:text-xs">
+                        <span className="text-xs">
                           <span className="md:hidden">{spec.label}</span>
                           <span className="hidden md:inline">{spec.labelFull}</span>
                         </span>
                       </div>
-                      <span className="text-[10px] md:text-xs font-medium" style={{ color: '#111827' }}>{spec.value}</span>
+                      <span className="text-xs font-medium" style={{ color: '#111827' }}>{spec.value}</span>
                     </div>
                   ))}
                 </div>
@@ -326,7 +328,7 @@ export const Catalogo = () => {
                 <div className="px-3 pb-3 md:px-5 md:pb-5">
                   <button
                     onClick={() => handleConsultar(product)}
-                    className="w-full py-2 md:py-2.5 text-xs md:text-sm font-medium flex items-center justify-center gap-1.5 transition-opacity duration-150 rounded-full"
+                    className="w-full py-2 md:py-2.5 text-xs md:text-sm font-medium flex items-center justify-center gap-1.5 transition-opacity duration-150 rounded-full min-h-[44px]"
                     style={{ backgroundColor: '#5E0F29', color: '#fff' }}
                     onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = '0.85')}
                     onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = '1')}
@@ -344,7 +346,7 @@ export const Catalogo = () => {
         {/* Empty state */}
         {filteredProducts.length === 0 && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-24">
-            <div className="text-5xl mb-4">🔍</div>
+            <div className="text-5xl mb-4" aria-hidden="true">🔍</div>
             <h3 className="text-xl font-medium mb-2" style={{ color: '#111827' }}>Sin resultados</h3>
             <p className="text-sm" style={{ color: '#6B7280' }}>Intentá con otros términos o categorías</p>
           </motion.div>
@@ -375,7 +377,7 @@ export const Catalogo = () => {
             onClick={() => {
               const phone = '5493425683285';
               const msg = encodeURIComponent('Hola, quisiera consultar sobre productos Tablanova para mi proyecto');
-              window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+              window.open(`https://wa.me/${phone}?text=${msg}`, '_blank', 'noopener,noreferrer');
             }}
             className="inline-flex items-center gap-3 font-medium transition-opacity duration-150"
             style={{

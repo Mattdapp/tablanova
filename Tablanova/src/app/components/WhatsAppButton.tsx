@@ -4,7 +4,7 @@ export const WhatsAppButton = () => {
   const handleWhatsAppClick = () => {
     const phone = '5493425683285';
     const message = encodeURIComponent('Hola, quiero información sobre Tablanova');
-    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+    window.open(`https://wa.me/${phone}?text=${message}`, '_blank', 'noopener,noreferrer');
   };
 
   return (

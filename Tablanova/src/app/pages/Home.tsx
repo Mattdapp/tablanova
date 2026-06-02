@@ -350,7 +350,7 @@ export const Home = () => {
   const handleWhatsApp = () => {
     const phone = '5493425683285';
     const msg = encodeURIComponent('Hola, quiero cotizar productos Tablanova para el campo');
-    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -368,6 +368,9 @@ export const Home = () => {
             src="/hero.jpg"
             alt=""
             className="w-full h-full object-cover object-center"
+            width={2400}
+            height={1350}
+            fetchPriority="high"
           />
           <div className="absolute inset-0 hidden md:block" style={{ background: 'linear-gradient(105deg, rgba(20,6,10,0.92) 45%, rgba(20,6,10,0.6) 100%)' }} />
           <div className="absolute inset-0 md:hidden" style={{ background: 'linear-gradient(to bottom, rgba(10,4,6,0.35) 0%, rgba(10,4,6,0.72) 40%, rgba(10,4,6,0.88) 70%, rgba(10,4,6,0.92) 100%)' }} />
@@ -890,7 +893,7 @@ export const Home = () => {
       {/* ═══════════════════════════════════════════════════════════════════
           PROJECTS CAROUSEL
       ════════════════════════════════════════════════════════════════════ */}
-      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#fff' }}>
+      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#F5F0E8' }}>
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <motion.div
             className="text-center"
@@ -1180,7 +1183,7 @@ export const Home = () => {
       {/* ═══════════════════════════════════════════════════════════════════
           FAQ
       ════════════════════════════════════════════════════════════════════ */}
-      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#fff' }}>
+      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#E8DCC8' }}>
         <div className="max-w-[720px] mx-auto px-4 sm:px-6">
           <motion.div
             variants={reveal}
@@ -1211,6 +1214,8 @@ export const Home = () => {
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full text-left py-5 flex items-start justify-between gap-4"
+                  aria-expanded={openFaq === i}
+                  aria-controls={`faq-${i}`}
                 >
                   <span style={{ color: '#111827', fontWeight: 500, lineHeight: 1.5 }}>{faq.question}</span>
                   <motion.div
@@ -1224,6 +1229,8 @@ export const Home = () => {
                 <AnimatePresence>
                   {openFaq === i && (
                     <motion.div
+                      id={`faq-${i}`}
+                      role="region"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}

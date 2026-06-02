@@ -33,7 +33,7 @@ export const Contacto = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   const handleWhatsApp = (msg = 'Hola, quiero consultar sobre productos Tablanova') => {
-    window.open(`https://wa.me/5493425683285?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(`https://wa.me/5493425683285?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -162,21 +162,21 @@ export const Contacto = () => {
                   label: 'Teléfono',
                   value: '342 5 683 285',
                   sub: '3496 506 699',
-                  action: () => { window.open('tel:+5493425683285'); },
+                  href: 'tel:+5493425683285',
                 },
                 {
                   icon: Mail,
                   label: 'Email',
                   value: 'tablanova.ar@gmail.com',
                   sub: undefined,
-                  action: () => { window.open('mailto:tablanova.ar@gmail.com'); },
+                  href: 'mailto:tablanova.ar@gmail.com',
                 },
               ].map((item, i) => {
                 const Icon = item.icon;
                 return (
-                  <motion.button
+                  <motion.a
                     key={i}
-                    onClick={item.action}
+                    href={item.href}
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={VIEWPORT}
@@ -196,7 +196,7 @@ export const Contacto = () => {
                       <p style={{ color: '#111827', fontSize: '0.975rem', fontWeight: 600, lineHeight: 1.4 }}>{item.value}</p>
                       {item.sub && <p style={{ color: '#6B7280', fontSize: '0.85rem', marginTop: 3 }}>{item.sub}</p>}
                     </div>
-                  </motion.button>
+                  </motion.a>
                 );
               })}
             </div>
@@ -233,6 +233,8 @@ export const Contacto = () => {
               <button
                 onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
                 className="w-full text-left py-5 flex items-start justify-between gap-4"
+                aria-expanded={openFaqIndex === index}
+                aria-controls={`faq-a-${index}`}
               >
                 <span style={{ fontSize: '0.95rem', fontWeight: 500, color: '#111827', lineHeight: 1.5 }}>
                   {faq.question}
@@ -249,6 +251,8 @@ export const Contacto = () => {
               <AnimatePresence>
                 {openFaqIndex === index && (
                   <motion.div
+                    id={`faq-a-${index}`}
+                    role="region"
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}

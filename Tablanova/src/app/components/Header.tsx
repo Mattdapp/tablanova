@@ -103,7 +103,7 @@ export const Header = () => {
               </motion.div>
 
               {/* Nav centrado */}
-              <motion.nav variants={navItem} className="hidden md:flex items-center gap-0.5 flex-1 justify-center">
+              <motion.nav variants={navItem} className="hidden md:flex items-center gap-0.5 flex-1 justify-center" aria-label="Navegación principal">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
@@ -142,6 +142,7 @@ export const Header = () => {
                   className="md:hidden flex items-center justify-center p-2 rounded-full"
                   style={{ color: iconColor, pointerEvents: 'auto' }}
                   aria-label="Menú"
+                  aria-expanded={isMenuOpen}
                 >
                   {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
                 </button>
@@ -240,6 +241,7 @@ export const Header = () => {
                   transition: 'background-color 150ms',
                 }}
                 aria-label="Menú"
+                aria-expanded={isMenuOpen}
               >
                 <AnimatePresence mode="wait" initial={false}>
                   {isMenuOpen
