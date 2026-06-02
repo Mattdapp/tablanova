@@ -39,7 +39,7 @@ export const Footer = () => {
                 onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.08)')}
                 aria-label="Email"
               >
-                <Mail size={15} color="#fff" aria-hidden="true" />
+                <Mail size={18} color="#fff" aria-hidden="true" />
               </a>
               <a
                 href="https://instagram.com/tablanova.ar"
@@ -51,7 +51,7 @@ export const Footer = () => {
                 onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.08)')}
                 aria-label="Instagram"
               >
-                <Instagram size={15} color="#fff" aria-hidden="true" />
+                <Instagram size={18} color="#fff" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -141,9 +141,9 @@ export const Footer = () => {
                   </a>
                 </div>
               </li>
-              <li className="flex items-start gap-2.5">
+              <li className="flex items-start gap-2.5" style={{ minWidth: 0 }}>
                 <Mail size={15} style={{ color: '#DB8F33', flexShrink: 0, marginTop: 2 }} />
-                <a href="mailto:tablanova.ar@gmail.com" className="text-sm transition-colors duration-150" style={{ color: 'rgba(255,255,255,0.7)' }}
+                <a href="mailto:tablanova.ar@gmail.com" className="text-sm transition-colors duration-150" style={{ color: 'rgba(255,255,255,0.7)', wordBreak: 'break-word', overflowWrap: 'anywhere', minWidth: 0 }}
                   onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#fff')}
                   onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.7)')}
                 >
