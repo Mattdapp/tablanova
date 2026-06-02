@@ -19,10 +19,8 @@ const navItem = {
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isPillVisible, setIsPillVisible] = useState(true);
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const prevScrollY = useRef(0);
 
   const isLightBg = false;
 
@@ -36,30 +34,13 @@ export const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentY = window.scrollY;
-      const scrolled = currentY > 60;
+      const scrolled = window.scrollY > 60;
       setIsScrolled(scrolled);
-      if (!scrolled) {
-        setIsMenuOpen(false);
-        setIsPillVisible(true);
-      } else {
-        const delta = currentY - prevScrollY.current;
-        // Ignore tiny jitter (< 5px) to prevent flicker
-        if (Math.abs(delta) >= 5) {
-          if (delta > 0) {
-            // Scrolling DOWN — hide pill (but keep visible while menu is open)
-            setIsPillVisible((prev) => (isMenuOpen ? true : false));
-          } else {
-            // Scrolling UP — show pill
-            setIsPillVisible(true);
-          }
-        }
-      }
-      prevScrollY.current = currentY;
+      if (!scrolled) setIsMenuOpen(false);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isMenuOpen]);
+  }, []);
 
   useEffect(() => { setIsMenuOpen(false); }, [location.pathname]);
 
@@ -223,18 +204,9 @@ export const Header = () => {
             style={{
               top: 'max(16px, env(safe-area-inset-top, 16px))',
               right: 'max(24px, env(safe-area-inset-right, 24px))',
-              // Hide-on-scroll-down: slide up and fade out when scrolling down,
-              // reappear instantly when scrolling up. Layered on top of the
-              // AnimatePresence enter/exit so the pill-appears-at-top animation
-              // is unaffected. pointer-events:none while hidden so links beneath
-              // remain tappable.
-              transform: isPillVisible ? 'translateY(0)' : 'translateY(-120%)',
-              opacity: isPillVisible ? 1 : 0,
-              pointerEvents: isPillVisible ? 'auto' : 'none',
-              transition: 'transform 300ms cubic-bezier(0.16,1,0.3,1), opacity 250ms ease',
             }}
             initial={{ opacity: 0, y: -12, scale: 0.9 }}
-            animate={{ opacity: isPillVisible ? 1 : 0, y: 0, scale: 1 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -12, scale: 0.9 }}
             transition={{ type: 'spring', damping: 22, stiffness: 200 }}
           >

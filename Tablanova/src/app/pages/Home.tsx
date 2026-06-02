@@ -551,7 +551,7 @@ export const Home = () => {
                     isFeatured
                       ? 'col-span-2 md:col-span-3 aspect-[4/3] md:aspect-[16/7]'
                       : isLast
-                      ? 'aspect-[3/4] md:col-span-1'
+                      ? 'col-span-2 aspect-[4/3] md:col-span-1 md:aspect-[3/4]'
                       : 'aspect-[3/4]'
                   }`}
                   style={{ borderRadius: 12 }}
