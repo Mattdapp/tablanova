@@ -229,13 +229,18 @@ export const Catalogo = () => {
           </div>
 
           {/* Category filters */}
-          <div className="flex items-center gap-2 flex-wrap" role="group" aria-label="Filtrar por categoría">
+          <div
+            className="flex items-center gap-2 flex-nowrap overflow-x-auto -mx-4 px-4 sm:flex-wrap sm:mx-0 sm:px-0"
+            role="group"
+            aria-label="Filtrar por categoría"
+            style={{ scrollbarWidth: 'none' }}
+          >
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
                 aria-pressed={selectedCategory === category}
-                className="px-4 py-1.5 text-sm font-medium transition-all duration-150 min-h-[44px]"
+                className="flex-shrink-0 px-4 py-1.5 text-sm font-medium transition-all duration-150 min-h-[44px]"
                 style={
                   selectedCategory === category
                     ? { backgroundColor: '#5E0F29', color: '#fff', borderRadius: 999, border: '1px solid #5E0F29' }
@@ -281,8 +286,8 @@ export const Catalogo = () => {
                     />
                   ) : (
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <Package size={24} style={{ color: '#CFC4A2' }} />
-                      <span style={{ fontSize: '0.65rem', color: '#CFC4A2', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                      <Package size={24} style={{ color: '#9C8C6E' }} />
+                      <span style={{ fontSize: '0.75rem', color: '#9C8C6E', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
                         Foto próximamente
                       </span>
                     </div>
@@ -300,12 +305,12 @@ export const Catalogo = () => {
                 {/* Header */}
                 <div className="px-3 pt-3 pb-2.5 md:px-5 md:pt-4 md:pb-3" style={{ borderBottom: '1px solid #E8DCC8' }}>
                   <span
-                    className="text-[10px] md:text-xs font-medium uppercase block mb-1"
+                    className="text-xs font-medium uppercase block mb-1"
                     style={{ color: '#5E0F29', letterSpacing: '0.07em' }}
                   >
                     {product.category}
                   </span>
-                  <h4 className="text-xs md:text-sm" style={{ fontWeight: 600, color: '#111827', lineHeight: 1.35 }}>
+                  <h4 className="text-xs md:text-sm line-clamp-2" style={{ fontWeight: 600, color: '#111827', lineHeight: 1.35, minHeight: '2.7em' }}>
                     {product.name}
                   </h4>
                 </div>
@@ -377,10 +382,10 @@ export const Catalogo = () => {
           >
             Cotización sin compromiso
           </span>
-          <h2 className="text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
+          <h2 className="text-white mb-4 text-left sm:text-center" style={{ letterSpacing: '-0.02em' }}>
             ¿No encontrás lo que buscás?
           </h2>
-          <p className="mb-8" style={{ color: 'rgba(255,255,255,0.65)', maxWidth: 440, margin: '0 auto 32px', lineHeight: 1.65 }}>
+          <p className="mb-8 text-left sm:text-center" style={{ color: 'rgba(255,255,255,0.65)', maxWidth: 440, margin: '0 auto 32px', lineHeight: 1.65 }}>
             Fabricamos a medida. Contanos tu proyecto y te respondemos con especificaciones y precio.
           </p>
           <button

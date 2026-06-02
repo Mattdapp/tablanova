@@ -94,7 +94,7 @@ export const Contacto = () => {
                 { label: 'Ubicación', value: 'ESPERANZA, S.FE' },
               ].map((m) => (
                 <div key={m.label}>
-                  <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>
+                  <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>
                     {m.label}
                   </p>
                   <p style={{ color: '#fff', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.06em' }}>
@@ -116,7 +116,7 @@ export const Contacto = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT}
             transition={SPRING}
-            style={{ borderTop: '1px solid #D1C4A8', paddingTop: 48, marginBottom: 56 }}
+            style={{ borderTop: '1px solid #D1C4A8', paddingTop: 'clamp(32px,5vw,48px)', marginBottom: 'clamp(32px,5vw,56px)' }}
           >
             <p style={{ color: '#6B7280', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 10 }}>
               Contacto
@@ -150,7 +150,7 @@ export const Contacto = () => {
               </div>
               <button
                 onClick={() => handleWhatsApp('Hola, quiero consultar sobre productos Tablanova para mi proyecto')}
-                className="inline-flex items-center gap-2.5 font-medium text-sm self-start md:self-auto flex-shrink-0"
+                className="inline-flex items-center gap-2.5 font-medium text-sm self-start md:self-auto flex-shrink-0 w-full sm:w-auto"
                 style={{ backgroundColor: '#DB8F33', color: '#fff', borderRadius: 9999, padding: '12px 12px 12px 24px' }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = '0.85')}
                 onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = '1')}
@@ -164,49 +164,63 @@ export const Contacto = () => {
 
             {/* Teléfono + Email — secundarios en fila */}
             <div className="grid md:grid-cols-2 gap-4">
-              {[
-                {
-                  icon: Phone,
-                  label: 'Teléfono',
-                  value: '342 5 683285',
-                  sub: '3496 506699',
-                  href: 'tel:+5493425683285',
-                },
-                {
-                  icon: Mail,
-                  label: 'Email',
-                  value: 'tablanova.ar@gmail.com',
-                  sub: undefined,
-                  href: 'mailto:tablanova.ar@gmail.com',
-                },
-              ].map((item, i) => {
-                const Icon = item.icon;
-                return (
-                  <motion.a
-                    key={i}
-                    href={item.href}
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={VIEWPORT}
-                    transition={{ ...SPRING, delay: i * 0.08 }}
-                    className="text-left flex items-center gap-4"
-                    style={{ backgroundColor: '#fff', border: '1px solid #D1C4A8', borderRadius: 16, padding: '28px 32px' }}
-                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = '#5E0F29'; }}
-                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = '#D1C4A8'; }}
+              {/* Phone card — each number is its own tappable link */}
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={VIEWPORT}
+                transition={SPRING}
+                className="text-left flex items-center gap-4"
+                style={{ backgroundColor: '#fff', border: '1px solid #D1C4A8', borderRadius: 16, padding: '28px 32px' }}
+              >
+                <div style={{ width: 44, height: 44, borderRadius: 12, backgroundColor: 'rgba(94,15,41,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Phone size={19} style={{ color: '#5E0F29' }} />
+                </div>
+                <div>
+                  <p style={{ color: '#6B7280', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 5 }}>
+                    Teléfono
+                  </p>
+                  <a
+                    href="tel:+5493425683285"
+                    style={{ display: 'block', color: '#111827', fontSize: '0.975rem', fontWeight: 600, lineHeight: 1.4, textDecoration: 'none' }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = '#5E0F29'; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = '#111827'; }}
                   >
-                    <div style={{ width: 44, height: 44, borderRadius: 12, backgroundColor: 'rgba(94,15,41,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <Icon size={19} style={{ color: '#5E0F29' }} />
-                    </div>
-                    <div>
-                      <p style={{ color: '#6B7280', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 5 }}>
-                        {item.label}
-                      </p>
-                      <p style={{ color: '#111827', fontSize: '0.975rem', fontWeight: 600, lineHeight: 1.4 }}>{item.value}</p>
-                      {item.sub && <p style={{ color: '#6B7280', fontSize: '0.85rem', marginTop: 3 }}>{item.sub}</p>}
-                    </div>
-                  </motion.a>
-                );
-              })}
+                    342 5 683285
+                  </a>
+                  <a
+                    href="tel:+5493496506699"
+                    style={{ display: 'block', color: '#6B7280', fontSize: '0.85rem', marginTop: 3, textDecoration: 'none' }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = '#5E0F29'; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = '#6B7280'; }}
+                  >
+                    3496 506699
+                  </a>
+                </div>
+              </motion.div>
+
+              {/* Email card */}
+              <motion.a
+                href="mailto:tablanova.ar@gmail.com"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={VIEWPORT}
+                transition={{ ...SPRING, delay: 0.08 }}
+                className="text-left flex items-center gap-4"
+                style={{ backgroundColor: '#fff', border: '1px solid #D1C4A8', borderRadius: 16, padding: '28px 32px' }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = '#5E0F29'; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = '#D1C4A8'; }}
+              >
+                <div style={{ width: 44, height: 44, borderRadius: 12, backgroundColor: 'rgba(94,15,41,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Mail size={19} style={{ color: '#5E0F29' }} />
+                </div>
+                <div>
+                  <p style={{ color: '#6B7280', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 5 }}>
+                    Email
+                  </p>
+                  <p style={{ color: '#111827', fontSize: '0.975rem', fontWeight: 600, lineHeight: 1.4 }}>tablanova.ar@gmail.com</p>
+                </div>
+              </motion.a>
             </div>
 
           </div>
@@ -221,12 +235,12 @@ export const Contacto = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT}
             transition={SPRING}
-            style={{ borderTop: '1px solid #D1C4A8', paddingTop: 48, marginBottom: 56 }}
+            style={{ borderTop: '1px solid #D1C4A8', paddingTop: 'clamp(32px,5vw,48px)', marginBottom: 'clamp(32px,5vw,56px)' }}
           >
             <p style={{ color: '#6B7280', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 10 }}>
               Preguntas frecuentes
             </p>
-            <h2 style={{ color: '#111827', letterSpacing: '-0.02em' }}>¿Tenés dudas?</h2>
+            <h2 style={{ color: '#111827', letterSpacing: '-0.02em', fontSize: 'clamp(2rem, 4.5vw, 3rem)', fontWeight: 600 }}>¿Tenés dudas?</h2>
           </motion.div>
 
           {faqs.map((faq, index) => (
@@ -240,7 +254,7 @@ export const Contacto = () => {
             >
               <button
                 onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                className="w-full text-left py-5 flex items-start justify-between gap-4"
+                className="w-full text-left py-5 flex items-center justify-between gap-4"
                 aria-expanded={openFaqIndex === index}
                 aria-controls={`faq-a-${index}`}
               >

@@ -164,7 +164,7 @@ export const Productos = () => {
                 { label: 'Fabricación', value: 'ESPERANZA, SANTA FE' },
               ].map((m) => (
                 <div key={m.label}>
-                  <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>
+                  <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>
                     {m.label}
                   </p>
                   <p style={{ color: '#fff', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.06em' }}>
@@ -234,7 +234,7 @@ export const Productos = () => {
             <p style={{ color: '#6B7280', fontSize: '0.75rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 10 }}>
               Productos · Línea Agro
             </p>
-            <h2 style={{ color: '#111827', letterSpacing: '-0.02em' }}>Para el campo</h2>
+            <h2 style={{ color: '#111827', letterSpacing: '-0.02em', fontSize: 'clamp(2rem, 4.5vw, 3rem)', fontWeight: 600 }}>Para el campo</h2>
           </motion.div>
         </div>
 
@@ -405,10 +405,10 @@ export const Productos = () => {
                   ) : (
                     <div
                       className="w-full h-full flex flex-col items-center justify-center gap-2"
-                      style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}
+                      style={{ backgroundColor: 'rgba(255,255,255,0.10)' }}
                     >
-                      <Package size={26} style={{ color: 'rgba(255,255,255,0.3)' }} />
-                      <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                      <Package size={26} style={{ color: 'rgba(255,255,255,0.5)' }} />
+                      <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.6)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
                         Foto próximamente
                       </span>
                     </div>

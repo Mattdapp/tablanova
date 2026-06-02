@@ -400,6 +400,15 @@ export const Home = () => {
                 </motion.h1>
               </div>
 
+              <div className="sm:hidden overflow-hidden" style={{ marginBottom: '1.5rem' }}>
+                <motion.p
+                  variants={heroItem}
+                  style={{ color: 'rgba(255,255,255,0.65)', maxWidth: 520, fontSize: '1rem', lineHeight: 1.65 }}
+                >
+                  Postes, varillas, tablas y tranqueras de plástico 100% reciclado para el campo.
+                </motion.p>
+              </div>
+
               <div className="hidden sm:block overflow-hidden" style={{ marginBottom: '1.5rem' }}>
                 <motion.p
                   variants={heroItem}
@@ -484,7 +493,7 @@ export const Home = () => {
               ].map((s) => (
                 <div key={s.value} className="sm:flex sm:items-baseline sm:gap-1.5">
                   <span className="block sm:inline" style={{ color: '#fff', fontSize: '0.85rem', fontWeight: 600, letterSpacing: '-0.01em' }}>{s.value}</span>
-                  <span className="block sm:inline" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.72rem', lineHeight: 1.4 }}>{s.label}</span>
+                  <span className="block sm:inline" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.75rem', lineHeight: 1.4 }}>{s.label}</span>
                 </div>
               ))}
             </div>
@@ -542,7 +551,7 @@ export const Home = () => {
                     isFeatured
                       ? 'col-span-2 md:col-span-3 aspect-[4/3] md:aspect-[16/7]'
                       : isLast
-                      ? 'col-span-2 md:col-span-1 aspect-[4/3] md:aspect-[3/4]'
+                      ? 'aspect-[3/4] md:col-span-1'
                       : 'aspect-[3/4]'
                   }`}
                   style={{ borderRadius: 12 }}
@@ -613,8 +622,8 @@ export const Home = () => {
         <div
           className="overflow-hidden mb-5"
           style={{
-            maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+            maskImage: 'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)',
           }}
           onMouseEnter={() => setMarqueeHovered(true)}
           onMouseLeave={() => setMarqueeHovered(false)}
@@ -651,8 +660,8 @@ export const Home = () => {
         <div
           className="overflow-hidden"
           style={{
-            maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+            maskImage: 'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)',
           }}
           onMouseEnter={() => setMarqueeHovered(true)}
           onMouseLeave={() => setMarqueeHovered(false)}
@@ -844,7 +853,7 @@ export const Home = () => {
                   <span style={{ color: '#DB8F33' }}>el agro</span>
                 </motion.h2>
               </div>
-              <motion.p variants={reveal} style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.85rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '1rem' }}>
+              <motion.p variants={reveal} style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.85rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '1rem' }}>
                 No es madera plástica decorativa. Es material de trabajo.
               </motion.p>
               <motion.p variants={reveal} style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, maxWidth: 480 }}>
@@ -1336,7 +1345,7 @@ export const Home = () => {
                       backgroundColor: '#5E0F29',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       color: '#fff',
-                      fontSize: '0.65rem',
+                      fontSize: '0.75rem',
                       fontWeight: 600,
                       letterSpacing: '0.04em',
                       flexShrink: 0,
@@ -1355,6 +1364,22 @@ export const Home = () => {
               </motion.div>
             ))}
           </motion.div>
+
+          {/* Scroll hint dots — mobile only */}
+          <div className="flex sm:hidden justify-center gap-2 mt-4" aria-hidden="true">
+            {testimonials.map((_, i) => (
+              <span
+                key={i}
+                style={{
+                  display: 'inline-block',
+                  width: 6,
+                  height: 6,
+                  borderRadius: '50%',
+                  backgroundColor: i === 0 ? '#5E0F29' : '#D1C4A8',
+                }}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -1376,8 +1401,7 @@ export const Home = () => {
             viewport={VIEWPORT}
           >
             <h2 className="text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
-              ¿Vas a renovar cercos, corrales,<br />
-              <span style={{ color: '#DB8F33' }}>o estructuras rurales?</span>
+              ¿Vas a renovar cercos, corrales, <span style={{ color: '#DB8F33' }}>o estructuras rurales?</span>
             </h2>
             <p className="text-white font-medium mb-4" style={{ fontSize: '1.1rem', opacity: 0.85 }}>
               Cotizá materiales Tablanova para tu proyecto.

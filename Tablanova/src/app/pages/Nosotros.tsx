@@ -154,7 +154,7 @@ export const Nosotros = () => {
                 { label: 'Material', value: 'PLÁSTICO RECICLADO' },
               ].map((m) => (
                 <div key={m.label}>
-                  <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>
+                  <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>
                     {m.label}
                   </p>
                   <p style={{ color: '#fff', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.06em' }}>
@@ -215,7 +215,7 @@ export const Nosotros = () => {
                       padding: '12px 0',
                     }}
                   >
-                    <div style={{ width: 5, height: 5, borderRadius: '50%', backgroundColor: '#5E0F29', flexShrink: 0 }} />
+                    <div style={{ width: 7, height: 7, borderRadius: '50%', backgroundColor: '#5E0F29', flexShrink: 0 }} />
                     <span style={{ color: '#111827', fontSize: '0.9375rem' }}>{feature}</span>
                   </motion.div>
                 ))}
@@ -245,7 +245,7 @@ export const Nosotros = () => {
       </section>
 
       {/* ─── NUMBERS ──────────────────────────────────────────────────────── */}
-      <section className="pt-[72px] pb-[48px] md:py-[80px]" style={{ backgroundColor: '#5E0F29' }}>
+      <section className="py-[60px] md:py-[80px]" style={{ backgroundColor: '#5E0F29' }}>
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
             {[
@@ -270,7 +270,7 @@ export const Nosotros = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={SPRING_HERO}
-            style={{ borderTop: '1px solid #D1C4A8', paddingTop: 48, marginBottom: 56 }}
+            style={{ borderTop: '1px solid #D1C4A8', paddingTop: 'clamp(32px,5vw,48px)', marginBottom: 'clamp(32px,5vw,56px)' }}
           >
             <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#6B7280', marginBottom: 10 }}>
               Lo que nos define
@@ -327,7 +327,7 @@ export const Nosotros = () => {
       </section>
 
       {/* ─── PROCESS ──────────────────────────────────────────────────────── */}
-      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#E8DCC8' }}>
+      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#E8DCC8', scrollMarginTop: 80 }}>
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
 
           {/* Section header */}
@@ -336,7 +336,7 @@ export const Nosotros = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={SPRING_HERO}
-            style={{ borderTop: '1px solid #D1C4A8', paddingTop: 48, marginBottom: 56 }}
+            style={{ borderTop: '1px solid #D1C4A8', paddingTop: 'clamp(32px,5vw,48px)', marginBottom: 'clamp(32px,5vw,56px)' }}
           >
             <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#6B7280', marginBottom: 10 }}>
               Nuestro proceso
@@ -379,7 +379,7 @@ export const Nosotros = () => {
       </section>
 
       {/* ─── CTA ──────────────────────────────────────────────────────────── */}
-      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#5E0F29' }}>
+      <section className="pt-[60px] pb-[40px] md:py-[120px]" style={{ backgroundColor: '#5E0F29' }}>
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
