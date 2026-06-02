@@ -14,8 +14,10 @@ export const WhatsAppButton = () => {
       animate={{ opacity: 1 }}
       transition={{ delay: 2, duration: 0.4 }}
       whileHover={{ scale: 1.08 }}
-      className="fixed bottom-6 right-6 z-50 text-white flex items-center justify-center transition-shadow duration-200"
+      className="fixed z-50 text-white flex items-center justify-center transition-shadow duration-200"
       style={{
+        bottom: 'max(24px, calc(env(safe-area-inset-bottom, 0px) + 16px))',
+        right: 'max(24px, env(safe-area-inset-right, 24px))',
         backgroundColor: '#5E0F29',
         borderRadius: '50%',
         width: '56px',

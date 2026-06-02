@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Leaf, Package } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -163,7 +164,7 @@ export const Productos = () => {
                 { label: 'Fabricación', value: 'ESPERANZA, SANTA FE' },
               ].map((m) => (
                 <div key={m.label}>
-                  <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>
+                  <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>
                     {m.label}
                   </p>
                   <p style={{ color: '#fff', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.06em' }}>

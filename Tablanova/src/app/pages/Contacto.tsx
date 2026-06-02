@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { MessageCircle, MapPin, Phone, Mail, ChevronDown, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import imgContactoBg from '../../assets/contacto-hero.jpg';
@@ -38,11 +39,18 @@ export const Contacto = () => {
 
   return (
     <div className="overflow-x-hidden">
+      <Helmet>
+        <title>Contacto | Tablanova</title>
+        <meta name="description" content="Contactá a Tablanova en Esperanza, Santa Fe. Cotizaciones por WhatsApp, teléfono y email para postes, varillas y tranqueras de plástico reciclado." />
+        <link rel="canonical" href="https://tablanova.com.ar/contacto" />
+        <meta property="og:title" content="Contacto | Tablanova" />
+        <meta property="og:url" content="https://tablanova.com.ar/contacto" />
+      </Helmet>
 
       {/* ─── HERO ─────────────────────────────────────────────────────────── */}
       <section
-        className="relative -mt-[72px] overflow-hidden flex flex-col justify-end"
-        style={{ height: '100dvh', minHeight: 600 }}
+        className="hero-full relative -mt-[72px] overflow-hidden flex flex-col justify-end"
+        style={{ minHeight: 600 }}
       >
         <motion.img
           src={imgContactoBg}
@@ -86,7 +94,7 @@ export const Contacto = () => {
                 { label: 'Ubicación', value: 'ESPERANZA, S.FE' },
               ].map((m) => (
                 <div key={m.label}>
-                  <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>
+                  <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>
                     {m.label}
                   </p>
                   <p style={{ color: '#fff', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.06em' }}>
@@ -135,7 +143,7 @@ export const Contacto = () => {
                   <h3 style={{ color: '#fff', fontSize: 'clamp(1.15rem,2vw,1.45rem)', fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.25, marginBottom: 8 }}>
                     Contanos tu proyecto y te asesoramos.
                   </h3>
-                  <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.88rem', lineHeight: 1.65, maxWidth: 480 }}>
+                  <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.88rem', lineHeight: 1.65, maxWidth: 480 }}>
                     Respondemos todos los días. Indicanos qué necesitás, la cantidad y tu ubicación — precio y disponibilidad al instante.
                   </p>
                 </div>
@@ -160,8 +168,8 @@ export const Contacto = () => {
                 {
                   icon: Phone,
                   label: 'Teléfono',
-                  value: '342 5 683 285',
-                  sub: '3496 506 699',
+                  value: '342 5 683285',
+                  sub: '3496 506699',
                   href: 'tel:+5493425683285',
                 },
                 {
@@ -190,7 +198,7 @@ export const Contacto = () => {
                       <Icon size={19} style={{ color: '#5E0F29' }} />
                     </div>
                     <div>
-                      <p style={{ color: '#9CA3AF', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 5 }}>
+                      <p style={{ color: '#6B7280', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 5 }}>
                         {item.label}
                       </p>
                       <p style={{ color: '#111827', fontSize: '0.975rem', fontWeight: 600, lineHeight: 1.4 }}>{item.value}</p>
@@ -206,7 +214,7 @@ export const Contacto = () => {
       </section>
 
       {/* ─── FAQ ──────────────────────────────────────────────────────────── */}
-      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#fff' }}>
+      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#E8DCC8' }}>
         <div className="max-w-[720px] mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}

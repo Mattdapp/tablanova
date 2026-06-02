@@ -139,7 +139,7 @@ export const Header = () => {
 
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="md:hidden flex items-center justify-center p-2 rounded-full"
+                  className="md:hidden flex items-center justify-center p-2 rounded-full min-w-[44px] min-h-[44px]"
                   style={{ color: iconColor, pointerEvents: 'auto' }}
                   aria-label="Menú"
                   aria-expanded={isMenuOpen}
@@ -201,7 +201,7 @@ export const Header = () => {
           <motion.div
             ref={dropdownRef}
             className="fixed z-50"
-            style={{ top: 16, right: 24 }}
+            style={{ top: 'max(16px, env(safe-area-inset-top, 16px))', right: 'max(24px, env(safe-area-inset-right, 24px))' }}
             initial={{ opacity: 0, y: -12, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -12, scale: 0.9 }}
@@ -212,6 +212,7 @@ export const Header = () => {
               style={{
                 backgroundColor: 'rgba(94,15,41,0.97)',
                 backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
                 borderRadius: 999,
                 padding: '8px 8px 8px 18px',
                 display: 'flex',
@@ -231,7 +232,7 @@ export const Header = () => {
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 style={{
-                  width: 36, height: 36,
+                  width: 44, height: 44,
                   borderRadius: '50%',
                   backgroundColor: isMenuOpen ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.1)',
                   border: 'none',
@@ -267,12 +268,14 @@ export const Header = () => {
                     minWidth: 220,
                     backgroundColor: 'rgba(94,15,41,0.97)',
                     backdropFilter: 'blur(16px)',
+                    WebkitBackdropFilter: 'blur(16px)',
                     borderRadius: 16,
                     padding: '8px',
                     boxShadow: '0 8px 32px rgba(0,0,0,0.28)',
                     border: '1px solid rgba(255,255,255,0.1)',
                   }}
                 >
+                  <nav aria-label="Menú de navegación">
                   {navigation.map((item) => (
                     <Link
                       key={item.name}
@@ -302,6 +305,7 @@ export const Header = () => {
                     Contacto
                     <ArrowRight size={14} />
                   </Link>
+                  </nav>
                 </motion.div>
               )}
             </AnimatePresence>

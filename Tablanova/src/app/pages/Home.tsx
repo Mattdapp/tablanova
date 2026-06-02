@@ -306,6 +306,11 @@ function AnimatedStat({ value, label }: { value: string; label: string }) {
     const target = parseInt(numMatch[1]);
     const suffix = numMatch[2];
     if (target === 0) { setDisplay('0' + suffix); return; }
+    // Guard: skip rAF animation when user prefers reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setDisplay(value);
+      return;
+    }
     const duration = 1400;
     const t0 = Date.now();
     const tick = () => {
@@ -407,7 +412,7 @@ export const Home = () => {
               <div className="overflow-hidden" style={{ marginBottom: '1.75rem' }}>
                 <motion.p
                   variants={heroItem}
-                  style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.9rem', letterSpacing: '0.04em' }}
+                  style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', letterSpacing: '0.04em' }}
                 >
                   Sin pudrición. Sin insectos. Sin mantenimiento.
                 </motion.p>
@@ -430,12 +435,13 @@ export const Home = () => {
                 style={{
                   background: 'rgba(255,255,255,0.07)',
                   backdropFilter: 'blur(16px)',
+                  WebkitBackdropFilter: 'blur(16px)',
                   border: '1px solid rgba(255,255,255,0.15)',
                   borderRadius: '20px',
                   padding: '24px',
                 }}
               >
-                <div className="flex gap-0.5 mb-3">
+                <div className="flex gap-0.5 mb-3" aria-hidden="true">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={14} fill="#DB8F33" color="#DB8F33" />
                   ))}
@@ -452,7 +458,7 @@ export const Home = () => {
                   </div>
                   <div>
                     <p className="text-white text-sm font-medium">Productor agropecuario</p>
-                    <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem' }}>Santa Fe · Córdoba</p>
+                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.8rem' }}>Santa Fe · Córdoba</p>
                   </div>
                 </div>
               </div>
@@ -478,7 +484,7 @@ export const Home = () => {
               ].map((s) => (
                 <div key={s.value} className="sm:flex sm:items-baseline sm:gap-1.5">
                   <span className="block sm:inline" style={{ color: '#fff', fontSize: '0.85rem', fontWeight: 600, letterSpacing: '-0.01em' }}>{s.value}</span>
-                  <span className="block sm:inline" style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.72rem', lineHeight: 1.4 }}>{s.label}</span>
+                  <span className="block sm:inline" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.72rem', lineHeight: 1.4 }}>{s.label}</span>
                 </div>
               ))}
             </div>
@@ -606,7 +612,7 @@ export const Home = () => {
               El campo ya conoce{' '}
               <span style={{ color: '#DB8F33' }}>el plástico que trabaja.</span>
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.45)', maxWidth: 520, margin: '16px auto 0', lineHeight: 1.65 }}>
+            <p style={{ color: 'rgba(255,255,255,0.7)', maxWidth: 520, margin: '16px auto 0', lineHeight: 1.65 }}>
               Desde establecimientos ganaderos hasta municipios. Tablanova se usa donde los materiales tienen que rendir.
             </p>
           </motion.div>
@@ -620,7 +626,10 @@ export const Home = () => {
         {/* Row 1 — left */}
         <div
           className="overflow-hidden mb-5"
-          style={{ maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)' }}
+          style={{
+            maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+          }}
           onMouseEnter={() => setMarqueeHovered(true)}
           onMouseLeave={() => setMarqueeHovered(false)}
         >
@@ -655,7 +664,10 @@ export const Home = () => {
         {/* Row 2 — right, slower, muted */}
         <div
           className="overflow-hidden"
-          style={{ maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)' }}
+          style={{
+            maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+          }}
           onMouseEnter={() => setMarqueeHovered(true)}
           onMouseLeave={() => setMarqueeHovered(false)}
         >
@@ -671,7 +683,7 @@ export const Home = () => {
               <div key={i} className="flex items-center flex-shrink-0">
                 <span
                   style={{
-                    color: i % 4 === 0 ? '#DB8F33' : 'rgba(255,255,255,0.35)',
+                    color: i % 4 === 0 ? '#DB8F33' : 'rgba(255,255,255,0.7)',
                     fontSize: 'clamp(1.1rem, 2vw, 1.6rem)',
                     fontWeight: i % 4 === 0 ? 600 : 400,
                     letterSpacing: '-0.01em',
@@ -728,7 +740,7 @@ export const Home = () => {
                   <div className="flex items-center justify-center" style={{ width: 40, height: 40, borderRadius: 12, backgroundColor: '#FEE2E2' }}>
                     <X size={18} style={{ color: '#DC2626' }} />
                   </div>
-                  <p style={{ fontSize: '0.7rem', fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#9CA3AF' }}>Material convencional</p>
+                  <p style={{ fontSize: '0.7rem', fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#6B7280' }}>Material convencional</p>
                 </div>
 
                 {/* Title */}
@@ -863,7 +875,7 @@ export const Home = () => {
               whileInView="visible"
               viewport={VIEWPORT}
             >
-              <motion.p variants={reveal} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '1.25rem' }}>
+              <motion.p variants={reveal} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.8rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '1.25rem' }}>
                 Funciona especialmente bien donde la madera sufre
               </motion.p>
               <div className="flex flex-wrap gap-2.5">
@@ -932,6 +944,10 @@ export const Home = () => {
               <motion.div
                 key={i}
                 onClick={() => i !== projectIdx && setProjectIdx(i)}
+                role="button"
+                tabIndex={i !== projectIdx ? 0 : -1}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); if (i !== projectIdx) setProjectIdx(i); } }}
+                aria-label={`Ver proyecto: ${project.title}`}
                 style={{
                   width: 'min(900px, 80vw)',
                   flexShrink: 0,
@@ -1043,17 +1059,31 @@ export const Home = () => {
               key={i}
               onClick={() => setProjectIdx(i)}
               aria-label={`Proyecto ${i + 1}`}
+              aria-current={i === projectIdx ? 'true' : undefined}
               style={{
-                width: i === projectIdx ? 24 : 8,
-                height: 8,
-                borderRadius: 4,
-                backgroundColor: i === projectIdx ? '#5E0F29' : '#CFC4A2',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: 44,
+                height: 44,
+                background: 'none',
                 border: 'none',
                 cursor: 'pointer',
-                transition: 'all 0.25s ease',
                 padding: 0,
+                flexShrink: 0,
               }}
-            />
+            >
+              <span
+                style={{
+                  display: 'block',
+                  width: i === projectIdx ? 24 : 8,
+                  height: 8,
+                  borderRadius: 4,
+                  backgroundColor: i === projectIdx ? '#5E0F29' : '#CFC4A2',
+                  transition: 'all 0.25s ease',
+                }}
+              />
+            </button>
           ))}
         </div>
         </motion.div>
@@ -1329,10 +1359,10 @@ export const Home = () => {
                     </div>
                     <div>
                       <p style={{ color: '#111827', fontWeight: 600, fontSize: '0.88rem', lineHeight: 1.2 }}>{t.name}</p>
-                      <p style={{ color: '#9CA3AF', fontSize: '0.76rem', marginTop: 2 }}>{t.role} · {t.location}</p>
+                      <p style={{ color: '#6B7280', fontSize: '0.76rem', marginTop: 2 }}>{t.role} · {t.location}</p>
                     </div>
                   </div>
-                  <svg width="24" height="19" viewBox="0 0 32 24" fill="none" style={{ flexShrink: 0 }}>
+                  <svg width="24" height="19" viewBox="0 0 32 24" fill="none" style={{ flexShrink: 0 }} aria-hidden="true">
                     <path d="M0 24V14.4C0 10.4 1.067 7.067 3.2 4.4C5.333 1.733 8.267 0.133 12 0L13.6 3.2C10.667 3.733 8.4 4.8 6.8 6.4C5.2 8 4.4 9.867 4.4 12H8.8V24H0ZM18.4 24V14.4C18.4 10.4 19.467 7.067 21.6 4.4C23.733 1.733 26.667 0.133 30.4 0L32 3.2C29.067 3.733 26.8 4.8 25.2 6.4C23.6 8 22.8 9.867 22.8 12H27.2V24H18.4Z" fill="#DB8F33"/>
                   </svg>
                 </div>

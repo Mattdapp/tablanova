@@ -27,31 +27,31 @@ export const Footer = () => {
                 Tablanova
               </span>
             </div>
-            <p className="text-sm leading-relaxed mb-6" style={{ color: 'rgba(255,255,255,0.45)', lineHeight: 1.7 }}>
+            <p className="text-sm leading-relaxed mb-6" style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>
               Materiales de plástico reciclado para el sector agropecuario y espacios verdes. Fabricados en Esperanza, Santa Fe.
             </p>
             <div className="flex items-center gap-2.5">
               <a
                 href="mailto:tablanova.ar@gmail.com"
                 className="flex items-center justify-center rounded-full transition-colors duration-150"
-                style={{ width: 36, height: 36, backgroundColor: 'rgba(255,255,255,0.08)' }}
+                style={{ width: 44, height: 44, backgroundColor: 'rgba(255,255,255,0.08)' }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.15)')}
                 onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.08)')}
                 aria-label="Email"
               >
-                <Mail size={15} color="#fff" />
+                <Mail size={15} color="#fff" aria-hidden="true" />
               </a>
               <a
                 href="https://instagram.com/tablanova.ar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center rounded-full transition-colors duration-150"
-                style={{ width: 36, height: 36, backgroundColor: 'rgba(255,255,255,0.08)' }}
+                style={{ width: 44, height: 44, backgroundColor: 'rgba(255,255,255,0.08)' }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.15)')}
                 onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.08)')}
                 aria-label="Instagram"
               >
-                <Instagram size={15} color="#fff" />
+                <Instagram size={15} color="#fff" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -73,9 +73,9 @@ export const Footer = () => {
                   <Link
                     to={href}
                     className="text-sm transition-colors duration-150"
-                    style={{ color: 'rgba(255,255,255,0.5)' }}
+                    style={{ color: 'rgba(255,255,255,0.7)' }}
                     onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#fff')}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)')}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.7)')}
                   >
                     {label}
                   </Link>
@@ -100,9 +100,9 @@ export const Footer = () => {
                   <Link
                     to={href}
                     className="text-sm transition-colors duration-150"
-                    style={{ color: 'rgba(255,255,255,0.5)' }}
+                    style={{ color: 'rgba(255,255,255,0.7)' }}
                     onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#fff')}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)')}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.7)')}
                   >
                     {label}
                   </Link>
@@ -119,7 +119,7 @@ export const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-2.5">
                 <MapPin size={15} style={{ color: '#DB8F33', flexShrink: 0, marginTop: 2 }} />
-                <span className="text-sm leading-snug" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                <span className="text-sm leading-snug" style={{ color: 'rgba(255,255,255,0.7)' }}>
                   Calle Soler Nº 613<br />
                   C.P. 3080 — Esperanza, Santa Fe
                 </span>
@@ -127,15 +127,15 @@ export const Footer = () => {
               <li className="flex items-start gap-2.5">
                 <Phone size={15} style={{ color: '#DB8F33', flexShrink: 0, marginTop: 2 }} />
                 <div className="flex flex-col gap-1.5">
-                  <a href="tel:+5493425683285" className="text-sm transition-colors duration-150" style={{ color: 'rgba(255,255,255,0.5)' }}
+                  <a href="tel:+5493425683285" className="text-sm transition-colors duration-150" style={{ color: 'rgba(255,255,255,0.7)' }}
                     onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#fff')}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)')}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.7)')}
                   >
                     342 5 683285 — WhatsApp
                   </a>
-                  <a href="tel:+5493496506699" className="text-sm transition-colors duration-150" style={{ color: 'rgba(255,255,255,0.5)' }}
+                  <a href="tel:+5493496506699" className="text-sm transition-colors duration-150" style={{ color: 'rgba(255,255,255,0.7)' }}
                     onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#fff')}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)')}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.7)')}
                   >
                     3496 506699
                   </a>
@@ -143,9 +143,9 @@ export const Footer = () => {
               </li>
               <li className="flex items-start gap-2.5">
                 <Mail size={15} style={{ color: '#DB8F33', flexShrink: 0, marginTop: 2 }} />
-                <a href="mailto:tablanova.ar@gmail.com" className="text-sm transition-colors duration-150" style={{ color: 'rgba(255,255,255,0.5)' }}
+                <a href="mailto:tablanova.ar@gmail.com" className="text-sm transition-colors duration-150" style={{ color: 'rgba(255,255,255,0.7)' }}
                   onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#fff')}
-                  onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)')}
+                  onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.7)')}
                 >
                   tablanova.ar@gmail.com
                 </a>
@@ -157,7 +157,7 @@ export const Footer = () => {
         {/* ── Bottom bar ────────────────────────────────────────────── */}
         <div
           className="flex flex-col sm:flex-row items-center justify-between gap-3 py-6 text-xs"
-          style={{ borderTop: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.35)' }}
+          style={{ borderTop: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.7)' }}
         >
           <p>© {new Date().getFullYear()} Tablanova. Todos los derechos reservados.</p>
           <p>Fabricado con plástico 100% reciclado en Argentina</p>

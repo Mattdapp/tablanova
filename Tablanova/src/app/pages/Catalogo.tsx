@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Search, X, Filter, Package, Weight, Layers, ArrowRight, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import imgCatalogoHero from '../../assets/catalogo-hero.jpg';
@@ -59,37 +60,37 @@ export const Catalogo = () => {
 
   const products: Product[] = [
     // VARILLAS
-    { id: 'var-1', name: 'Varilla 0.35 × 0.35 × 1,10m', dimensions: '0.35 × 0.35 × 1.10m', weight: 1.1, minQuantity: 200, category: 'Varillas', image: imgVarilla1 },
-    { id: 'var-2', name: 'Varilla 0,35 × 0,35 × 1,20m', dimensions: '0.35 × 0.35 × 1.20m', weight: 1.2, minQuantity: 200, category: 'Varillas', image: imgVarilla2 },
-    { id: 'var-3', name: 'Varilla 0,35 × 0,35 × 1,40m', dimensions: '0.35 × 0.35 × 1.40m', weight: 1.4, minQuantity: 200, category: 'Varillas', image: imgVarilla3 },
-    { id: 'var-4', name: 'Varilla Ref 0,45 × 0,45 × 1,20m', dimensions: '0.45 × 0.45 × 1.20m', weight: 2, minQuantity: 200, category: 'Varillas', image: imgVarillaRef1 },
-    { id: 'var-5', name: 'Varilla Ref 0,45 × 0,45 × 1,40m', dimensions: '0.45 × 0.45 × 1.40m', weight: 2.5, minQuantity: 200, category: 'Varillas', image: imgVarillaRef2 },
+    { id: 'var-1', name: 'Varilla 0,35 × 0,35 × 1,10m', dimensions: '0,35 × 0,35 × 1,10m', weight: 1.1, minQuantity: 200, category: 'Varillas', image: imgVarilla1 },
+    { id: 'var-2', name: 'Varilla 0,35 × 0,35 × 1,20m', dimensions: '0,35 × 0,35 × 1,20m', weight: 1.2, minQuantity: 200, category: 'Varillas', image: imgVarilla2 },
+    { id: 'var-3', name: 'Varilla 0,35 × 0,35 × 1,40m', dimensions: '0,35 × 0,35 × 1,40m', weight: 1.4, minQuantity: 200, category: 'Varillas', image: imgVarilla3 },
+    { id: 'var-4', name: 'Varilla Ref 0,45 × 0,45 × 1,20m', dimensions: '0,45 × 0,45 × 1,20m', weight: 2, minQuantity: 200, category: 'Varillas', image: imgVarillaRef1 },
+    { id: 'var-5', name: 'Varilla Ref 0,45 × 0,45 × 1,40m', dimensions: '0,45 × 0,45 × 1,40m', weight: 2.5, minQuantity: 200, category: 'Varillas', image: imgVarillaRef2 },
     // VARILLONES
-    { id: 'varon-1', name: 'Varillón 0,55 × 0,55 × 1,60m', dimensions: '0.55 × 0.55 × 1.60m', weight: 4.5, minQuantity: 50, category: 'Varillones', image: imgVarillon1 },
-    { id: 'varon-2', name: 'Varillón 0.55 × 0.55 × 1.80m', dimensions: '0.55 × 0.55 × 1.80m', weight: 5.5, minQuantity: 50, category: 'Varillones', image: imgVarillon2 },
+    { id: 'varon-1', name: 'Varillón 0,55 × 0,55 × 1,60m', dimensions: '0,55 × 0,55 × 1,60m', weight: 4.5, minQuantity: 50, category: 'Varillones', image: imgVarillon1 },
+    { id: 'varon-2', name: 'Varillón 0,55 × 0,55 × 1,80m', dimensions: '0,55 × 0,55 × 1,80m', weight: 5.5, minQuantity: 50, category: 'Varillones', image: imgVarillon2 },
     // POSTES
-    { id: 'post-1', name: 'Poste 0,80 × 0,80 × 2,50m', dimensions: '0.80 × 0.80 × 2.50m', weight: 15, minQuantity: 50, category: 'Postes', image: imgPoste1 },
-    { id: 'post-2', name: 'Poste 0,10 × 0,10 × 2,50m', dimensions: '0.10 × 0.10 × 2.50m', weight: 20, minQuantity: 50, category: 'Postes', image: imgPoste2 },
-    { id: 'post-3', name: 'Poste redondo Ø 0,10 × 1,80m', dimensions: 'Ø 0.10 × 1.80m', weight: 13, minQuantity: 30, category: 'Postes', image: imgPoste3 },
-    { id: 'post-4', name: 'Poste redondo Ø 0,10 × 2,20m', dimensions: 'Ø 0.10 × 2.20m', weight: 16, minQuantity: 25, category: 'Postes', image: imgPoste4 },
-    { id: 'post-5', name: 'Poste redondo Ø 0,10 × 2,40m', dimensions: 'Ø 0.10 × 2.40m', weight: 18, minQuantity: 25, category: 'Postes', image: imgPoste4 },
+    { id: 'post-1', name: 'Poste 0,80 × 0,80 × 2,50m', dimensions: '0,80 × 0,80 × 2,50m', weight: 15, minQuantity: 50, category: 'Postes', image: imgPoste1 },
+    { id: 'post-2', name: 'Poste 0,10 × 0,10 × 2,50m', dimensions: '0,10 × 0,10 × 2,50m', weight: 20, minQuantity: 50, category: 'Postes', image: imgPoste2 },
+    { id: 'post-3', name: 'Poste redondo Ø 0,10 × 1,80m', dimensions: 'Ø 0,10 × 1,80m', weight: 13, minQuantity: 30, category: 'Postes', image: imgPoste3 },
+    { id: 'post-4', name: 'Poste redondo Ø 0,10 × 2,20m', dimensions: 'Ø 0,10 × 2,20m', weight: 16, minQuantity: 25, category: 'Postes', image: imgPoste4 },
+    { id: 'post-5', name: 'Poste redondo Ø 0,10 × 2,40m', dimensions: 'Ø 0,10 × 2,40m', weight: 18, minQuantity: 25, category: 'Postes', image: imgPoste4 },
     // TABLAS
-    { id: 'tab-1', name: 'Tabla 0,11 × 0,3 × 2m', dimensions: '0.11 × 0.30 × 2m', weight: 5.3, minQuantity: 50, category: 'Tablas', image: imgTabla1 },
-    { id: 'tab-2', name: 'Tabla 0,11 × 0,30 × 3m', dimensions: '0.11 × 0.30 × 3m', weight: 11, minQuantity: 50, category: 'Tablas', image: imgTabla2 },
-    { id: 'tab-3', name: 'Tabla 0,25 × 0,4 × 2m', dimensions: '0.25 × 0.40 × 2m', weight: 20, minQuantity: 50, category: 'Tablas', image: imgTabla3 },
+    { id: 'tab-1', name: 'Tabla 0,11 × 0,30 × 2m', dimensions: '0,11 × 0,30 × 2m', weight: 5.3, minQuantity: 50, category: 'Tablas', image: imgTabla1 },
+    { id: 'tab-2', name: 'Tabla 0,11 × 0,30 × 3m', dimensions: '0,11 × 0,30 × 3m', weight: 11, minQuantity: 50, category: 'Tablas', image: imgTabla2 },
+    { id: 'tab-3', name: 'Tabla 0,25 × 0,40 × 2m', dimensions: '0,25 × 0,40 × 2m', weight: 20, minQuantity: 50, category: 'Tablas', image: imgTabla3 },
     // TIRANTILLOS
-    { id: 'tir-1', name: 'Tirantillo 0,45 × 0,45 × 2,40m', dimensions: '0.45 × 0.45 × 2.40m', weight: 4.5, minQuantity: 50, category: 'Tirantillos', image: imgTirantillo1 },
-    { id: 'tir-2', name: 'Tirantillo 0,45 × 0,45 × 2,80m', dimensions: '0.45 × 0.45 × 2.80m', weight: 5, minQuantity: 50, category: 'Tirantillos', image: imgTirantillo2 },
-    { id: 'tir-3', name: 'Tirantillo 0,55 × 0,55 × 2,80m', dimensions: '0.55 × 0.55 × 2.80m', weight: 6.5, minQuantity: 50, category: 'Tirantillos', image: imgTirantillo3 },
+    { id: 'tir-1', name: 'Tirantillo 0,45 × 0,45 × 2,40m', dimensions: '0,45 × 0,45 × 2,40m', weight: 4.5, minQuantity: 50, category: 'Tirantillos', image: imgTirantillo1 },
+    { id: 'tir-2', name: 'Tirantillo 0,45 × 0,45 × 2,80m', dimensions: '0,45 × 0,45 × 2,80m', weight: 5, minQuantity: 50, category: 'Tirantillos', image: imgTirantillo2 },
+    { id: 'tir-3', name: 'Tirantillo 0,55 × 0,55 × 2,80m', dimensions: '0,55 × 0,55 × 2,80m', weight: 6.5, minQuantity: 50, category: 'Tirantillos', image: imgTirantillo3 },
     // TRANQUERAS
-    { id: 'tranq-1', name: 'Tranquera 1,20 × 1,50m', dimensions: '1.20 × 1.50m', weight: 70, minQuantity: 1, category: 'Tranqueras', image: imgTranquera1 },
-    { id: 'tranq-2', name: 'Tranquera 1,20 × 2m', dimensions: '1.20 × 2m', weight: 90, minQuantity: 1, category: 'Tranqueras', image: imgTranquera2 },
-    { id: 'tranq-3', name: 'Tranquera 1,20 × 3m', dimensions: '1.20 × 3m', weight: 160, minQuantity: 1, category: 'Tranqueras', image: imgTranquera3 },
+    { id: 'tranq-1', name: 'Tranquera 1,20 × 1,50m', dimensions: '1,20 × 1,50m', weight: 70, minQuantity: 1, category: 'Tranqueras', image: imgTranquera1 },
+    { id: 'tranq-2', name: 'Tranquera 1,20 × 2m', dimensions: '1,20 × 2m', weight: 90, minQuantity: 1, category: 'Tranqueras', image: imgTranquera2 },
+    { id: 'tranq-3', name: 'Tranquera 1,20 × 3m', dimensions: '1,20 × 3m', weight: 160, minQuantity: 1, category: 'Tranqueras', image: imgTranquera3 },
     // BANCOS
-    { id: 'banco-1', name: 'Banco Americano 1,20 × 1,50m', dimensions: '1.20 × 1.50m', weight: 100, minQuantity: 1, category: 'Bancos' },
-    { id: 'banco-2', name: 'Banco Americano 1,20 × 1,90m', dimensions: '1.20 × 1.90m', weight: 130, minQuantity: 1, category: 'Bancos' },
+    { id: 'banco-1', name: 'Banco Americano 1,20 × 1,50m', dimensions: '1,20 × 1,50m', weight: 100, minQuantity: 1, category: 'Bancos' },
+    { id: 'banco-2', name: 'Banco Americano 1,20 × 1,90m', dimensions: '1,20 × 1,90m', weight: 130, minQuantity: 1, category: 'Bancos' },
     // REPOSERA
-    { id: 'rep-1', name: 'Reposera 1,90 × 0,60m', dimensions: '1.90 × 0.60m', weight: 70, minQuantity: 1, category: 'Exterior', image: imgReposera1 },
+    { id: 'rep-1', name: 'Reposera 1,90 × 0,60m', dimensions: '1,90 × 0,60m', weight: 70, minQuantity: 1, category: 'Exterior', image: imgReposera1 },
   ];
 
   const categories = ['Todos', ...Array.from(new Set(products.map(p => p.category)))];
@@ -113,11 +114,18 @@ export const Catalogo = () => {
 
   return (
     <div style={{ backgroundColor: '#F5F0E8' }}>
+      <Helmet>
+        <title>Catálogo de productos | Tablanova</title>
+        <meta name="description" content="Explorá el catálogo completo de Tablanova: postes, varillas, varillones, tablas, tirantillos y tranqueras de plástico reciclado con medidas y especificaciones." />
+        <link rel="canonical" href="https://tablanova.com.ar/catalogo" />
+        <meta property="og:title" content="Catálogo de productos | Tablanova" />
+        <meta property="og:url" content="https://tablanova.com.ar/catalogo" />
+      </Helmet>
 
       {/* ─── HERO ─────────────────────────────────────────────────────────── */}
       <section
-        className="relative -mt-[72px] overflow-hidden flex flex-col justify-end"
-        style={{ height: '100dvh', minHeight: 600 }}
+        className="hero-full relative -mt-[72px] overflow-hidden flex flex-col justify-end"
+        style={{ minHeight: 600 }}
       >
         <motion.img
           src={imgCatalogoHero}
@@ -162,7 +170,7 @@ export const Catalogo = () => {
                 { label: 'Fabricación', value: 'ESPERANZA, SANTA FE' },
               ].map((m) => (
                 <div key={m.label}>
-                  <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>
+                  <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>
                     {m.label}
                   </p>
                   <p style={{ color: '#fff', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.06em' }}>
@@ -190,7 +198,7 @@ export const Catalogo = () => {
           <div className="flex flex-col sm:flex-row gap-4 mb-6">
             {/* Search */}
             <div className="relative flex-1">
-              <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: '#9CA3AF' }}>
+              <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: '#6B7280' }}>
                 <Search size={16} />
               </div>
               <input
@@ -198,8 +206,8 @@ export const Catalogo = () => {
                 placeholder="Buscar por nombre, dimensiones o categoría..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-11 pr-10 py-3 text-sm outline-none transition-colors duration-150"
-                style={{ border: '1px solid #D1C4A8', borderRadius: 10, backgroundColor: '#fff', color: '#111827' }}
+                className="w-full pl-11 pr-10 py-3 outline-none transition-colors duration-150"
+                style={{ fontSize: 16, border: '1px solid #D1C4A8', borderRadius: 10, backgroundColor: '#fff', color: '#111827' }}
                 onFocus={(e) => (e.currentTarget.style.borderColor = '#5E0F29')}
                 onBlur={(e) => (e.currentTarget.style.borderColor = '#D1C4A8')}
                 aria-label="Buscar productos"
@@ -208,25 +216,26 @@ export const Catalogo = () => {
                 <button
                   onClick={() => setSearchTerm('')}
                   className="absolute right-4 top-1/2 -translate-y-1/2"
-                  style={{ color: '#9CA3AF' }}
+                  style={{ color: '#6B7280' }}
                   aria-label="Limpiar búsqueda"
                 >
                   <X size={15} />
                 </button>
               )}
             </div>
-            <span className="self-center text-sm" style={{ color: '#9CA3AF', whiteSpace: 'nowrap' }}>
+            <span className="self-center text-sm" style={{ color: '#6B7280', whiteSpace: 'nowrap' }}>
               {filteredProducts.length} producto{filteredProducts.length !== 1 ? 's' : ''}
             </span>
           </div>
 
           {/* Category filters */}
-          <div className="flex items-center gap-2 flex-wrap">
+          <div className="flex items-center gap-2 flex-wrap" role="group" aria-label="Filtrar por categoría">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className="px-4 py-1.5 text-sm font-medium transition-all duration-150"
+                aria-pressed={selectedCategory === category}
+                className="px-4 py-1.5 text-sm font-medium transition-all duration-150 min-h-[44px]"
                 style={
                   selectedCategory === category
                     ? { backgroundColor: '#5E0F29', color: '#fff', borderRadius: 999, border: '1px solid #5E0F29' }
@@ -242,6 +251,7 @@ export const Catalogo = () => {
         </motion.div>
 
         {/* ─── PRODUCT GRID ─────────────────────────────────────────────── */}
+        <h2 className="sr-only">Productos</h2>
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
           <AnimatePresence mode="popLayout">
             {filteredProducts.map((product, index) => (
@@ -312,7 +322,7 @@ export const Catalogo = () => {
                       className="flex items-center justify-between py-2"
                       style={{ borderTop: i > 0 ? '1px solid #E8DCC8' : 'none' }}
                     >
-                      <div className="flex items-center gap-1" style={{ color: '#9CA3AF' }}>
+                      <div className="flex items-center gap-1" style={{ color: '#6B7280' }}>
                         {spec.icon}
                         <span className="text-xs">
                           <span className="md:hidden">{spec.label}</span>

@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { Recycle, Clock, Wrench, Target, ArrowRight } from 'lucide-react';
 import { motion, useInView } from 'motion/react';
 import { Link } from 'react-router-dom';
@@ -97,11 +98,18 @@ export const Nosotros = () => {
 
   return (
     <div className="overflow-x-hidden">
+      <Helmet>
+        <title>Nosotros — Fábrica en Esperanza, Santa Fe | Tablanova</title>
+        <meta name="description" content="Tablanova fabrica materiales de plástico 100% reciclado para el agro en Esperanza, Santa Fe. Conocé nuestro proceso y compromiso." />
+        <link rel="canonical" href="https://tablanova.com.ar/nosotros" />
+        <meta property="og:title" content="Nosotros — Fábrica en Esperanza, Santa Fe | Tablanova" />
+        <meta property="og:url" content="https://tablanova.com.ar/nosotros" />
+      </Helmet>
 
       {/* ─── HERO ─────────────────────────────────────────────────────────── */}
       <section
-        className="relative -mt-[72px] overflow-hidden flex flex-col justify-end"
-        style={{ height: '100dvh', minHeight: 600 }}
+        className="hero-full relative -mt-[72px] overflow-hidden flex flex-col justify-end"
+        style={{ minHeight: 600 }}
       >
         <motion.img
           src={imgNosotrosHero}
@@ -146,7 +154,7 @@ export const Nosotros = () => {
                 { label: 'Material', value: 'PLÁSTICO RECICLADO' },
               ].map((m) => (
                 <div key={m.label}>
-                  <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>
+                  <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>
                     {m.label}
                   </p>
                   <p style={{ color: '#fff', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.06em' }}>
@@ -180,7 +188,7 @@ export const Nosotros = () => {
                 El campo nos enseñó el problema. Nosotros fabricamos la solución.
               </h2>
 
-              <div className="space-y-4 leading-relaxed" style={{ color: '#6B7280', fontSize: '1rem', marginBottom: 32 }}>
+              <div className="space-y-4 leading-relaxed" style={{ color: '#4B5563', fontSize: '1rem', marginBottom: 32 }}>
                 <p>
                   Trabajando con el sector agropecuario entendimos un problema que se repite en cada establecimiento: la madera promete pero no cumple. Se pudre, se astilla, necesita pintura cada dos años, fungicidas, reposición constante. Un gasto permanente que nadie calcula del todo.
                 </p>
@@ -306,7 +314,7 @@ export const Nosotros = () => {
                     <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#111827', marginBottom: 6 }}>
                       {value.title}
                     </h3>
-                    <p style={{ fontSize: '0.9375rem', lineHeight: 1.65, color: '#6B7280' }}>
+                    <p style={{ fontSize: '0.9375rem', lineHeight: 1.65, color: '#4B5563' }}>
                       {value.description}
                     </p>
                   </div>
@@ -359,7 +367,7 @@ export const Nosotros = () => {
                   <h3 style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: 8 }}>
                     {item.title}
                   </h3>
-                  <p style={{ fontSize: '0.9375rem', lineHeight: 1.65, color: '#6B7280' }}>
+                  <p style={{ fontSize: '0.9375rem', lineHeight: 1.65, color: '#4B5563' }}>
                     {item.description}
                   </p>
                 </div>
