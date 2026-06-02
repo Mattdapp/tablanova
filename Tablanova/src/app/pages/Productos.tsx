@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check, Leaf } from 'lucide-react';
+import { ArrowRight, Check, Leaf, Package } from 'lucide-react';
 import { motion } from 'motion/react';
 import imgPostes from '../../assets/postes.jpg';
 import imgVarillas from '../../assets/varillas.jpg';
 import imgTablas from '../../assets/tablas.jpg';
 import imgTranqueras from '../../assets/tranqueras.jpg';
 import imgAgroBg from '../../assets/agro-bg.jpg';
+import imgReposera from '../../assets/catalog/reposera-1.jpg';
 
 const SPRING = { type: 'spring' as const, stiffness: 80, damping: 20 };
 const VIEWPORT = { once: true, margin: '-80px' } as const;
@@ -363,13 +364,13 @@ export const Productos = () => {
               {
                 title: 'Bancos Americanos',
                 description: 'Para parques, plazas y espacios de descanso que se disfrutan años.',
-                image: 'https://images.unsplash.com/photo-1690245268435-629719c24d16?w=900&q=80',
+                image: undefined as string | undefined,
                 benefits: ['Banco con mesa integrada estilo americano', 'Medidas: 1,20×1,50m y 1,20×1,90m', 'De 100 a 130 kg', 'Sin mantenimiento', 'Apto para uso en exteriores'],
               },
               {
                 title: 'Reposeras',
                 description: 'Comodidad al aire libre sin el deterioro de los materiales tradicionales.',
-                image: 'https://images.unsplash.com/photo-1708085342347-6d0dd245f90e?w=900&q=80',
+                image: imgReposera as string | undefined,
                 benefits: ['Dimensiones: 1,90 × 0,60m', '70 kg', 'Resistente a piletas y humedad constante', 'Sin pintura ni barniz', 'Desde 1 unidad'],
               },
             ].map((item, i) => (
@@ -393,12 +394,24 @@ export const Productos = () => {
                 }}
               >
                 <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                  {item.image ? (
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div
+                      className="w-full h-full flex flex-col items-center justify-center gap-2"
+                      style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}
+                    >
+                      <Package size={26} style={{ color: 'rgba(255,255,255,0.3)' }} />
+                      <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                        Foto próximamente
+                      </span>
+                    </div>
+                  )}
                   <div className="absolute bottom-0 left-0 right-0 p-4" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65), transparent)' }}>
                     <h3 className="text-white" style={{ fontSize: '1.1rem' }}>{item.title}</h3>
                   </div>
