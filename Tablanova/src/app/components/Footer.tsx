@@ -57,15 +57,21 @@ export const Footer = () => {
           </div>
 
           {/* Productos */}
-          <div>
+          <div className="hidden md:block">
             <h4 className="text-white text-xs font-semibold uppercase mb-5" style={{ letterSpacing: '0.09em' }}>
               Productos
             </h4>
             <ul className="space-y-3">
-              {['Postes', 'Varillas y Varillones', 'Tablas y Tirantillos', 'Tranqueras', 'Mobiliario exterior'].map((label) => (
+              {[
+                { label: 'Postes', href: '/productos#postes' },
+                { label: 'Varillas y Varillones', href: '/productos#varillas' },
+                { label: 'Tablas y Tirantillos', href: '/productos#tablas' },
+                { label: 'Tranqueras', href: '/productos#tranqueras' },
+                { label: 'Mobiliario exterior', href: '/productos#mobiliario' },
+              ].map(({ label, href }) => (
                 <li key={label}>
                   <Link
-                    to="/productos"
+                    to={href}
                     className="text-sm transition-colors duration-150"
                     style={{ color: 'rgba(255,255,255,0.5)' }}
                     onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#fff')}
@@ -106,7 +112,7 @@ export const Footer = () => {
           </div>
 
           {/* Contacto */}
-          <div className="col-span-2 md:col-span-1">
+          <div>
             <h4 className="text-white text-xs font-semibold uppercase mb-5" style={{ letterSpacing: '0.09em' }}>
               Contacto
             </h4>

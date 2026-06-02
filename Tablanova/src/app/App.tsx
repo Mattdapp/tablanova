@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { ScrollManager } from './components/ScrollManager';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { Home } from './pages/Home';
 import { Productos } from './pages/Productos';
@@ -14,6 +15,7 @@ export default function App() {
   return (
     <CartProvider>
       <Router>
+        <ScrollManager />
         <div className="min-h-screen flex flex-col">
           <Header />
           <main className="flex-1">

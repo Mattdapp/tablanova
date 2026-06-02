@@ -530,36 +530,58 @@ export const Home = () => {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4"
+            className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4"
             variants={revealStagger}
             initial="hidden"
             whileInView="visible"
             viewport={VIEWPORT}
           >
-            {agroProducts.map((product, i) => (
-              <motion.div
-                key={i}
-                variants={reveal}
-                className="group relative overflow-hidden"
-                style={{ borderRadius: 12, aspectRatio: '3/4' }}
-              >
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.15) 55%, transparent 100%)' }} />
-                <div className="absolute bottom-0 left-0 right-0 p-3 md:p-5">
-                  <h3 className="text-white font-semibold mb-0.5 md:mb-1" style={{ fontSize: 'clamp(0.8rem, 2.5vw, 1.1rem)', letterSpacing: '-0.01em' }}>
-                    {product.title}
-                  </h3>
-                  <p className="hidden sm:block" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.82rem', lineHeight: 1.5 }}>
-                    {product.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+            {agroProducts.map((product, i) => {
+              const isFeatured = i === 0;
+              const isLast = i === agroProducts.length - 1;
+              return (
+                <motion.div
+                  key={i}
+                  variants={reveal}
+                  className={`group relative overflow-hidden ${
+                    isFeatured
+                      ? 'col-span-2 md:col-span-3 aspect-[4/3] md:aspect-[16/7]'
+                      : isLast
+                      ? 'col-span-2 md:col-span-1 aspect-[4/3] md:aspect-[3/4]'
+                      : 'aspect-[3/4]'
+                  }`}
+                  style={{ borderRadius: 12 }}
+                >
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.15) 55%, transparent 100%)' }}
+                  />
+                  <div className={`absolute bottom-0 left-0 right-0 ${isFeatured ? 'p-5 md:p-8' : 'p-3 md:p-5'}`}>
+                    <h3
+                      className="text-white font-semibold mb-1"
+                      style={{
+                        fontSize: isFeatured ? 'clamp(1.1rem, 2.5vw, 1.75rem)' : 'clamp(0.85rem, 1.8vw, 1.1rem)',
+                        letterSpacing: '-0.01em',
+                      }}
+                    >
+                      {product.title}
+                    </h3>
+                    <p
+                      className={isFeatured ? 'block' : 'hidden md:block'}
+                      style={{ color: 'rgba(255,255,255,0.7)', fontSize: isFeatured ? 'clamp(0.82rem, 1.5vw, 0.95rem)' : '0.82rem', lineHeight: 1.55, maxWidth: isFeatured ? 560 : undefined }}
+                    >
+                      {product.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </section>
@@ -1221,110 +1243,95 @@ export const Home = () => {
       {/* ═══════════════════════════════════════════════════════════════════
           TESTIMONIALS
       ════════════════════════════════════════════════════════════════════ */}
-      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#F5F0E8' }}>
+      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#F5F0E8', overflow: 'hidden' }}>
+
+        {/* Header centrado */}
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-[1fr_380px] gap-6 items-stretch">
-
-            {/* LEFT: header + 2x2 grid */}
-            <motion.div
-              variants={revealStagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={VIEWPORT}
-              className="flex flex-col gap-10"
-            >
-              <motion.div variants={reveal}>
-                <div className="mb-5"><PillTag>Testimonios</PillTag></div>
-                <h2 style={{ color: '#111827', letterSpacing: '-0.02em' }}>
-                  Lo que dicen quienes{' '}
-                  <span style={{ color: '#5E0F29' }}>ya eligieron Tablanova</span>
-                </h2>
-                <p style={{ color: '#6B7280', maxWidth: 460, marginTop: 14, lineHeight: 1.65 }}>
-                  Productores, ganaderos y administradores rurales que reemplazaron la madera y no volvieron atrás.
-                </p>
-              </motion.div>
-
-              <div className="grid sm:grid-cols-2 gap-4">
-                {testimonials.map((t, i) => (
-                  <motion.div
-                    key={i}
-                    variants={reveal}
-                    style={{
-                      backgroundColor: '#fff',
-                      borderRadius: 14,
-                      padding: '22px 24px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: 14,
-                    }}
-                  >
-                    {/* Author row */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                      <div style={{
-                        width: 36, height: 36,
-                        borderRadius: '50%',
-                        backgroundColor: '#5E0F29',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        color: '#fff',
-                        fontSize: '0.68rem',
-                        fontWeight: 600,
-                        letterSpacing: '0.04em',
-                        flexShrink: 0,
-                      }}>
-                        {t.initials}
-                      </div>
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <p style={{ color: '#111827', fontWeight: 600, fontSize: '0.88rem', lineHeight: 1.2 }}>{t.name}</p>
-                        <p style={{ color: '#9CA3AF', fontSize: '0.76rem', marginTop: 2 }}>{t.location}</p>
-                      </div>
-                      <svg width="22" height="18" viewBox="0 0 32 24" fill="none" style={{ flexShrink: 0, opacity: 0.5 }}>
-                        <path d="M0 24V14.4C0 10.4 1.067 7.067 3.2 4.4C5.333 1.733 8.267 0.133 12 0L13.6 3.2C10.667 3.733 8.4 4.8 6.8 6.4C5.2 8 4.4 9.867 4.4 12H8.8V24H0ZM18.4 24V14.4C18.4 10.4 19.467 7.067 21.6 4.4C23.733 1.733 26.667 0.133 30.4 0L32 3.2C29.067 3.733 26.8 4.8 25.2 6.4C23.6 8 22.8 9.867 22.8 12H27.2V24H18.4Z" fill="#DB8F33"/>
-                      </svg>
-                    </div>
-
-                    {/* Quote */}
-                    <p style={{ color: '#374151', fontSize: '0.875rem', lineHeight: 1.7 }}>
-                      "{t.quote}"
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
+          <motion.div
+            className="text-center mb-12"
+            variants={revealStagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={VIEWPORT}
+          >
+            <motion.div variants={reveal} className="mb-5 flex justify-center">
+              <PillTag>Testimonios</PillTag>
             </motion.div>
-
-            {/* RIGHT: tall photo card */}
-            <motion.div
+            <motion.h2 variants={reveal} style={{ color: '#111827', letterSpacing: '-0.02em' }}>
+              Lo que dicen quienes{' '}
+              <span style={{ color: '#5E0F29' }}>ya eligieron Tablanova</span>
+            </motion.h2>
+            <motion.p
               variants={reveal}
-              initial="hidden"
-              whileInView="visible"
-              viewport={VIEWPORT}
-              className="hidden lg:block"
-              style={{
-                position: 'relative',
-                overflow: 'hidden',
-                borderRadius: 20,
-                minHeight: 500,
-              }}
+              style={{ color: '#6B7280', maxWidth: 460, margin: '14px auto 0', lineHeight: 1.65 }}
             >
-              <img
-                src={imgAgroBg}
-                alt=""
-                className="absolute inset-0 w-full h-full object-cover object-center"
-              />
-              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,4,6,0.92) 0%, rgba(10,4,6,0.45) 55%, rgba(10,4,6,0.25) 100%)' }} />
-              <div className="absolute bottom-0 left-0 right-0" style={{ padding: '32px 28px' }}>
-                <svg width="28" height="22" viewBox="0 0 32 24" fill="none" style={{ marginBottom: 14 }}>
-                  <path d="M0 24V14.4C0 10.4 1.067 7.067 3.2 4.4C5.333 1.733 8.267 0.133 12 0L13.6 3.2C10.667 3.733 8.4 4.8 6.8 6.4C5.2 8 4.4 9.867 4.4 12H8.8V24H0ZM18.4 24V14.4C18.4 10.4 19.467 7.067 21.6 4.4C23.733 1.733 26.667 0.133 30.4 0L32 3.2C29.067 3.733 26.8 4.8 25.2 6.4C23.6 8 22.8 9.867 22.8 12H27.2V24H18.4Z" fill="#DB8F33"/>
-                </svg>
-                <p className="text-white" style={{ fontSize: '1rem', lineHeight: 1.72, marginBottom: 18 }}>
-                  "Cambiamos la madera porque cada pocos años había que reparar, pintar o reemplazar. Con Tablanova instalamos una vez y nos olvidamos."
-                </p>
-                <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.82rem' }}>
-                  Productor agropecuario · Santa Fe
-                </p>
-              </div>
-            </motion.div>
+              Productores, ganaderos y administradores rurales que reemplazaron la madera y no volvieron atrás.
+            </motion.p>
+          </motion.div>
+        </div>
 
-          </div>
+        {/* Carousel horizontal */}
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <style>{`.testimonials-scroll::-webkit-scrollbar{display:none}`}</style>
+          <motion.div
+            className="testimonials-scroll flex gap-4 overflow-x-auto pb-2"
+            style={{ scrollbarWidth: 'none', scrollSnapType: 'x mandatory' }}
+            variants={revealStagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={VIEWPORT}
+          >
+            {testimonials.map((t, i) => (
+              <motion.div
+                key={i}
+                variants={reveal}
+                style={{
+                  flexShrink: 0,
+                  width: 'min(300px, 82vw)',
+                  scrollSnapAlign: 'start',
+                  backgroundColor: '#fff',
+                  borderRadius: 16,
+                  border: '1px solid #D1C4A8',
+                  padding: '28px 24px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  gap: 20,
+                }}
+              >
+                {/* Quote */}
+                <p style={{ color: '#111827', fontSize: '0.925rem', lineHeight: 1.72 }}>
+                  "{t.quote}"
+                </p>
+
+                {/* Author row */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <div style={{
+                      width: 36, height: 36,
+                      borderRadius: '50%',
+                      backgroundColor: '#5E0F29',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      color: '#fff',
+                      fontSize: '0.65rem',
+                      fontWeight: 600,
+                      letterSpacing: '0.04em',
+                      flexShrink: 0,
+                    }}>
+                      {t.initials}
+                    </div>
+                    <div>
+                      <p style={{ color: '#111827', fontWeight: 600, fontSize: '0.88rem', lineHeight: 1.2 }}>{t.name}</p>
+                      <p style={{ color: '#9CA3AF', fontSize: '0.76rem', marginTop: 2 }}>{t.role} · {t.location}</p>
+                    </div>
+                  </div>
+                  <svg width="24" height="19" viewBox="0 0 32 24" fill="none" style={{ flexShrink: 0 }}>
+                    <path d="M0 24V14.4C0 10.4 1.067 7.067 3.2 4.4C5.333 1.733 8.267 0.133 12 0L13.6 3.2C10.667 3.733 8.4 4.8 6.8 6.4C5.2 8 4.4 9.867 4.4 12H8.8V24H0ZM18.4 24V14.4C18.4 10.4 19.467 7.067 21.6 4.4C23.733 1.733 26.667 0.133 30.4 0L32 3.2C29.067 3.733 26.8 4.8 25.2 6.4C23.6 8 22.8 9.867 22.8 12H27.2V24H18.4Z" fill="#DB8F33"/>
+                  </svg>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 

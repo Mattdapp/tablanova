@@ -32,6 +32,7 @@ const heroMask = {
 
 const agroProducts = [
   {
+    id: 'postes',
     title: 'Postes',
     tag: 'El más pedido',
     description: 'El cerco que no necesita mantenimiento.',
@@ -48,6 +49,7 @@ const agroProducts = [
     ],
   },
   {
+    id: 'varillas',
     title: 'Varillas y Varillones',
     tag: 'Cercos eléctricos y perimetrales',
     description: 'La varilla que mantiene la tensión.',
@@ -64,6 +66,7 @@ const agroProducts = [
     ],
   },
   {
+    id: 'tablas',
     title: 'Tablas y Tirantillos',
     tag: 'Construcción rural',
     description: 'Para construir estructuras que duran.',
@@ -80,6 +83,7 @@ const agroProducts = [
     ],
   },
   {
+    id: 'tranqueras',
     title: 'Tranqueras',
     tag: 'Accesos rurales',
     description: 'La tranquera que dura décadas.',
@@ -211,6 +215,12 @@ export const Productos = () => {
 
       {/* ─── PRODUCTS ─────────────────────────────────────────────────────── */}
       <section style={{ backgroundColor: '#F5F0E8' }}>
+        <style>{`
+          @media (max-width: 767px) {
+            .agro-img-wrap { margin-left: 0 !important; margin-right: 0 !important; }
+            .agro-txt-wrap { padding-left: 20px !important; padding-right: 20px !important; padding-top: 28px !important; padding-bottom: 28px !important; }
+          }
+        `}</style>
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <motion.div
             variants={reveal}
@@ -231,17 +241,18 @@ export const Productos = () => {
           return (
             <motion.div
               key={index}
+              id={product.id}
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={VIEWPORT}
               transition={SPRING}
-              style={{ borderTop: '1px solid #D1C4A8' }}
+              style={{ borderTop: '1px solid #D1C4A8', scrollMarginTop: 80 }}
             >
               <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
 
                 {/* Photo — 60% */}
                 <div
-                  className="md:w-[60%] flex-shrink-0 overflow-hidden group"
+                  className="agro-img-wrap md:w-[60%] flex-shrink-0 overflow-hidden group"
                   style={{ borderRadius: 20, margin: isReversed ? 'clamp(16px,3vw,32px) clamp(16px,3vw,32px) clamp(16px,3vw,32px) 0' : 'clamp(16px,3vw,32px) 0 clamp(16px,3vw,32px) clamp(16px,3vw,32px)' }}
                 >
                   <img
@@ -255,7 +266,7 @@ export const Productos = () => {
 
                 {/* Text — 40% */}
                 <div
-                  className="flex flex-col justify-center"
+                  className="agro-txt-wrap flex flex-col justify-center"
                   style={{ padding: 'clamp(40px, 5vw, 72px) clamp(32px, 4vw, 64px)', flex: 1 }}
                 >
                   <p style={{ color: '#5E0F29', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 20 }}>
@@ -311,7 +322,7 @@ export const Productos = () => {
       </section>
 
       {/* ─── MOBILIARIO ───────────────────────────────────────────────────── */}
-      <section className="pt-[48px] md:pt-[80px] pb-[60px] md:pb-[120px]" style={{ backgroundColor: '#414B28' }}>
+      <section id="mobiliario" className="pt-[48px] md:pt-[80px] pb-[60px] md:pb-[120px]" style={{ backgroundColor: '#414B28', scrollMarginTop: 80 }}>
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <motion.div
             variants={reveal}

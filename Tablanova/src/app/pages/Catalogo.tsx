@@ -240,7 +240,7 @@ export const Catalogo = () => {
         </motion.div>
 
         {/* ─── PRODUCT GRID ─────────────────────────────────────────────── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
           <AnimatePresence mode="popLayout">
             {filteredProducts.map((product, index) => (
               <motion.div
@@ -250,36 +250,35 @@ export const Catalogo = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 viewport={VIEWPORT}
-                transition={{ ...SPRING, delay: (index % 3) * 0.08, layout: { duration: 0.2 } }}
+                transition={{ ...SPRING, delay: (index % 2) * 0.08, layout: { duration: 0.2 } }}
                 className="flex flex-col"
                 style={{ backgroundColor: '#fff', border: '1px solid #D1C4A8', borderRadius: 16 }}
               >
-                {/* Image */}
+                {/* Image — fixed aspect ratio, object-contain so the full piece (with measurements) shows; white bg blends with the photos' own white background */}
                 <div
-                  className="overflow-hidden relative"
-                  style={{ borderRadius: '16px 16px 0 0', backgroundColor: '#F5F0E8', borderBottom: '1px solid #E8DCC8' }}
+                  className="overflow-hidden relative flex items-center justify-center"
+                  style={{ borderRadius: '16px 16px 0 0', backgroundColor: '#fff', borderBottom: '1px solid #E8DCC8', aspectRatio: '4/3' }}
                 >
                   {product.image ? (
                     <img
                       src={product.image}
                       alt={product.name}
                       loading="lazy"
-                      style={{ display: 'block', width: '100%', height: 'auto' }}
+                      className="w-full h-full"
+                      style={{ objectFit: 'contain', display: 'block', padding: '8px' }}
                     />
                   ) : (
-                    <div
-                      className="flex items-center justify-center"
-                      style={{ aspectRatio: '4/3' }}
-                    >
-                      <span style={{ fontSize: '0.7rem', color: '#CFC4A2', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                    <div className="flex flex-col items-center justify-center gap-2">
+                      <Package size={24} style={{ color: '#CFC4A2' }} />
+                      <span style={{ fontSize: '0.65rem', color: '#CFC4A2', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
                         Foto próximamente
                       </span>
                     </div>
                   )}
                   {product.isNew && (
                     <span
-                      className="absolute top-3 right-3 text-xs font-medium text-white"
-                      style={{ backgroundColor: '#DB8F33', borderRadius: 4, padding: '2px 7px' }}
+                      className="absolute top-2 right-2 text-xs font-medium text-white"
+                      style={{ backgroundColor: '#DB8F33', borderRadius: 4, padding: '2px 6px' }}
                     >
                       NUEVO
                     </span>
@@ -287,50 +286,54 @@ export const Catalogo = () => {
                 </div>
 
                 {/* Header */}
-                <div style={{ padding: '16px 20px 14px', borderBottom: '1px solid #E8DCC8' }}>
+                <div className="px-3 pt-3 pb-2.5 md:px-5 md:pt-4 md:pb-3" style={{ borderBottom: '1px solid #E8DCC8' }}>
                   <span
-                    className="text-xs font-medium uppercase"
-                    style={{ color: '#5E0F29', letterSpacing: '0.07em', display: 'block', marginBottom: 6 }}
+                    className="text-[10px] md:text-xs font-medium uppercase block mb-1"
+                    style={{ color: '#5E0F29', letterSpacing: '0.07em' }}
                   >
                     {product.category}
                   </span>
-                  <h4 style={{ fontSize: '0.9rem', fontWeight: 600, color: '#111827', lineHeight: 1.35 }}>
+                  <h4 className="text-xs md:text-sm" style={{ fontWeight: 600, color: '#111827', lineHeight: 1.35 }}>
                     {product.name}
                   </h4>
                 </div>
 
                 {/* Specs */}
-                <div style={{ padding: '16px 20px', flex: 1 }}>
+                <div className="px-3 py-2 md:px-5 md:py-4 flex-1">
                   {[
-                    { icon: <Layers size={12} />, label: 'Dimensiones', value: product.dimensions },
-                    { icon: <Weight size={12} />, label: 'Peso', value: `${product.weight} kg` },
-                    { icon: <Package size={12} />, label: 'Cantidad mínima', value: `${product.minQuantity} unidad${product.minQuantity !== 1 ? 'es' : ''}` },
+                    { icon: <Layers size={11} />, label: 'Dim.', labelFull: 'Dimensiones', value: product.dimensions },
+                    { icon: <Weight size={11} />, label: 'Peso', labelFull: 'Peso', value: `${product.weight} kg` },
+                    { icon: <Package size={11} />, label: 'Mín.', labelFull: 'Cantidad mínima', value: `${product.minQuantity} u.` },
                   ].map((spec, i) => (
                     <div
                       key={i}
-                      className="flex items-center justify-between"
-                      style={{ paddingTop: i > 0 ? 10 : 0, borderTop: i > 0 ? '1px solid #E8DCC8' : 'none', paddingBottom: 10 }}
+                      className="flex items-center justify-between py-2"
+                      style={{ borderTop: i > 0 ? '1px solid #E8DCC8' : 'none' }}
                     >
-                      <div className="flex items-center gap-1.5" style={{ color: '#9CA3AF' }}>
+                      <div className="flex items-center gap-1" style={{ color: '#9CA3AF' }}>
                         {spec.icon}
-                        <span className="text-xs">{spec.label}</span>
+                        <span className="text-[10px] md:text-xs">
+                          <span className="md:hidden">{spec.label}</span>
+                          <span className="hidden md:inline">{spec.labelFull}</span>
+                        </span>
                       </div>
-                      <span className="text-xs font-medium" style={{ color: '#111827' }}>{spec.value}</span>
+                      <span className="text-[10px] md:text-xs font-medium" style={{ color: '#111827' }}>{spec.value}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* CTA */}
-                <div style={{ padding: '0 20px 20px' }}>
+                <div className="px-3 pb-3 md:px-5 md:pb-5">
                   <button
                     onClick={() => handleConsultar(product)}
-                    className="w-full py-2.5 text-sm font-medium flex items-center justify-center gap-2 transition-opacity duration-150 rounded-full"
+                    className="w-full py-2 md:py-2.5 text-xs md:text-sm font-medium flex items-center justify-center gap-1.5 transition-opacity duration-150 rounded-full"
                     style={{ backgroundColor: '#5E0F29', color: '#fff' }}
                     onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = '0.85')}
                     onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = '1')}
                   >
-                    <MessageCircle size={14} />
-                    Consultar precio
+                    <MessageCircle size={12} />
+                    <span className="md:hidden">Consultar</span>
+                    <span className="hidden md:inline">Consultar precio</span>
                   </button>
                 </div>
               </motion.div>
