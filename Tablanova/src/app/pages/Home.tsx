@@ -480,7 +480,7 @@ export const Home = () => {
                 { value: '100%', label: 'Plástico reciclado' },
                 { value: '20+', label: 'Años de vida útil estimada' },
                 { value: '0', label: 'Mantenimiento requerido' },
-                { value: 'ARG', label: 'Fabricado en Argentina' },
+                { value: '+75.000 kg', label: 'de plástico reciclado' },
               ].map((s) => (
                 <div key={s.value} className="sm:flex sm:items-baseline sm:gap-1.5">
                   <span className="block sm:inline" style={{ color: '#fff', fontSize: '0.85rem', fontWeight: 600, letterSpacing: '-0.01em' }}>{s.value}</span>
@@ -1115,7 +1115,7 @@ export const Home = () => {
               { value: '100%', label: 'Plástico reciclado' },
               { value: '20+', label: 'Años de vida útil estimada' },
               { value: '0', label: 'Mantenimiento requerido' },
-              { value: 'ARG', label: 'Fabricado en Argentina' },
+              { value: '+75.000 kg', label: 'de plástico reciclado' },
             ].map((s, i) => (
               <AnimatedStat key={i} value={s.value} label={s.label} />
             ))}
@@ -1149,10 +1149,10 @@ export const Home = () => {
                 </motion.h2>
               </div>
               <motion.p variants={reveal} style={{ color: '#6B7280', lineHeight: 1.7, marginBottom: '1.25rem' }}>
-                Transformamos plástico reciclado en materiales útiles, resistentes y durables.
+                Impulsamos la economía circular: recuperamos plástico, lo transformamos y vuelve a la vida como productos duraderos y funcionales.
               </motion.p>
               <motion.p variants={reveal} style={{ color: '#6B7280', lineHeight: 1.7 }}>
-                Cada producto Tablanova ayuda a reducir residuos plásticos y a disminuir el uso de madera tradicional. Una alternativa sustentable, pero también inteligente desde lo económico y operativo.
+                Más de 75.000 kg de plástico ya reciclados. Cada producto Tablanova reduce residuos y la presión sobre la madera: una alternativa sustentable, pero también inteligente desde lo económico y operativo.
               </motion.p>
             </motion.div>
 

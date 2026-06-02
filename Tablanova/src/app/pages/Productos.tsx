@@ -349,8 +349,8 @@ export const Productos = () => {
               </span>
             </div>
             <h2 className="text-white" style={{ letterSpacing: '-0.02em' }}>Para espacios verdes</h2>
-            <p style={{ color: 'rgba(255,255,255,0.55)', maxWidth: 520, marginTop: 12, lineHeight: 1.65 }}>
-              La misma tecnología del campo aplicada al diseño urbano. Parques, plazas y jardines que duran sin mantenimiento.
+            <p style={{ color: 'rgba(255,255,255,0.72)', maxWidth: 560, marginTop: 12, lineHeight: 1.65 }}>
+              La misma tecnología del campo aplicada a los espacios verdes. La madera plástica no absorbe agua: no se pudre, no se hincha, no se parte ni se deforma. Ideal para patios, jardines, parques, pasarelas, piscinas y senderos — un material definitivo, estético y ecológico, sin mantenimiento.
             </p>
           </motion.div>
 

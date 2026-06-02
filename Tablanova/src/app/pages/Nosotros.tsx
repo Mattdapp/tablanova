@@ -50,7 +50,7 @@ export const Nosotros = () => {
     {
       icon: Recycle,
       title: 'Sustentabilidad real',
-      description: 'No es marketing. Cada producto está fabricado con plástico post-consumo. Transformamos residuos en materiales de alta performance y reducimos la tala de árboles.',
+      description: 'No es marketing: transformamos residuos en nuevas oportunidades. Cada producto está fabricado con plástico post-consumo, reduciendo residuos y la tala de árboles.',
     },
     {
       icon: Clock,
@@ -196,7 +196,7 @@ export const Nosotros = () => {
                   Tablanova surge para resolver exactamente eso. Fabricamos postes, varillas, tablas y tranqueras con plástico 100% reciclado que no absorbe humedad, no lo atacan los insectos y no necesita ningún mantenimiento. Se instala igual que la madera, pero dura décadas.
                 </p>
                 <p>
-                  Somos una empresa familiar radicada en Esperanza, Santa Fe. Fabricamos en Argentina, con material argentino, para el campo argentino. Y enviamos a todo el país.
+                  Somos una empresa familiar radicada en Esperanza, Santa Fe. Fabricamos en Argentina, con material argentino, para el campo argentino, y enviamos a todo el país. Apostamos a la economía circular y a concientizar al sector industrial y ganadero sobre el valor de reutilizar y reducir el impacto ambiental.
                 </p>
               </div>
 
