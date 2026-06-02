@@ -1101,7 +1101,7 @@ export const Home = () => {
               { value: '100%', label: 'Plástico reciclado' },
               { value: '20+', label: 'Años de vida útil estimada' },
               { value: '0', label: 'Mantenimiento requerido' },
-              { value: '+75.000 kg', label: 'de plástico reciclado' },
+              { value: '+75.000', label: 'kg de plástico reciclado' },
             ].map((s, i) => (
               <AnimatedStat key={i} value={s.value} label={s.label} />
             ))}
