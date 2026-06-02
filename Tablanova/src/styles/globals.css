@@ -80,3 +80,51 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ── Reduced-motion override ─────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Focus-visible ring ──────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 3px solid #5E0F29;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── dvh utility with vh fallback (Safari < 15.4 / Android WebView) ──────── */
+.hero-full {
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* ── Visually-hidden (sr-only) helpers for skip link ────────────────────── */
+/* Tailwind v4 emits these as utilities, but explicit definitions guarantee   */
+/* they are available even without a JIT scan of this file.                   */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.not-sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
