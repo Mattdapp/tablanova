@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star, ChevronDown, CheckCircle, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, Star, ChevronDown, CheckCircle, X, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { motion, AnimatePresence, useInView } from 'motion/react';
 import imgPostes from '../../assets/postes.jpg';
 import imgVarillas from '../../assets/varillas.jpg';
@@ -337,6 +337,7 @@ function AnimatedStat({ value, label }: { value: string; label: string }) {
 export const Home = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [marqueeHovered, setMarqueeHovered] = useState(false);
+  const [videoOpen, setVideoOpen] = useState(false);
   const [projectIdx, setProjectIdx] = useState(1);
   const getCardW = () => Math.min(900, window.innerWidth * 0.8);
   const [slideOffset, setSlideOffset] = useState(() => getCardW() + 20);
@@ -351,6 +352,19 @@ export const Home = () => {
     window.addEventListener('resize', update);
     return () => window.removeEventListener('resize', update);
   }, []);
+
+  // Lightbox del video: cerrar con ESC + bloquear scroll de fondo mientras está abierto
+  useEffect(() => {
+    if (!videoOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setVideoOpen(false); };
+    document.addEventListener('keydown', onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [videoOpen]);
 
   const handleWhatsApp = () => {
     const phone = '5493425683285';
@@ -1119,6 +1133,71 @@ export const Home = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
+          ENTREVISTA / HISTORIA DE MARCA
+      ════════════════════════════════════════════════════════════════════ */}
+      <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#414B28' }}>
+        <div className="max-w-[1100px] mx-auto px-4 sm:px-6">
+          <motion.div
+            className="text-center mb-10 md:mb-14"
+            variants={revealStagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={VIEWPORT}
+          >
+            <motion.div variants={reveal} className="mb-5 flex justify-center">
+              <PillTag dark>Conocé Tablanova</PillTag>
+            </motion.div>
+            <motion.h2 variants={reveal} style={{ color: '#fff', letterSpacing: '-0.02em' }}>
+              La historia detrás{' '}
+              <span style={{ color: '#DB8F33' }}>del material</span>
+            </motion.h2>
+            <motion.p
+              variants={reveal}
+              style={{ color: 'rgba(255,255,255,0.7)', maxWidth: 520, margin: '14px auto 0', lineHeight: 1.65 }}
+            >
+              Quiénes están detrás de Tablanova y por qué fabricamos materiales pensados para durar más de una vida.
+            </motion.p>
+          </motion.div>
+
+          <motion.button
+            onClick={() => setVideoOpen(true)}
+            aria-label="Reproducir entrevista a Tablanova"
+            className="group relative block w-full overflow-hidden"
+            style={{ borderRadius: 20, aspectRatio: '16 / 9', border: 'none', padding: 0, cursor: 'pointer' }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={VIEWPORT}
+            transition={{ type: 'spring', mass: 1, stiffness: 80, damping: 20 }}
+          >
+            <img
+              src="https://img.youtube.com/vi/eNHsi9gGzts/maxresdefault.jpg"
+              alt="Entrevista a Tablanova"
+              loading="lazy"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              onError={(e) => { (e.currentTarget as HTMLImageElement).src = 'https://img.youtube.com/vi/eNHsi9gGzts/hqdefault.jpg'; }}
+            />
+            <div
+              className="absolute inset-0"
+              style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.12) 50%, rgba(0,0,0,0.32) 100%)' }}
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span
+                className="flex items-center justify-center rounded-full transition-transform duration-200 group-hover:scale-110"
+                style={{
+                  width: 'clamp(64px, 9vw, 88px)',
+                  height: 'clamp(64px, 9vw, 88px)',
+                  backgroundColor: '#DB8F33',
+                  boxShadow: '0 6px 20px rgba(0,0,0,0.35)',
+                }}
+              >
+                <Play size={32} color="#fff" fill="#fff" style={{ marginLeft: 4 }} />
+              </span>
+            </div>
+          </motion.button>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════════
           SUSTENTABILIDAD
       ════════════════════════════════════════════════════════════════════ */}
       <section className="py-[60px] md:py-[120px]" style={{ backgroundColor: '#F5F0E8' }}>
@@ -1418,6 +1497,60 @@ export const Home = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          VIDEO LIGHTBOX
+      ════════════════════════════════════════════════════════════════════ */}
+      <AnimatePresence>
+        {videoOpen && (
+          <motion.div
+            className="fixed inset-0 z-[100] flex items-center justify-center px-4"
+            style={{ backgroundColor: 'rgba(10,4,6,0.92)' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => setVideoOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Entrevista a Tablanova"
+          >
+            <button
+              onClick={() => setVideoOpen(false)}
+              aria-label="Cerrar video"
+              className="absolute top-5 right-5"
+              style={{
+                width: 44, height: 44,
+                borderRadius: '50%',
+                backgroundColor: 'rgba(255,255,255,0.12)',
+                border: '1px solid rgba(255,255,255,0.2)',
+                color: '#fff',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                cursor: 'pointer',
+              }}
+            >
+              <X size={22} />
+            </button>
+            <motion.div
+              className="w-full"
+              style={{ maxWidth: 980, aspectRatio: '16 / 9' }}
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.92, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 24 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/eNHsi9gGzts?autoplay=1&rel=0"
+                title="Entrevista a Tablanova"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                style={{ width: '100%', height: '100%', border: 'none', borderRadius: 16 }}
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   );
