@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="image" href="/hero.jpg" fetchpriority="high">
-    <title>Tablanova — Plástico reciclado para el campo</title>
-    <meta name="description" content="Postes, varillas, tablas, tirantillos y tranqueras de plástico 100% reciclado. Sin mantenimiento, sin pudrición. Fabricado en Esperanza, Santa Fe." />
+    <link rel="preload" as="image" href="/hero.webp" fetchpriority="high">
+    <title>Postes de Plástico Reciclado para el Campo | Tablanova</title>
+    <meta name="description" content="Postes, varillas y tablas de plástico 100% reciclado para el campo. No se pudren, sin mantenimiento, resisten décadas. Pedí tu cotización." />
 
     <!-- Theme & PWA -->
     <meta name="theme-color" content="#5E0F29" />
@@ -24,8 +24,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Tablanova" />
     <meta property="og:locale" content="es_AR" />
-    <meta property="og:title" content="Tablanova — Plástico reciclado para el campo" />
-    <meta property="og:description" content="Postes, varillas, tablas, tirantillos y tranqueras de plástico 100% reciclado. Sin mantenimiento, sin pudrición. Fabricado en Esperanza, Santa Fe." />
+    <meta property="og:title" content="Postes de Plástico Reciclado para el Campo | Tablanova" />
+    <meta property="og:description" content="Postes, varillas y tablas de plástico 100% reciclado para el campo. No se pudren, sin mantenimiento, resisten décadas. Pedí tu cotización." />
     <meta property="og:url" content="https://tablanova.com.ar/" />
     <meta property="og:image" content="https://tablanova.com.ar/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -34,33 +34,113 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Tablanova — Plástico reciclado para el campo" />
-    <meta name="twitter:description" content="Postes, varillas, tablas, tirantillos y tranqueras de plástico 100% reciclado. Sin mantenimiento, sin pudrición. Fabricado en Esperanza, Santa Fe." />
+    <meta name="twitter:title" content="Postes de Plástico Reciclado para el Campo | Tablanova" />
+    <meta name="twitter:description" content="Postes, varillas y tablas de plástico 100% reciclado para el campo. No se pudren, sin mantenimiento, resisten décadas. Pedí tu cotización." />
     <meta name="twitter:image" content="https://tablanova.com.ar/og-image.jpg" />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Tablanova",
-      "description": "Fabricantes de postes, varillas, tablas, tirantillos y tranqueras de plástico 100% reciclado para el campo. Sin mantenimiento ni pudrición.",
-      "url": "https://tablanova.com.ar",
-      "logo": "https://tablanova.com.ar/og-image.jpg",
-      "image": "https://tablanova.com.ar/og-image.jpg",
-      "telephone": "+5493425683285",
-      "email": "tablanova.ar@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Calle Soler 613",
-        "addressLocality": "Esperanza",
-        "addressRegion": "Santa Fe",
-        "postalCode": "3080",
-        "addressCountry": "AR"
-      },
-      "areaServed": "AR",
-      "sameAs": [
-        "https://instagram.com/tablanova.ar"
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://tablanova.com.ar/#organization",
+          "name": "Tablanova",
+          "description": "Fabricante argentino de postes, varillas, tablas, tirantillos y tranqueras de plástico 100% reciclado para el sector agropecuario. Sin mantenimiento ni pudrición.",
+          "url": "https://tablanova.com.ar/",
+          "logo": "https://tablanova.com.ar/og-image.jpg",
+          "image": "https://tablanova.com.ar/og-image.jpg",
+          "telephone": "+5493425683285",
+          "email": "tablanova.ar@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Calle Soler 613",
+            "addressLocality": "Esperanza",
+            "addressRegion": "Santa Fe",
+            "postalCode": "3080",
+            "addressCountry": "AR"
+          },
+          "foundingLocation": { "@type": "Place", "name": "Esperanza, Santa Fe, Argentina" },
+          "areaServed": { "@type": "Country", "name": "Argentina" },
+          "contactPoint": [{
+            "@type": "ContactPoint",
+            "telephone": "+5493425683285",
+            "contactType": "sales",
+            "areaServed": "AR",
+            "availableLanguage": "Spanish"
+          }],
+          "knowsAbout": [
+            "Plástico reciclado", "Economía circular", "Madera plástica",
+            "Alambrados rurales", "Postes para cercos", "Corrales y feedlots",
+            "Sustentabilidad agropecuaria", "Resistencia a la intemperie"
+          ],
+          "sameAs": [
+            "https://instagram.com/tablanova.ar"
+          ]
+        },
+        {
+          "@type": "Product",
+          "@id": "https://tablanova.com.ar/#poste-plastico-reciclado",
+          "name": "Poste de plástico reciclado para alambrado rural",
+          "image": "https://tablanova.com.ar/og-image.jpg",
+          "description": "Poste de plástico 100% reciclado para alambrados, cercos y corrales. No se pudre, no lo atacan los insectos y no requiere mantenimiento; resiste sol, humedad, barro y heladas durante décadas.",
+          "category": "Materiales para alambrado rural",
+          "material": "Plástico 100% reciclado",
+          "brand": { "@id": "https://tablanova.com.ar/#organization" },
+          "manufacturer": { "@id": "https://tablanova.com.ar/#organization" },
+          "audience": {
+            "@type": "Audience",
+            "audienceType": "Productores agropecuarios, ganaderos y contratistas rurales"
+          },
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Mantenimiento", "value": "No requiere" },
+            { "@type": "PropertyValue", "name": "Resistencia", "value": "UV, humedad, barro, heladas e insectos" },
+            { "@type": "PropertyValue", "name": "Vida útil estimada", "value": "Más de 20 años" },
+            { "@type": "PropertyValue", "name": "Material", "value": "Plástico post-consumo reciclado" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://tablanova.com.ar/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Es más caro que la madera?",
+              "acceptedAnswer": { "@type": "Answer", "text": "La comparación correcta no es solo el precio inicial. La madera suele requerir mantenimiento, tratamientos y reposiciones, y siempre genera recortes que se descartan. Tablanova es 100% aprovechable, sin desperdicios, y reduce esos costos durante todos los años de uso." }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Se puede usar en cercos rurales?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Sí. Es una de sus principales aplicaciones. Se utiliza en postes, varillas y cerramientos para campo." }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Resiste humedad y barro?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Sí. Al ser plástico reciclado, no absorbe humedad como la madera y no se pudre." }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Lo atacan los insectos?",
+              "acceptedAnswer": { "@type": "Answer", "text": "No. No es vulnerable a termitas ni plagas que afectan la madera." }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Necesita pintura o mantenimiento?",
+              "acceptedAnswer": { "@type": "Answer", "text": "No requiere pintura, barniz ni tratamientos periódicos." }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Hacen envíos?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Sí. Fabricamos en Esperanza, Santa Fe, y enviamos a diferentes puntos del país según el proyecto." }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Puedo pedir una cotización por cantidad?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Sí. Lo ideal es que nos indiques tipo de producto, cantidad aproximada, ubicación y uso previsto para calcular la mejor opción." }
+            }
+          ]
+        }
       ]
     }
     </script>

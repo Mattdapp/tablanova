@@ -412,6 +412,7 @@ export const Home = () => {
                   className="text-white"
                   style={{ maxWidth: 660, fontSize: 'clamp(2.5rem, 5.5vw, 4.2rem)', lineHeight: 1.05, letterSpacing: '-0.03em', fontWeight: 600 }}
                 >
+                  <span className="sr-only">Postes, varillas y tablas de plástico reciclado para el campo. </span>
                   Para el campo.<br />Para toda la vida.
                 </motion.h1>
               </div>

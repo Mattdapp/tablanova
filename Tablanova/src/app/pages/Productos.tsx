@@ -268,7 +268,7 @@ export const Productos = () => {
                 >
                   <img
                     src={product.image}
-                    alt={product.title}
+                    alt={`${product.title} de plástico reciclado para el campo — Tablanova`}
                     loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     style={{ aspectRatio: '4/3', display: 'block' }}
@@ -407,7 +407,7 @@ export const Productos = () => {
                   {item.image ? (
                     <img
                       src={item.image}
-                      alt={item.title}
+                      alt={`${item.title} de plástico reciclado para espacios exteriores — Tablanova`}
                       loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />

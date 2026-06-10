@@ -297,14 +297,14 @@ export const Catalogo = () => {
                   {product.image ? (
                     <button
                       type="button"
-                      onClick={() => setLightbox({ src: product.image!, alt: product.name })}
+                      onClick={() => setLightbox({ src: product.image!, alt: `${product.name} de plástico reciclado para el campo — Tablanova` })}
                       aria-label={`Ampliar foto de ${product.name}`}
                       className="group/zoom w-full h-full block relative"
                       style={{ border: 'none', padding: 0, background: 'transparent', cursor: 'zoom-in' }}
                     >
                       <img
                         src={product.image}
-                        alt={product.name}
+                        alt={`${product.name} de plástico reciclado para el campo — Tablanova`}
                         loading="lazy"
                         className="w-full h-full"
                         style={{ objectFit: 'contain', display: 'block', padding: '8px' }}
