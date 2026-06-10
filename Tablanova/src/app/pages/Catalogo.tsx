@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Search, X, Filter, Package, Weight, Layers, ArrowRight, MessageCircle } from 'lucide-react';
+import { Search, X, Filter, Package, Weight, Layers, ArrowRight, MessageCircle, ZoomIn } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import imgCatalogoHero from '../../assets/catalogo-hero.jpg';
 import imgPoste1 from '../../assets/catalog/poste-1.jpg';
@@ -57,6 +57,20 @@ const VIEWPORT = { once: true, margin: '-80px' } as const;
 export const Catalogo = () => {
   const [selectedCategory, setSelectedCategory] = useState('Todos');
   const [searchTerm, setSearchTerm] = useState('');
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+
+  // Lightbox de foto: cerrar con ESC + bloquear scroll de fondo mientras está abierto
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setLightbox(null); };
+    document.addEventListener('keydown', onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [lightbox]);
 
   const products: Product[] = [
     // VARILLAS — 3,5 × 3,5 cm + Ref 4,5 × 4,5 cm
@@ -278,13 +292,28 @@ export const Catalogo = () => {
                   style={{ borderRadius: '16px 16px 0 0', backgroundColor: '#fff', borderBottom: '1px solid #E8DCC8', aspectRatio: '4/3' }}
                 >
                   {product.image ? (
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      loading="lazy"
-                      className="w-full h-full"
-                      style={{ objectFit: 'contain', display: 'block', padding: '8px' }}
-                    />
+                    <button
+                      type="button"
+                      onClick={() => setLightbox({ src: product.image!, alt: product.name })}
+                      aria-label={`Ampliar foto de ${product.name}`}
+                      className="group/zoom w-full h-full block relative"
+                      style={{ border: 'none', padding: 0, background: 'transparent', cursor: 'zoom-in' }}
+                    >
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        loading="lazy"
+                        className="w-full h-full"
+                        style={{ objectFit: 'contain', display: 'block', padding: '8px' }}
+                      />
+                      <span
+                        className="absolute bottom-2 right-2 flex items-center justify-center rounded-full opacity-0 group-hover/zoom:opacity-100 transition-opacity duration-150"
+                        style={{ width: 28, height: 28, backgroundColor: 'rgba(94,15,41,0.9)' }}
+                        aria-hidden="true"
+                      >
+                        <ZoomIn size={15} color="#fff" />
+                      </span>
+                    </button>
                   ) : (
                     <div className="flex flex-col items-center justify-center gap-2">
                       <Package size={24} style={{ color: '#9C8C6E' }} />
@@ -417,6 +446,51 @@ export const Catalogo = () => {
         </motion.div>
         </div>
       </section>
+
+      {/* ─── IMAGE LIGHTBOX ───────────────────────────────────────────────── */}
+      <AnimatePresence>
+        {lightbox && (
+          <motion.div
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+            style={{ backgroundColor: 'rgba(10,4,6,0.92)' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setLightbox(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={lightbox.alt}
+          >
+            <button
+              onClick={() => setLightbox(null)}
+              aria-label="Cerrar"
+              className="absolute top-5 right-5"
+              style={{ width: 44, height: 44, borderRadius: '50%', backgroundColor: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}
+            >
+              <X size={22} />
+            </button>
+            <motion.div
+              className="flex flex-col items-center gap-4"
+              onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.92, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 24 }}
+            >
+              <img
+                src={lightbox.src}
+                alt={lightbox.alt}
+                style={{ maxWidth: '90vw', maxHeight: '80vh', objectFit: 'contain', borderRadius: 12, backgroundColor: '#fff', padding: 12 }}
+              />
+              <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.9rem', fontWeight: 500, textAlign: 'center' }}>
+                {lightbox.alt}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </div>
   );
 };
