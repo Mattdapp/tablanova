@@ -4,7 +4,6 @@ import { motion, useInView } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { useRef, useEffect, useState } from 'react';
 import imgNosotrosHero from '../../assets/nosotros-hero.jpg';
-import imgNosotrosCampo from '../../assets/nosotros-campo.jpg';
 
 const SPRING_HERO = { type: 'spring' as const, stiffness: 80, damping: 20 };
 const heroContainer = { hidden: {}, visible: { transition: { staggerChildren: 0.14, delayChildren: 0.25 } } };
@@ -232,7 +231,7 @@ export const Nosotros = () => {
             >
               <div style={{ borderRadius: 20, overflow: 'hidden', height: 'clamp(280px, 50vw, 500px)' }}>
                 <img
-                  src={imgNosotrosCampo}
+                  src={imgNosotrosHero}
                   alt="Tablanova - instalación en campo"
                   loading="lazy"
                   className="w-full"
