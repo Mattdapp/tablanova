@@ -539,7 +539,7 @@ export const Home = () => {
 
             <motion.div variants={reveal} className="flex flex-col gap-5">
               <p style={{ color: '#6B7280', lineHeight: 1.65 }}>
-                Desarrollamos piezas de plástico reciclado para reemplazar la madera tradicional en aplicaciones rurales, ganaderas, agrícolas y de infraestructura exterior.
+                Piezas de plástico reciclado para aplicaciones rurales, ganaderas, agrícolas y de infraestructura exterior.
               </p>
               <div>
                 <PillCTA to="/catalogo">Ver catálogo</PillCTA>
@@ -871,7 +871,7 @@ export const Home = () => {
                 No es madera plástica decorativa. Es material de trabajo.
               </motion.p>
               <motion.p variants={reveal} style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, maxWidth: 480 }}>
-                Tablanova está pensada para productores, contratistas, establecimientos agropecuarios, feedlots, tambos, municipios y empresas que necesitan materiales resistentes, durables y simples de instalar.
+                Tablanova está pensada para quienes necesitan materiales resistentes, durables y simples de instalar, que aguanten el trabajo diario sin dar problemas.
               </motion.p>
               <motion.div variants={reveal} className="mt-10">
                 <PillCTA onClick={handleWhatsApp}>Consultar para mi establecimiento</PillCTA>
@@ -1222,11 +1222,8 @@ export const Home = () => {
                   <span style={{ color: '#5E0F29' }}>como solución</span>
                 </motion.h2>
               </div>
-              <motion.p variants={reveal} style={{ color: '#6B7280', lineHeight: 1.7, marginBottom: '1.25rem' }}>
-                Impulsamos la economía circular: recuperamos plástico, lo transformamos y vuelve a la vida como productos duraderos y funcionales.
-              </motion.p>
               <motion.p variants={reveal} style={{ color: '#6B7280', lineHeight: 1.7 }}>
-                Más de 75.000 kg de plástico ya reciclados. Cada producto Tablanova reduce residuos y la presión sobre la madera: una alternativa sustentable, pero también inteligente desde lo económico y operativo.
+                Desarrollamos materiales innovadores que fusionan tecnología, diseño y compromiso con el planeta. Nuestra propuesta va más allá de reemplazar la madera: es un llamado a construir de manera consciente, reduciendo el impacto ambiental.
               </motion.p>
             </motion.div>
 
