@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { MessageCircle, MapPin, Phone, Mail, ChevronDown, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import imgContactoBg from '../../assets/contacto-hero.webp';
+import { trackWhatsApp } from '../lib/analytics';
 
 const SPRING = { type: 'spring' as const, stiffness: 80, damping: 20 };
 const VIEWPORT = { once: true, margin: '-80px' } as const;
@@ -34,6 +35,7 @@ export const Contacto = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   const handleWhatsApp = (msg = 'Hola, quiero consultar sobre productos Tablanova') => {
+    trackWhatsApp('contacto');
     window.open(`https://wa.me/5493425683285?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
   };
 

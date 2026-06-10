@@ -1,9 +1,11 @@
 import { motion } from 'motion/react';
+import { trackWhatsApp } from '../lib/analytics';
 
 export const WhatsAppButton = () => {
   const handleWhatsAppClick = () => {
     const phone = '5493425683285';
     const message = encodeURIComponent('Hola, quiero información sobre Tablanova');
+    trackWhatsApp('floating_button');
     window.open(`https://wa.me/${phone}?text=${message}`, '_blank', 'noopener,noreferrer');
   };
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Search, X, Filter, Package, Weight, Layers, ArrowRight, MessageCircle, ZoomIn } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { trackWhatsApp } from '../lib/analytics';
 import imgCatalogoHero from '../../assets/catalogo-hero.webp';
 import imgPoste1 from '../../assets/catalog/poste-1.webp';
 import imgPoste2 from '../../assets/catalog/poste-2.webp';
@@ -127,6 +128,7 @@ export const Catalogo = () => {
     const msg = encodeURIComponent(
       `Hola, quiero consultar precio y disponibilidad de: ${product.name} (${product.dimensions})`
     );
+    trackWhatsApp('catalogo_producto');
     window.open(`https://wa.me/${phone}?text=${msg}`, '_blank', 'noopener,noreferrer');
   };
 
@@ -425,6 +427,7 @@ export const Catalogo = () => {
             onClick={() => {
               const phone = '5493425683285';
               const msg = encodeURIComponent('Hola, quisiera consultar sobre productos Tablanova para mi proyecto');
+              trackWhatsApp('catalogo_cta');
               window.open(`https://wa.me/${phone}?text=${msg}`, '_blank', 'noopener,noreferrer');
             }}
             className="inline-flex items-center gap-3 font-medium transition-opacity duration-150"

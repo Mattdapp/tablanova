@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Leaf, Package } from 'lucide-react';
 import { motion } from 'motion/react';
+import { trackWhatsApp } from '../lib/analytics';
 import imgPostes from '../../assets/postes.webp';
 import imgVarillas from '../../assets/varillas.webp';
 import imgTablas from '../../assets/tablas.webp';
@@ -108,6 +109,7 @@ export const Productos = () => {
   const handleWhatsApp = () => {
     const phone = '5493425683285';
     const msg = encodeURIComponent('Hola, quiero cotizar productos Tablanova para el campo');
+    trackWhatsApp('productos');
     window.open(`https://wa.me/${phone}?text=${msg}`, '_blank', 'noopener,noreferrer');
   };
 
