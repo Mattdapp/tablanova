@@ -8,6 +8,7 @@ import imgTablas from '../../assets/tablas.jpg';
 import imgTranqueras from '../../assets/tranqueras.jpg';
 import imgAgroBg from '../../assets/agro-bg.jpg';
 import imgReposera from '../../assets/catalog/reposera-1.jpg';
+import imgBanco from '../../assets/catalog/banco-1.jpg';
 
 const SPRING = { type: 'spring' as const, stiffness: 80, damping: 20 };
 const VIEWPORT = { once: true, margin: '-80px' } as const;
@@ -365,7 +366,7 @@ export const Productos = () => {
               {
                 title: 'Bancos Americanos / Canadienses',
                 description: 'Para parques, plazas y espacios de descanso que se disfrutan años.',
-                image: undefined as string | undefined,
+                image: imgBanco as string | undefined,
                 benefits: ['Banco con mesa integrada estilo americano', 'Medidas: 1,20×1,50 m y 1,20×1,90 m', 'De 100 a 130 kg', 'Sin mantenimiento', 'Apto para uso en exteriores'],
               },
               {
