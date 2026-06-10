@@ -39,12 +39,11 @@ const agroProducts = [
     tag: 'El más pedido',
     description: 'El cerco que no necesita mantenimiento.',
     longDescription:
-      'Nuestros postes de plástico reciclado reemplazan definitivamente al poste de madera en cualquier tipo de cerco rural. No se pudren, no los atacan los insectos, no se agrietan con el sol ni se deforman con la humedad. Una inversión que se paga sola en los primeros 5 años: sin fungicidas, sin repintar, sin reponer.',
+      'Fabricados 100% con plástico reciclado, nuestros postes son la alternativa sustentable y definitiva para cercos rurales. Resistentes a la humedad, al sol, a los insectos y al paso del tiempo, no se pudren ni requieren mantenimiento. Una opción inteligente que reduce costos de reposición y contribuye a la economía circular, transformando residuos en estructuras duraderas para el campo.',
     image: imgPostes,
     benefits: [
-      'Redondos: Ø 10cm × 1,80m / 2,20m / 2,40m',
-      'Cuadrados: 8×8cm y 10×10cm × 2,50m',
-      'De 13 a 20 kg por unidad',
+      'Redondos: Ø 10 cm × 1,80 / 2,20 / 2,40 m',
+      'Cuadrados: 4,5×4,5 / 8×8 / 10×10 cm × 2,50 m',
       'No requiere tratamiento ni impregnación',
       'Instalación idéntica al poste de madera',
       'Mínimo desde 25 unidades',
@@ -56,13 +55,12 @@ const agroProducts = [
     tag: 'Cercos eléctricos y perimetrales',
     description: 'La varilla que mantiene la tensión.',
     longDescription:
-      'Sin óxido, sin deformación, sin pérdida de tensión a lo largo del tiempo. Las varillas y varillones de Tablanova están fabricados con plástico reciclado de alta densidad, resistentes al impacto de animales y a los agentes climáticos más extremos. Pensadas para cercos eléctricos y perimetrales de alta exigencia.',
+      'Diseñadas para brindar máxima resistencia y durabilidad, nuestras varillas y varillones están fabricados con plástico reciclado de alta densidad. No se oxidan, no se deforman y mantienen sus prestaciones a lo largo del tiempo, incluso en las condiciones climáticas más exigentes. Con una excelente resistencia al impacto de animales, la humedad, los rayos UV y la corrosión, reducen el mantenimiento, prolongan la vida útil de las instalaciones y contribuyen al cuidado del medio ambiente mediante la reutilización de materiales reciclados.',
     image: imgVarillas,
     benefits: [
-      'Varillas 0,35×0,35cm a 0,45×0,45cm',
-      'Varillones 0,55×0,55cm',
-      'Largos: 1,10m / 1,20m / 1,40m / 1,60m / 1,80m',
-      'De 1,1 a 5,5 kg por unidad',
+      'Varillas 3,5 × 3,5 cm',
+      'Varillones 4,5 × 4,5 cm',
+      'Largos: 1,10 / 1,40 / 1,60 / 1,80 m',
       'Compatibles con grapas y alambres estándar',
       'Mínimo 50–200 unidades según tipo',
     ],
@@ -73,13 +71,12 @@ const agroProducts = [
     tag: 'Construcción rural',
     description: 'Para construir estructuras que duran.',
     longDescription:
-      'Las tablas y tirantillos de plástico reciclado son la alternativa definitiva a la madera en estructuras rurales. Corrales, tinglados, comederos, pasillos de trabajo: aplicaciones que exigen resistencia constante a la humedad, el barro y el contacto con animales. Sin tratamientos. Sin mantenimiento. Sin roturas por pudrición.',
+      'Fabricados con plástico reciclado de alta calidad, nuestras tablas y tirantillos son una solución durable y sustentable para aplicaciones rurales y agropecuarias. Ideales para corrales, comederos, pasillos de trabajo y estructuras expuestas a la intemperie, ofrecen máxima resistencia a la humedad, al barro y al contacto permanente con animales. No se pudren, no requieren tratamiento ni mantenimiento, garantizando una larga vida útil con un mínimo costo operativo.',
     image: imgTablas,
     benefits: [
-      'Tablas 0,11×0,30cm a 0,25×0,40cm',
-      'Tirantillos 0,45×0,45cm a 0,55×0,55cm',
-      'Largos: 2m / 2,40m / 2,80m / 3m',
-      'De 4,5 a 20 kg por unidad',
+      'Tablas 11 × 3 cm y 25 × 4 cm',
+      'Tirantillos 4,5 × 5,5 cm y 5,5 × 5,5 cm',
+      'Largos: 2,00 / 2,40 / 2,80 / 3,00 m',
       'Apto contacto con animales y humedad',
       'Mínimo 50 unidades',
     ],
@@ -93,11 +90,10 @@ const agroProducts = [
       'Robustas, resistentes y sin mantenimiento. Las tranqueras Tablanova están fabricadas íntegramente con plástico reciclado y pensadas para accesos rurales de alta exigencia. No se oxidan, no se pudren y soportan el uso diario sin deterioro. Disponibles en múltiples medidas estándar, con posibilidad de solicitar tamaños a medida.',
     image: imgTranqueras,
     benefits: [
-      '1,20 × 1,50m / 2m / 3m (ancho × alto)',
-      '70 a 160 kg por unidad',
+      'Estándar (ancho × alto): 1,20×1,50 · 2×1,20 · 2×1,40 · 3×1,20 · 3×1,40 m',
       'Sin pintura, sin tratamiento, sin óxido',
       'Sistema de cierre robusto incluido',
-      'Medidas especiales a pedido',
+      'Fabricación a medida según necesidad',
       'Desde 1 unidad',
     ],
   },
@@ -196,7 +192,7 @@ export const Productos = () => {
                 Qué es la Línea Agro
               </h3>
               <p style={{ color: '#6B7280', lineHeight: 1.72 }}>
-                Desarrollamos piezas de plástico reciclado para reemplazar la madera en el sector agropecuario. Postes, varillas, tablas, tirantillos y tranqueras fabricados para aguantar el campo real: humedad, barro, sol, animales y uso diario sin interrupciones.
+                Desarrollamos piezas de plástico reciclado para reemplazar la madera en el sector agropecuario. Postes, varillas, tablas, tirantillos y tranqueras fabricados para aguantar la rusticidad del campo: resisten humedad, barro, sol, animales y uso diario para que duren décadas.
               </p>
             </motion.div>
 
@@ -205,7 +201,7 @@ export const Productos = () => {
                 El material
               </p>
               <h3 style={{ color: '#111827', fontSize: '1.4rem', fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16 }}>
-                Sin madera. Sin mantenimiento.
+                Sin mantenimiento.
               </h3>
               <p style={{ color: '#6B7280', lineHeight: 1.72 }}>
                 No se pudren, no se astillan, no se rajan y no necesitan tratamiento. Se instalan con las mismas herramientas que la madera y duran décadas donde la madera no llegaría. Cero fungicidas, cero pintura, cero reposiciones.

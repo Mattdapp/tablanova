@@ -209,7 +209,7 @@ const projects = [
   {
     image: imgMunicipios,
     title: 'Municipios y espacios públicos',
-    description: 'Mobiliario exterior resistente, sin pintura y con larga vida útil para plazas y parques.',
+    description: 'Mobiliario exterior resistente, sin mantenimiento y con larga vida útil para plazas y parques.',
     location: 'Espacio público',
   },
 ];
@@ -218,7 +218,7 @@ const faqs = [
   {
     question: '¿Es más caro que la madera?',
     answer:
-      'La comparación correcta no es solo el precio inicial. La madera suele requerir mantenimiento, tratamientos y reposiciones. Tablanova busca reducir esos costos durante los años de uso.',
+      'La comparación correcta no es solo el precio inicial. La madera suele requerir mantenimiento, tratamientos y reposiciones, y siempre genera recortes que se descartan. Tablanova es 100% aprovechable, sin desperdicios, y reduce esos costos durante todos los años de uso.',
   },
   {
     question: '¿Se puede usar en cercos rurales?',
@@ -728,7 +728,7 @@ export const Home = () => {
                   <span style={{ color: '#5E0F29' }}>la madera</span>
                 </h2>
                 <p style={{ color: '#6B7280', maxWidth: 320, lineHeight: 1.65, flexShrink: 0 }}>
-                  Porque en el campo la madera no solo se compra: también se mantiene, se repara y se reemplaza.
+                  Porque elegir plástico reciclado evita la tala de árboles y el mantenimiento constante que la madera siempre termina exigiendo.
                 </p>
               </div>
             </motion.div>
