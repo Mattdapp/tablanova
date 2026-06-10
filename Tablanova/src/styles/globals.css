@@ -23,6 +23,12 @@
 }
 
 @layer base {
+  /* Guarda global anti-scroll horizontal: clip (no hidden) para no romper position: sticky del header */
+  html, body {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
   body {
     background-color: #F5F0E8;
     color: #111827;

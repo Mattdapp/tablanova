@@ -131,7 +131,7 @@ export const Catalogo = () => {
   };
 
   return (
-    <div style={{ backgroundColor: '#F5F0E8' }}>
+    <div className="overflow-x-hidden" style={{ backgroundColor: '#F5F0E8' }}>
       <Helmet>
         <title>Catálogo de productos | Tablanova</title>
         <meta name="description" content="Explorá el catálogo completo de Tablanova: postes, varillas, varillones, tablas, tirantillos y tranqueras de plástico reciclado con medidas y especificaciones." />
