@@ -25,6 +25,8 @@ import imgTranquera1 from '../../assets/catalog/tranquera-1.jpg';
 import imgTranquera2 from '../../assets/catalog/tranquera-2.jpg';
 import imgTranquera3 from '../../assets/catalog/tranquera-3.jpg';
 import imgReposera1 from '../../assets/catalog/reposera-1.jpg';
+import imgBanco1 from '../../assets/catalog/banco-1.jpg';
+import imgBanco2 from '../../assets/catalog/banco-2.jpg';
 
 const SPRING = { type: 'spring' as const, stiffness: 80, damping: 20 };
 
@@ -103,8 +105,8 @@ export const Catalogo = () => {
     { id: 'tranq-2', name: 'Tranquera 1,20 × 2 m', dimensions: '1,20 × 2 m', weight: 90, minQuantity: 1, category: 'Tranqueras', image: imgTranquera2 },
     { id: 'tranq-3', name: 'Tranquera 1,20 × 3 m', dimensions: '1,20 × 3 m', weight: 160, minQuantity: 1, category: 'Tranqueras', image: imgTranquera3 },
     // BANCOS
-    { id: 'banco-1', name: 'Banco Americano / Canadiense 1,20 × 1,50 m', dimensions: '1,20 × 1,50 m', weight: 100, minQuantity: 1, category: 'Bancos' },
-    { id: 'banco-2', name: 'Banco Americano / Canadiense 1,20 × 1,90 m', dimensions: '1,20 × 1,90 m', weight: 130, minQuantity: 1, category: 'Bancos' },
+    { id: 'banco-1', name: 'Banco Americano / Canadiense 1,20 × 1,50 m', dimensions: '1,20 × 1,50 m', weight: 100, minQuantity: 1, category: 'Bancos', image: imgBanco1 },
+    { id: 'banco-2', name: 'Banco Americano / Canadiense 1,20 × 1,90 m', dimensions: '1,20 × 1,90 m', weight: 130, minQuantity: 1, category: 'Bancos', image: imgBanco2 },
     // REPOSERA
     { id: 'rep-1', name: 'Reposera 1,90 × 0,60 m', dimensions: '1,90 × 0,60 m', weight: 70, minQuantity: 1, category: 'Exterior', isNew: true, image: imgReposera1 },
   ];
