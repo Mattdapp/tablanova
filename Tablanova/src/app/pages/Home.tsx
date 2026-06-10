@@ -313,14 +313,16 @@ function AnimatedStat({ value, label }: { value: string; label: string }) {
     }
     const duration = 1400;
     const t0 = Date.now();
+    let rafId = 0;
     const tick = () => {
       const p = Math.min((Date.now() - t0) / duration, 1);
       const eased = 1 - Math.pow(1 - p, 3);
       setDisplay(Math.floor(eased * target) + suffix);
-      if (p < 1) requestAnimationFrame(tick);
+      if (p < 1) rafId = requestAnimationFrame(tick);
       else setDisplay(value);
     };
-    requestAnimationFrame(tick);
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
   }, [inView]);
 
   return (

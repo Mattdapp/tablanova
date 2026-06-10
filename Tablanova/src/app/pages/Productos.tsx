@@ -113,6 +113,14 @@ export const Productos = () => {
 
   return (
     <div className="overflow-x-hidden">
+      <Helmet>
+        <title>Productos — Línea Agro de plástico reciclado | Tablanova</title>
+        <meta name="description" content="Postes, varillas, tablas, tirantillos y tranqueras de plástico 100% reciclado para el campo. Resistentes, sin mantenimiento y fabricados en Esperanza, Santa Fe." />
+        <link rel="canonical" href="https://tablanova.com.ar/productos" />
+        <meta property="og:title" content="Productos — Línea Agro de plástico reciclado | Tablanova" />
+        <meta property="og:url" content="https://tablanova.com.ar/productos" />
+        <meta property="og:description" content="Postes, varillas, tablas, tirantillos y tranqueras de plástico 100% reciclado para el campo." />
+      </Helmet>
 
       {/* ─── HERO ─────────────────────────────────────────────────────────── */}
       <section
