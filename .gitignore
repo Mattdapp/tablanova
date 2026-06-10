@@ -31,5 +31,6 @@ Thumbs.db
 .claude/
 .atl/
 
-# Local working scratch (error captures)
+# Local working scratch (error captures + source/reference photos)
 Tablanova/ERRORES/
+Tablanova/Fotos/
