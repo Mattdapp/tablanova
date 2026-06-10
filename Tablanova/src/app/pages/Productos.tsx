@@ -42,8 +42,9 @@ const agroProducts = [
       'Fabricados 100% con plástico reciclado, nuestros postes son la alternativa sustentable y definitiva para cercos rurales. Resistentes a la humedad, al sol, a los insectos y al paso del tiempo, no se pudren ni requieren mantenimiento. Una opción inteligente que reduce costos de reposición y contribuye a la economía circular, transformando residuos en estructuras duraderas para el campo.',
     image: imgPostes,
     benefits: [
-      'Redondos: Ø 10 cm × 1,80 / 2,20 / 2,40 m',
-      'Cuadrados: 4,5×4,5 / 8×8 / 10×10 cm × 2,50 m',
+      'Redondos: Ø 10 × 180 / 220 / 240 cm',
+      'Cuadrados: 8×8 y 10×10 × 250 cm',
+      'De 13 a 20 kg por unidad',
       'No requiere tratamiento ni impregnación',
       'Instalación idéntica al poste de madera',
       'Mínimo desde 25 unidades',
@@ -58,9 +59,10 @@ const agroProducts = [
       'Diseñadas para brindar máxima resistencia y durabilidad, nuestras varillas y varillones están fabricados con plástico reciclado de alta densidad. No se oxidan, no se deforman y mantienen sus prestaciones a lo largo del tiempo, incluso en las condiciones climáticas más exigentes. Con una excelente resistencia al impacto de animales, la humedad, los rayos UV y la corrosión, reducen el mantenimiento, prolongan la vida útil de las instalaciones y contribuyen al cuidado del medio ambiente mediante la reutilización de materiales reciclados.',
     image: imgVarillas,
     benefits: [
-      'Varillas 3,5 × 3,5 cm',
-      'Varillones 4,5 × 4,5 cm',
-      'Largos: 1,10 / 1,40 / 1,60 / 1,80 m',
+      'Varillas 3,5 × 3,5 cm · Ref 4,5 × 4,5 cm',
+      'Varillones 5,5 × 5,5 cm',
+      'Largos: varillas 110 / 120 / 140 cm · varillones 160 / 180 cm',
+      'De 1,1 a 5,5 kg por unidad',
       'Compatibles con grapas y alambres estándar',
       'Mínimo 50–200 unidades según tipo',
     ],
@@ -74,9 +76,10 @@ const agroProducts = [
       'Fabricados con plástico reciclado de alta calidad, nuestras tablas y tirantillos son una solución durable y sustentable para aplicaciones rurales y agropecuarias. Ideales para corrales, comederos, pasillos de trabajo y estructuras expuestas a la intemperie, ofrecen máxima resistencia a la humedad, al barro y al contacto permanente con animales. No se pudren, no requieren tratamiento ni mantenimiento, garantizando una larga vida útil con un mínimo costo operativo.',
     image: imgTablas,
     benefits: [
-      'Tablas 11 × 3 cm y 25 × 4 cm',
-      'Tirantillos 4,5 × 5,5 cm y 5,5 × 5,5 cm',
-      'Largos: 2,00 / 2,40 / 2,80 / 3,00 m',
+      'Tablas 11 × 3 cm (200 / 300) y 25 × 4 cm (200)',
+      'Tirantillos 4,5 × 4,5 cm (240 / 280) y 5,5 × 5,5 cm (280)',
+      'Largos de 200 a 300 cm',
+      'De 4,5 a 20 kg por unidad',
       'Apto contacto con animales y humedad',
       'Mínimo 50 unidades',
     ],
@@ -90,7 +93,8 @@ const agroProducts = [
       'Robustas, resistentes y sin mantenimiento. Las tranqueras Tablanova están fabricadas íntegramente con plástico reciclado y pensadas para accesos rurales de alta exigencia. No se oxidan, no se pudren y soportan el uso diario sin deterioro. Disponibles en múltiples medidas estándar, con posibilidad de solicitar tamaños a medida.',
     image: imgTranqueras,
     benefits: [
-      'Estándar (ancho × alto): 1,20×1,50 · 2×1,20 · 2×1,40 · 3×1,20 · 3×1,40 m',
+      'Estándar (ancho × alto): 1,20×1,50 · 1,20×2 · 1,20×3 m',
+      'De 70 a 160 kg por unidad',
       'Sin pintura, sin tratamiento, sin óxido',
       'Sistema de cierre robusto incluido',
       'Fabricación a medida según necesidad',
@@ -359,10 +363,10 @@ export const Productos = () => {
           >
             {[
               {
-                title: 'Bancos Americanos',
+                title: 'Bancos Americanos / Canadienses',
                 description: 'Para parques, plazas y espacios de descanso que se disfrutan años.',
                 image: undefined as string | undefined,
-                benefits: ['Banco con mesa integrada estilo americano', 'Medidas: 1,20×1,50m y 1,20×1,90m', 'De 100 a 130 kg', 'Sin mantenimiento', 'Apto para uso en exteriores'],
+                benefits: ['Banco con mesa integrada estilo americano', 'Medidas: 1,20×1,50 m y 1,20×1,90 m', 'De 100 a 130 kg', 'Sin mantenimiento', 'Apto para uso en exteriores'],
               },
               {
                 title: 'Reposeras',
