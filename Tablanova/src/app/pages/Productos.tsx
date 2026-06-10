@@ -42,8 +42,8 @@ const agroProducts = [
       'Fabricados 100% con plástico reciclado, nuestros postes son la alternativa sustentable y definitiva para cercos rurales. Resistentes a la humedad, al sol, a los insectos y al paso del tiempo, no se pudren ni requieren mantenimiento. Una opción inteligente que reduce costos de reposición y contribuye a la economía circular, transformando residuos en estructuras duraderas para el campo.',
     image: imgPostes,
     benefits: [
-      'Redondos: Ø 10 × 180 / 220 / 240 cm',
-      'Cuadrados: 8×8 y 10×10 × 250 cm',
+      'Redondos: Ø 10 cm × 1,80 / 2,20 / 2,40 m',
+      'Cuadrados: 8×8 y 10×10 cm × 2,50 m',
       'De 13 a 20 kg por unidad',
       'No requiere tratamiento ni impregnación',
       'Instalación idéntica al poste de madera',
@@ -61,7 +61,7 @@ const agroProducts = [
     benefits: [
       'Varillas 3,5 × 3,5 cm · Ref 4,5 × 4,5 cm',
       'Varillones 5,5 × 5,5 cm',
-      'Largos: varillas 110 / 120 / 140 cm · varillones 160 / 180 cm',
+      'Largos: varillas 1,10 / 1,20 / 1,40 m · varillones 1,60 / 1,80 m',
       'De 1,1 a 5,5 kg por unidad',
       'Compatibles con grapas y alambres estándar',
       'Mínimo 50–200 unidades según tipo',
@@ -76,9 +76,9 @@ const agroProducts = [
       'Fabricados con plástico reciclado de alta calidad, nuestras tablas y tirantillos son una solución durable y sustentable para aplicaciones rurales y agropecuarias. Ideales para corrales, comederos, pasillos de trabajo y estructuras expuestas a la intemperie, ofrecen máxima resistencia a la humedad, al barro y al contacto permanente con animales. No se pudren, no requieren tratamiento ni mantenimiento, garantizando una larga vida útil con un mínimo costo operativo.',
     image: imgTablas,
     benefits: [
-      'Tablas 11 × 3 cm (200 / 300) y 25 × 4 cm (200)',
-      'Tirantillos 4,5 × 4,5 cm (240 / 280) y 5,5 × 5,5 cm (280)',
-      'Largos de 200 a 300 cm',
+      'Tablas 11 × 3 cm (2,00 / 3,00 m) y 25 × 4 cm (2,00 m)',
+      'Tirantillos 4,5 × 4,5 cm (2,40 / 2,80 m) y 5,5 × 5,5 cm (2,80 m)',
+      'Largos de 2,00 a 3,00 m',
       'De 4,5 a 20 kg por unidad',
       'Apto contacto con animales y humedad',
       'Mínimo 50 unidades',

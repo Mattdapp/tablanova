@@ -74,29 +74,29 @@ export const Catalogo = () => {
 
   const products: Product[] = [
     // VARILLAS — 3,5 × 3,5 cm + Ref 4,5 × 4,5 cm
-    { id: 'var-1', name: 'Varilla 3,5 × 3,5 × 110 cm', dimensions: '3,5 × 3,5 × 110 cm', weight: 1.1, minQuantity: 200, category: 'Varillas', image: imgVarilla1 },
-    { id: 'var-2', name: 'Varilla 3,5 × 3,5 × 120 cm', dimensions: '3,5 × 3,5 × 120 cm', weight: 1.2, minQuantity: 200, category: 'Varillas', image: imgVarilla2 },
-    { id: 'var-3', name: 'Varilla 3,5 × 3,5 × 140 cm', dimensions: '3,5 × 3,5 × 140 cm', weight: 1.4, minQuantity: 200, category: 'Varillas', image: imgVarilla3 },
-    { id: 'var-4', name: 'Varilla Ref 4,5 × 4,5 × 120 cm', dimensions: '4,5 × 4,5 × 120 cm', weight: 2, minQuantity: 200, category: 'Varillas', image: imgVarillaRef1 },
-    { id: 'var-5', name: 'Varilla Ref 4,5 × 4,5 × 140 cm', dimensions: '4,5 × 4,5 × 140 cm', weight: 2.5, minQuantity: 200, category: 'Varillas', image: imgVarillaRef2 },
+    { id: 'var-1', name: 'Varilla 3,5 × 3,5 cm × 1,10 m', dimensions: '3,5 × 3,5 cm × 1,10 m', weight: 1.1, minQuantity: 200, category: 'Varillas', image: imgVarilla1 },
+    { id: 'var-2', name: 'Varilla 3,5 × 3,5 cm × 1,20 m', dimensions: '3,5 × 3,5 cm × 1,20 m', weight: 1.2, minQuantity: 200, category: 'Varillas', image: imgVarilla2 },
+    { id: 'var-3', name: 'Varilla 3,5 × 3,5 cm × 1,40 m', dimensions: '3,5 × 3,5 cm × 1,40 m', weight: 1.4, minQuantity: 200, category: 'Varillas', image: imgVarilla3 },
+    { id: 'var-4', name: 'Varilla Ref 4,5 × 4,5 cm × 1,20 m', dimensions: '4,5 × 4,5 cm × 1,20 m', weight: 2, minQuantity: 200, category: 'Varillas', image: imgVarillaRef1 },
+    { id: 'var-5', name: 'Varilla Ref 4,5 × 4,5 cm × 1,40 m', dimensions: '4,5 × 4,5 cm × 1,40 m', weight: 2.5, minQuantity: 200, category: 'Varillas', image: imgVarillaRef2 },
     // VARILLONES — 5,5 × 5,5 cm
-    { id: 'varon-1', name: 'Varillón 5,5 × 5,5 × 160 cm', dimensions: '5,5 × 5,5 × 160 cm', weight: 4.5, minQuantity: 50, category: 'Varillones', image: imgVarillon1 },
-    { id: 'varon-2', name: 'Varillón 5,5 × 5,5 × 180 cm', dimensions: '5,5 × 5,5 × 180 cm', weight: 5.5, minQuantity: 50, category: 'Varillones', image: imgVarillon2 },
+    { id: 'varon-1', name: 'Varillón 5,5 × 5,5 cm × 1,60 m', dimensions: '5,5 × 5,5 cm × 1,60 m', weight: 4.5, minQuantity: 50, category: 'Varillones', image: imgVarillon1 },
+    { id: 'varon-2', name: 'Varillón 5,5 × 5,5 cm × 1,80 m', dimensions: '5,5 × 5,5 cm × 1,80 m', weight: 5.5, minQuantity: 50, category: 'Varillones', image: imgVarillon2 },
     // POSTES — cuadrados
-    { id: 'post-1', name: 'Poste 8 × 8 × 250 cm', dimensions: '8 × 8 × 250 cm', weight: 15, minQuantity: 50, category: 'Postes', image: imgPoste1 },
-    { id: 'post-2', name: 'Poste 10 × 10 × 250 cm', dimensions: '10 × 10 × 250 cm', weight: 20, minQuantity: 50, category: 'Postes', image: imgPoste2 },
+    { id: 'post-1', name: 'Poste 8 × 8 cm × 2,50 m', dimensions: '8 × 8 cm × 2,50 m', weight: 15, minQuantity: 50, category: 'Postes', image: imgPoste1 },
+    { id: 'post-2', name: 'Poste 10 × 10 cm × 2,50 m', dimensions: '10 × 10 cm × 2,50 m', weight: 20, minQuantity: 50, category: 'Postes', image: imgPoste2 },
     // POSTES — redondos
-    { id: 'post-3', name: 'Poste redondo Ø 10 × 180 cm', dimensions: 'Ø 10 × 180 cm', weight: 13, minQuantity: 30, category: 'Postes', image: imgPoste3 },
-    { id: 'post-4', name: 'Poste redondo Ø 10 × 220 cm', dimensions: 'Ø 10 × 220 cm', weight: 16, minQuantity: 25, category: 'Postes', image: imgPoste4 },
-    { id: 'post-5', name: 'Poste redondo Ø 10 × 240 cm', dimensions: 'Ø 10 × 240 cm', weight: 18, minQuantity: 25, category: 'Postes', image: imgPoste4 },
+    { id: 'post-3', name: 'Poste redondo Ø 10 cm × 1,80 m', dimensions: 'Ø 10 cm × 1,80 m', weight: 13, minQuantity: 30, category: 'Postes', image: imgPoste3 },
+    { id: 'post-4', name: 'Poste redondo Ø 10 cm × 2,20 m', dimensions: 'Ø 10 cm × 2,20 m', weight: 16, minQuantity: 25, category: 'Postes', image: imgPoste4 },
+    { id: 'post-5', name: 'Poste redondo Ø 10 cm × 2,40 m', dimensions: 'Ø 10 cm × 2,40 m', weight: 18, minQuantity: 25, category: 'Postes', image: imgPoste4 },
     // TABLAS
-    { id: 'tab-1', name: 'Tabla 11 × 3 × 200 cm', dimensions: '11 × 3 × 200 cm', weight: 5.3, minQuantity: 50, category: 'Tablas', image: imgTabla1 },
-    { id: 'tab-2', name: 'Tabla 11 × 3 × 300 cm', dimensions: '11 × 3 × 300 cm', weight: 11, minQuantity: 50, category: 'Tablas', image: imgTabla2 },
-    { id: 'tab-3', name: 'Tabla 25 × 4 × 200 cm', dimensions: '25 × 4 × 200 cm', weight: 20, minQuantity: 50, category: 'Tablas', image: imgTabla3 },
+    { id: 'tab-1', name: 'Tabla 11 × 3 cm × 2,00 m', dimensions: '11 × 3 cm × 2,00 m', weight: 5.3, minQuantity: 50, category: 'Tablas', image: imgTabla1 },
+    { id: 'tab-2', name: 'Tabla 11 × 3 cm × 3,00 m', dimensions: '11 × 3 cm × 3,00 m', weight: 11, minQuantity: 50, category: 'Tablas', image: imgTabla2 },
+    { id: 'tab-3', name: 'Tabla 25 × 4 cm × 2,00 m', dimensions: '25 × 4 cm × 2,00 m', weight: 20, minQuantity: 50, category: 'Tablas', image: imgTabla3 },
     // TIRANTILLOS
-    { id: 'tir-1', name: 'Tirantillo 4,5 × 4,5 × 240 cm', dimensions: '4,5 × 4,5 × 240 cm', weight: 4.5, minQuantity: 50, category: 'Tirantillos', image: imgTirantillo1 },
-    { id: 'tir-2', name: 'Tirantillo 4,5 × 4,5 × 280 cm', dimensions: '4,5 × 4,5 × 280 cm', weight: 5, minQuantity: 50, category: 'Tirantillos', image: imgTirantillo2 },
-    { id: 'tir-3', name: 'Tirantillo 5,5 × 5,5 × 280 cm', dimensions: '5,5 × 5,5 × 280 cm', weight: 6.5, minQuantity: 50, category: 'Tirantillos', image: imgTirantillo3 },
+    { id: 'tir-1', name: 'Tirantillo 4,5 × 4,5 cm × 2,40 m', dimensions: '4,5 × 4,5 cm × 2,40 m', weight: 4.5, minQuantity: 50, category: 'Tirantillos', image: imgTirantillo1 },
+    { id: 'tir-2', name: 'Tirantillo 4,5 × 4,5 cm × 2,80 m', dimensions: '4,5 × 4,5 cm × 2,80 m', weight: 5, minQuantity: 50, category: 'Tirantillos', image: imgTirantillo2 },
+    { id: 'tir-3', name: 'Tirantillo 5,5 × 5,5 cm × 2,80 m', dimensions: '5,5 × 5,5 cm × 2,80 m', weight: 6.5, minQuantity: 50, category: 'Tirantillos', image: imgTirantillo3 },
     // TRANQUERAS — (ancho × alto)
     { id: 'tranq-1', name: 'Tranquera 1,20 × 1,50 m', dimensions: '1,20 × 1,50 m', weight: 70, minQuantity: 1, category: 'Tranqueras', image: imgTranquera1 },
     { id: 'tranq-2', name: 'Tranquera 1,20 × 2 m', dimensions: '1,20 × 2 m', weight: 90, minQuantity: 1, category: 'Tranqueras', image: imgTranquera2 },
