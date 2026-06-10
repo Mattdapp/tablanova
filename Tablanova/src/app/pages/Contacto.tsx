@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { MessageCircle, MapPin, Phone, Mail, ChevronDown, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import imgContactoBg from '../../assets/contacto-hero.jpg';
+import imgContactoBg from '../../assets/contacto-hero.webp';
 
 const SPRING = { type: 'spring' as const, stiffness: 80, damping: 20 };
 const VIEWPORT = { once: true, margin: '-80px' } as const;

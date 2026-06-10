@@ -2,16 +2,16 @@ import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, ChevronDown, CheckCircle, X, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { motion, AnimatePresence, useInView } from 'motion/react';
-import imgPostes from '../../assets/postes.jpg';
-import imgVarillas from '../../assets/varillas.jpg';
-import imgTablas from '../../assets/tablas.jpg';
-import imgTranqueras from '../../assets/tranqueras.jpg';
-import imgCercos from '../../assets/cercos.jpg';
-import imgCorrales from '../../assets/corrales.jpg';
-import imgMunicipios from '../../assets/municipios.jpg';
-import imgObrasMedida from '../../assets/obras-medida.jpg';
-import imgAgroBg from '../../assets/agro-bg.jpg';
-import imgCtaBg from '../../assets/cta-bg.jpg';
+import imgPostes from '../../assets/postes.webp';
+import imgVarillas from '../../assets/varillas.webp';
+import imgTablas from '../../assets/tablas.webp';
+import imgTranqueras from '../../assets/tranqueras.webp';
+import imgCercos from '../../assets/cercos.webp';
+import imgCorrales from '../../assets/corrales.webp';
+import imgMunicipios from '../../assets/municipios.webp';
+import imgObrasMedida from '../../assets/obras-medida.webp';
+import imgAgroBg from '../../assets/agro-bg.webp';
+import imgCtaBg from '../../assets/cta-bg.webp';
 
 // ─── Reusable design tokens ───────────────────────────────────────────────────
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -384,7 +384,7 @@ export const Home = () => {
       >
         <div className="absolute inset-0">
           <img
-            src="/hero.jpg"
+            src="/hero.webp"
             alt=""
             className="w-full h-full object-cover object-center"
             width={2400}
@@ -843,6 +843,7 @@ export const Home = () => {
         <img
           src={imgAgroBg}
           alt=""
+          loading="lazy"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(105deg, rgba(15,25,8,0.88) 40%, rgba(15,25,8,0.65) 100%)' }} />
@@ -1174,7 +1175,7 @@ export const Home = () => {
               alt="Entrevista a Tablanova"
               loading="lazy"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              onError={(e) => { (e.currentTarget as HTMLImageElement).src = 'https://img.youtube.com/vi/eNHsi9gGzts/hqdefault.jpg'; }}
+              onError={(e) => { (e.currentTarget as HTMLImageElement).src = 'https://img.youtube.com/vi/eNHsi9gGzts/hqdefault.webp'; }}
             />
             <div
               className="absolute inset-0"
@@ -1466,6 +1467,7 @@ export const Home = () => {
         <img
           src={imgCtaBg}
           alt=""
+          loading="lazy"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(105deg, rgba(20,6,10,0.92) 45%, rgba(20,6,10,0.6) 100%)' }} />

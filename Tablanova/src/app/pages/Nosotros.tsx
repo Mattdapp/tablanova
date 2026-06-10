@@ -3,7 +3,7 @@ import { Recycle, Clock, Wrench, Target, ArrowRight } from 'lucide-react';
 import { motion, useInView } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { useRef, useEffect, useState } from 'react';
-import imgNosotrosHero from '../../assets/nosotros-hero.jpg';
+import imgNosotrosHero from '../../assets/nosotros-hero.webp';
 
 const SPRING_HERO = { type: 'spring' as const, stiffness: 80, damping: 20 };
 const heroContainer = { hidden: {}, visible: { transition: { staggerChildren: 0.14, delayChildren: 0.25 } } };
