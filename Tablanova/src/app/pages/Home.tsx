@@ -506,7 +506,7 @@ export const Home = () => {
             <div className="grid grid-cols-2 gap-x-6 gap-y-2 pr-[88px] sm:pr-0 sm:flex sm:flex-wrap sm:items-center sm:gap-x-8 sm:gap-y-2">
               {[
                 { value: '100%', label: 'Plástico reciclado' },
-                { value: '20+', label: 'Años de vida útil estimada' },
+                { value: '50+', label: 'Años de vida útil estimada' },
                 { value: '0', label: 'Mantenimiento requerido' },
                 { value: '+75.000 kg', label: 'de plástico reciclado' },
               ].map((s) => (
@@ -1128,7 +1128,7 @@ export const Home = () => {
           >
             {[
               { value: '100%', label: 'Plástico reciclado' },
-              { value: '20+', label: 'Años de vida útil estimada' },
+              { value: '50+', label: 'Años de vida útil estimada' },
               { value: '0', label: 'Mantenimiento requerido' },
               { value: '+75.000', label: 'kg de plástico reciclado' },
             ].map((s, i) => (
