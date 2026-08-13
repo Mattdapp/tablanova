@@ -94,7 +94,7 @@ export const Catalogo = () => {
     { id: 'post-4', name: 'Poste redondo Ø 10 cm × 2,20 m', dimensions: 'Ø 10 cm × 2,20 m', weight: 16, minQuantity: 25, category: 'Postes', image: imgPoste4 },
     { id: 'post-5', name: 'Poste redondo Ø 10 cm × 2,40 m', dimensions: 'Ø 10 cm × 2,40 m', weight: 18, minQuantity: 25, category: 'Postes', image: imgPoste5 },
     // TABLAS
-    { id: 'tab-1', name: 'Tabla 11 × 3 cm × 2,00 m', dimensions: '11 × 3 cm × 2,00 m', weight: 5.3, minQuantity: 50, category: 'Tablas', image: imgTabla1 },
+    { id: 'tab-1', name: 'Tabla 11 × 3 cm × 2,00 m', dimensions: '11 × 3 cm × 2,00 m', weight: 6.5, minQuantity: 50, category: 'Tablas', image: imgTabla1 },
     { id: 'tab-2', name: 'Tabla 11 × 3 cm × 3,00 m', dimensions: '11 × 3 cm × 3,00 m', weight: 11, minQuantity: 50, category: 'Tablas', image: imgTabla2 },
     { id: 'tab-3', name: 'Tabla 25 × 4 cm × 2,00 m', dimensions: '25 × 4 cm × 2,00 m', weight: 20, minQuantity: 50, category: 'Tablas', image: imgTabla3 },
     // TIRANTILLOS
