@@ -9,6 +9,8 @@ import imgPoste2 from '../../assets/catalog/poste-2.webp';
 import imgPoste3 from '../../assets/catalog/poste-3.webp';
 import imgPoste4 from '../../assets/catalog/poste-4.webp';
 import imgPoste5 from '../../assets/catalog/poste-5.webp';
+import imgEstacon1 from '../../assets/catalog/estacon-1.webp';
+import imgEstacon2 from '../../assets/catalog/estacon-2.webp';
 import imgVarilla1 from '../../assets/catalog/varilla-1.webp';
 import imgVarilla2 from '../../assets/catalog/varilla-2.webp';
 import imgVarilla3 from '../../assets/catalog/varilla-3.webp';
@@ -25,7 +27,6 @@ import imgTirantillo3 from '../../assets/catalog/tirantillo-3.webp';
 import imgTranquera1 from '../../assets/catalog/tranquera-1.webp';
 import imgTranquera2 from '../../assets/catalog/tranquera-2.webp';
 import imgTranquera3 from '../../assets/catalog/tranquera-3.webp';
-import imgReposera1 from '../../assets/catalog/reposera-1.webp';
 import imgBanco1 from '../../assets/catalog/banco-1.webp';
 import imgBanco2 from '../../assets/catalog/banco-2.webp';
 
@@ -93,6 +94,9 @@ export const Catalogo = () => {
     { id: 'post-3', name: 'Poste redondo Ø 10 cm × 1,80 m', dimensions: 'Ø 10 cm × 1,80 m', weight: 13, minQuantity: 30, category: 'Postes', image: imgPoste3 },
     { id: 'post-4', name: 'Poste redondo Ø 10 cm × 2,20 m', dimensions: 'Ø 10 cm × 2,20 m', weight: 16, minQuantity: 25, category: 'Postes', image: imgPoste4 },
     { id: 'post-5', name: 'Poste redondo Ø 10 cm × 2,40 m', dimensions: 'Ø 10 cm × 2,40 m', weight: 18, minQuantity: 25, category: 'Postes', image: imgPoste5 },
+    // ESTACONES — redondos con punta
+    { id: 'est-1', name: 'Estacón Ø 7,5 cm × 1,90 m', dimensions: 'Ø 7,5 cm × 1,90 m', weight: 8, minQuantity: 50, category: 'Estacones', isNew: true, image: imgEstacon1 },
+    { id: 'est-2', name: 'Estacón Ø 7,5 cm × 2,20 m', dimensions: 'Ø 7,5 cm × 2,20 m', weight: 9.3, minQuantity: 50, category: 'Estacones', isNew: true, image: imgEstacon2 },
     // TABLAS
     { id: 'tab-1', name: 'Tabla 11 × 3 cm × 2,00 m', dimensions: '11 × 3 cm × 2,00 m', weight: 6.5, minQuantity: 50, category: 'Tablas', image: imgTabla1 },
     { id: 'tab-2', name: 'Tabla 11 × 3 cm × 3,00 m', dimensions: '11 × 3 cm × 3,00 m', weight: 11, minQuantity: 50, category: 'Tablas', image: imgTabla2 },
@@ -108,8 +112,6 @@ export const Catalogo = () => {
     // BANCOS
     { id: 'banco-1', name: 'Banco Americano / Canadiense 1,20 × 1,50 m', dimensions: '1,20 × 1,50 m', weight: 100, minQuantity: 1, category: 'Bancos', image: imgBanco1 },
     { id: 'banco-2', name: 'Banco Americano / Canadiense 1,20 × 1,90 m', dimensions: '1,20 × 1,90 m', weight: 130, minQuantity: 1, category: 'Bancos', image: imgBanco2 },
-    // REPOSERA
-    { id: 'rep-1', name: 'Reposera 1,90 × 0,60 m', dimensions: '1,90 × 0,60 m', weight: 70, minQuantity: 1, category: 'Exterior', isNew: true, image: imgReposera1 },
   ];
 
   const categories = ['Todos', ...Array.from(new Set(products.map(p => p.category)))];

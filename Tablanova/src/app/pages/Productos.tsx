@@ -8,7 +8,6 @@ import imgVarillas from '../../assets/varillas.webp';
 import imgTablas from '../../assets/tablas.webp';
 import imgTranqueras from '../../assets/tranqueras.webp';
 import imgAgroBg from '../../assets/agro-bg.webp';
-import imgReposera from '../../assets/catalog/reposera-1.webp';
 import imgBanco from '../../assets/catalog/banco-1.webp';
 
 const SPRING = { type: 'spring' as const, stiffness: 80, damping: 20 };
@@ -366,7 +365,7 @@ export const Productos = () => {
           </motion.div>
 
           <motion.div
-            className="grid md:grid-cols-2 gap-6"
+            className="grid gap-6 max-w-[600px]"
             initial="hidden"
             whileInView="visible"
             viewport={VIEWPORT}
@@ -378,12 +377,6 @@ export const Productos = () => {
                 description: 'Para parques, plazas y espacios de descanso que se disfrutan años.',
                 image: imgBanco as string | undefined,
                 benefits: ['Banco con mesa integrada estilo americano', 'Medidas: 1,20×1,50 m y 1,20×1,90 m', 'De 100 a 130 kg', 'Sin mantenimiento', 'Apto para uso en exteriores'],
-              },
-              {
-                title: 'Reposeras',
-                description: 'Comodidad al aire libre sin el deterioro de los materiales tradicionales.',
-                image: imgReposera as string | undefined,
-                benefits: ['Dimensiones: 1,90 × 0,60m', '70 kg', 'Resistente a piletas y humedad constante', 'Sin pintura ni barniz', 'Desde 1 unidad'],
               },
             ].map((item, i) => (
               <motion.div
