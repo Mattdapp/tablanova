@@ -256,7 +256,7 @@ export const Nosotros = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
             {[
               { value: '100%', label: 'Plástico reciclado' },
-              { value: '50+', label: 'Años de vida útil estimada' },
+              { value: '60+', label: 'Años de vida útil estimada' },
               { value: '10', label: 'Años de garantía' },
               { value: '0', label: 'Mantenimiento requerido' },
             ].map(({ value, label }, i) => (
