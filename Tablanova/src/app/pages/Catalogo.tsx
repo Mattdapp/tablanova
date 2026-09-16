@@ -21,6 +21,7 @@ import imgVarillon2 from '../../assets/catalog/varillon-2.webp';
 import imgTabla1 from '../../assets/catalog/tabla-1.webp';
 import imgTabla2 from '../../assets/catalog/tabla-2.webp';
 import imgTabla3 from '../../assets/catalog/tabla-3.webp';
+import imgTabla4 from '../../assets/catalog/tabla-4.webp';
 import imgTirantillo1 from '../../assets/catalog/tirantillo-1.webp';
 import imgTirantillo2 from '../../assets/catalog/tirantillo-2.webp';
 import imgTirantillo3 from '../../assets/catalog/tirantillo-3.webp';
@@ -95,11 +96,12 @@ export const Catalogo = () => {
     { id: 'post-4', name: 'Poste redondo Ø 10 cm × 2,20 m', dimensions: 'Ø 10 cm × 2,20 m', weight: 16, minQuantity: 25, category: 'Postes', image: imgPoste4 },
     { id: 'post-5', name: 'Poste redondo Ø 10 cm × 2,40 m', dimensions: 'Ø 10 cm × 2,40 m', weight: 18, minQuantity: 25, category: 'Postes', image: imgPoste5 },
     // ESTACONES — redondos con punta
-    { id: 'est-1', name: 'Estacón Ø 7,5 cm × 1,90 m', dimensions: 'Ø 7,5 cm × 1,90 m', weight: 8, minQuantity: 50, category: 'Estacones', isNew: true, image: imgEstacon1 },
-    { id: 'est-2', name: 'Estacón Ø 7,5 cm × 2,20 m', dimensions: 'Ø 7,5 cm × 2,20 m', weight: 9.3, minQuantity: 50, category: 'Estacones', isNew: true, image: imgEstacon2 },
+    { id: 'est-1', name: 'Estacón Ø 7,5 cm × 1,90 m', dimensions: 'Ø 7,5 cm × 1,90 m', weight: 8, minQuantity: 30, category: 'Estacones', isNew: true, image: imgEstacon1 },
+    { id: 'est-2', name: 'Estacón Ø 7,5 cm × 2,20 m', dimensions: 'Ø 7,5 cm × 2,20 m', weight: 9.3, minQuantity: 30, category: 'Estacones', isNew: true, image: imgEstacon2 },
     // TABLAS
     { id: 'tab-1', name: 'Tabla 11 × 3 cm × 2,00 m', dimensions: '11 × 3 cm × 2,00 m', weight: 6.5, minQuantity: 50, category: 'Tablas', image: imgTabla1 },
     { id: 'tab-2', name: 'Tabla 11 × 3 cm × 3,00 m', dimensions: '11 × 3 cm × 3,00 m', weight: 11, minQuantity: 50, category: 'Tablas', image: imgTabla2 },
+    { id: 'tab-4', name: 'Tabla 25 × 4 cm × 1,60 m', dimensions: '25 × 4 cm × 1,60 m', weight: 17, minQuantity: 30, category: 'Tablas', isNew: true, image: imgTabla4 },
     { id: 'tab-3', name: 'Tabla 25 × 4 cm × 2,00 m', dimensions: '25 × 4 cm × 2,00 m', weight: 20, minQuantity: 50, category: 'Tablas', image: imgTabla3 },
     // TIRANTILLOS
     { id: 'tir-1', name: 'Tirantillo 4,5 × 4,5 cm × 2,40 m', dimensions: '4,5 × 4,5 cm × 2,40 m', weight: 4.5, minQuantity: 50, category: 'Tirantillos', image: imgTirantillo1 },
