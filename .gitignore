@@ -34,3 +34,11 @@ Thumbs.db
 # Local working scratch (error captures + source/reference photos)
 Tablanova/ERRORES/
 Tablanova/Fotos/
+
+# Material comercial: se versiona la fuente (HTML) y el set JPEG con el que se
+# genera el PDF. Se excluyen los PDFs (artefactos), el archivo histórico y
+# comercial/img/, que es copia byte a byte de src/assets/ y public/.
+Tablanova/comercial/Viejos/
+Tablanova/comercial/img/
+Tablanova/comercial/*.pdf
+Tablanova/comercial/*.png

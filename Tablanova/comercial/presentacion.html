@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tablanova — Presentación comercial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bordeaux:#5E0F29; --bordeaux-dark:#1a0a0f; --mustard:#DB8F33; --green:#414B28;
+    --beige:#F5F0E8; --beige2:#E8DCC8; --border:#D1C4A8; --text:#111827; --muted:#6B7280;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{font-family:'Inter',sans-serif;background:#3a3a3a;color:var(--text);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .deck{display:flex;flex-direction:column;align-items:center;gap:24px;padding:32px}
+  .slide{width:297mm;height:210mm;background:var(--beige);position:relative;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.35);display:flex;flex-direction:column}
+  .pad{padding:20mm 22mm}
+  .full{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .ovl{position:absolute;inset:0}
+  .logo{height:46px;width:auto;flex:0 0 auto;align-self:flex-start;object-fit:contain}
+  .logo--white{filter:brightness(0) invert(1)}
+  .eyebrow{font-size:11pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+  h1{font-size:46pt;font-weight:600;letter-spacing:-.03em;line-height:1.02}
+  h2{font-size:30pt;font-weight:600;letter-spacing:-.02em;line-height:1.08}
+  .lead{font-size:14pt;line-height:1.6}
+  .muted{color:var(--muted)}
+  .pill{display:inline-block;align-self:flex-start;background:var(--mustard);color:#fff;font-size:9.5pt;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:999px}
+  .pageno{position:absolute;bottom:12mm;right:22mm;font-size:9pt;color:var(--muted);letter-spacing:.1em}
+  .dark .pageno{color:rgba(255,255,255,.5)}
+  .footwww{position:absolute;bottom:12mm;left:22mm;font-size:9.5pt;font-weight:600;letter-spacing:.06em}
+  .dark{color:#fff}
+  .cover{justify-content:flex-end}
+  .cover .ovl{background:linear-gradient(105deg,rgba(20,6,10,.94) 38%,rgba(20,6,10,.6) 100%)}
+  /* split */
+  .split{flex-direction:row}
+  .split .txt{flex:1.1;display:flex;flex-direction:column;justify-content:center;padding:20mm 18mm}
+  .split .pic{flex:.9;position:relative;overflow:hidden}
+  .benefits{display:grid;grid-template-columns:1fr 1fr;gap:7mm;margin-top:8mm}
+  .ben .n{font-size:21pt;font-weight:700;color:var(--bordeaux);letter-spacing:-.02em}
+  .ben p{font-size:9.5pt;color:var(--muted);margin-top:4px;line-height:1.4}
+  /* product cards */
+  .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:9mm}
+  .pcard{display:flex;flex-direction:column;gap:8px}
+  .pcard .ph{width:100%;aspect-ratio:1/1;border-radius:10px;overflow:hidden;background:#fff;border:1px solid var(--border)}
+  .pcard .ph img{width:100%;height:100%;object-fit:contain;padding:6px}
+  .pcard h3{font-size:12.5pt;font-weight:600;letter-spacing:-.01em}
+  .pcard p{font-size:9.5pt;line-height:1.45;color:var(--muted)}
+  /* product cover cards */
+  .prods{display:grid;grid-template-columns:repeat(5,1fr);gap:6mm;margin-top:11mm}
+  .prod{position:relative;height:120mm;border-radius:14px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.14)}
+  .prod img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .prod .ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,6,10,.92) 2%,rgba(20,6,10,.35) 42%,rgba(20,6,10,.04) 70%)}
+  .prod .lbl{position:absolute;left:0;right:0;bottom:0;padding:0 16px 18px;color:#fff}
+  .prod .lbl .num{font-size:8.5pt;font-weight:700;letter-spacing:.12em;color:var(--mustard);text-transform:uppercase}
+  .prod .lbl h3{font-size:14pt;font-weight:600;letter-spacing:-.01em;margin:4px 0 5px;line-height:1.08;min-height:2.16em}
+  .prod .lbl p{font-size:9pt;color:rgba(255,255,255,.84);line-height:1.4;min-height:4.2em}
+  /* gallery */
+  .gal{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px;background:var(--beige)}
+  .gal .cell{position:relative;overflow:hidden}
+  .gal .cell img{width:100%;height:100%;object-fit:cover}
+  .gal .cell .cap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:18px 22px;background:linear-gradient(to top,rgba(20,6,10,.85),rgba(20,6,10,.1) 50%,transparent 72%)}
+  .gal .cap h4{color:#fff;font-size:16pt;font-weight:600;letter-spacing:-.01em}
+  .gal .cap p{color:rgba(255,255,255,.85);font-size:9.5pt;margin-top:3px}
+  /* comparativa */
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:8mm;margin-top:6mm}
+  .col{border-radius:16px;padding:24px 28px}
+  .col.mad{background:#fff;border:1px solid var(--border)}
+  .col.tn{background:var(--bordeaux)}
+  .col h3{font-size:16pt;font-weight:700;margin-bottom:14px}
+  .col.tn h3{color:#fff}
+  .col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .col li{font-size:11pt;display:flex;gap:9px;align-items:flex-start;line-height:1.35}
+  .col.mad li{color:var(--muted)}
+  .col.tn li{color:rgba(255,255,255,.92)}
+  .mk{font-weight:800;flex-shrink:0}
+  .col.mad .mk{color:#DC2626}
+  .col.tn .mk{color:var(--mustard)}
+  .tag{font-size:8.5pt;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .col.tn .tag{color:rgba(219,143,51,.85)}
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:10mm;flex:1;align-content:center}
+  .stat{padding:0 8mm}
+  .stat:first-child{padding-left:0}
+  .stat + .stat{border-left:1px solid rgba(255,255,255,.16)}
+  .stat .n{font-size:48pt;font-weight:600;letter-spacing:-.035em;line-height:1;color:#fff}
+  .stat .l{font-size:10.5pt;color:rgba(255,255,255,.72);margin-top:10px;line-height:1.35;max-width:34mm}
+  .items{display:flex;flex-direction:column;justify-content:center;margin-top:6mm}
+  .item{display:flex;gap:18px;padding:19px 0;border-bottom:1px solid rgba(255,255,255,.15);align-items:flex-start}
+  .item:last-child{border-bottom:none}
+  .item .ic{width:38px;height:38px;border-radius:10px;background:rgba(219,143,51,.16);border:1px solid rgba(219,143,51,.34);color:var(--mustard);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .item .ic svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.75;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .item h4{font-size:13.5pt;font-weight:600;color:#fff;margin-bottom:3px;letter-spacing:-.01em}
+  .item p{font-size:10.5pt;color:rgba(255,255,255,.68);line-height:1.45}
+  .crow{display:flex;gap:40px;margin-top:8mm}
+  .cinfo p{font-size:13pt;line-height:1.9;color:rgba(255,255,255,.9)}
+  .cinfo .k{color:var(--mustard);font-weight:600;font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;display:block;margin-top:14px}
+  @media print{
+    html,body{background:#fff}
+    .deck{padding:0;gap:0;display:block}
+    .slide{box-shadow:none;page-break-after:always;break-after:page}
+    .slide:last-child{page-break-after:avoid;break-after:auto}
+    /* Las sombras con blur se exportan como transparency group y varios visores
+       de PDF (Vista Previa de macOS) las pintan como un rectángulo gris opaco. */
+    .prod{box-shadow:none;border:1px solid rgba(17,24,39,.10)}
+    @page{size:A4 landscape;margin:0}
+  }
+</style>
+</head>
+<body>
+<div class="deck">
+
+  <!-- 1 · PORTADA -->
+  <section class="slide dark cover">
+    <img class="full" src="img/hero.webp" alt="">
+    <div class="ovl"></div>
+    <div class="pad" style="position:relative">
+      <img class="logo logo--white" src="img/logo.png" alt="Tablanova" style="height:54px;margin-bottom:auto">
+      <div style="margin-top:54mm">
+        <span class="eyebrow" style="color:var(--mustard)">Plástico reciclado · Sector agropecuario</span>
+        <h1 style="margin-top:16px;max-width:200mm">Plástico reciclado<br>para el campo.</h1>
+        <p class="lead" style="color:rgba(255,255,255,.78);margin-top:18px;max-width:175mm">
+          Postes, varillas, tablas, tirantillos y tranqueras que reemplazan a la madera. No se pudren, no se mantienen y duran décadas.
+        </p>
+      </div>
+    </div>
+    <div class="footwww" style="color:var(--mustard)">www.tablanova.com.ar</div>
+    <div class="pageno">Práctico y ecológico</div>
+  </section>
+
+  <!-- 2 · PROPUESTA (split con foto) -->
+  <section class="slide split" style="background:var(--beige)">
+    <div class="txt">
+      <span class="pill">Qué es Tablanova</span>
+      <h2 style="margin-top:16px">Reemplazamos la madera por <span style="color:var(--bordeaux)">plástico 100% reciclado</span>.</h2>
+      <p class="lead muted" style="margin-top:14px">
+        Materiales que fusionan tecnología, diseño y compromiso con el planeta. Una alternativa sustentable —economía circular— pensada para la exigencia real del campo.
+      </p>
+      <div class="benefits">
+        <div class="ben"><div class="n">No se pudre</div><p>No absorbe humedad como la madera.</p></div>
+        <div class="ben"><div class="n">Sin insectos</div><p>No lo atacan termitas ni plagas.</p></div>
+        <div class="ben"><div class="n">Cero mant.</div><p>Sin pintura, barniz ni tratamientos.</p></div>
+        <div class="ben"><div class="n">+60 años</div><p>Vida útil estimada a la intemperie.</p></div>
+      </div>
+    </div>
+    <div class="pic"><img class="full" src="img/postes.webp" alt="Postes Tablanova en el campo"></div>
+    <div class="pageno">02</div>
+  </section>
+
+  <!-- 3 · POR QUÉ DEJAR LA MADERA -->
+  <section class="slide" style="background:var(--beige2)">
+    <div class="pad">
+      <span class="pill">La diferencia</span>
+      <h2 style="margin-top:16px">Por qué dejar <span style="color:var(--bordeaux)">la madera</span></h2>
+      <div class="cmp">
+        <div class="col mad">
+          <p class="tag">Material convencional</p>
+          <h3>Madera tradicional</h3>
+          <ul>
+            <li><span class="mk">✕</span> Vida útil limitada</li>
+            <li><span class="mk">✕</span> Requiere pintura y tratamiento</li>
+            <li><span class="mk">✕</span> Puede pudrirse con la humedad</li>
+            <li><span class="mk">✕</span> Se raja o deforma</li>
+            <li><span class="mk">✕</span> Vulnerable a insectos</li>
+            <li><span class="mk">✕</span> Necesita reposición periódica</li>
+            <li><span class="mk">✕</span> Depende de la tala de árboles</li>
+          </ul>
+        </div>
+        <div class="col tn">
+          <p class="tag">Plástico reciclado</p>
+          <h3>Tablanova</h3>
+          <ul>
+            <li><span class="mk">✓</span> Vida útil prolongada</li>
+            <li><span class="mk">✓</span> Sin pintura ni mantenimiento</li>
+            <li><span class="mk">✓</span> No se pudre</li>
+            <li><span class="mk">✓</span> No se raja fácilmente</li>
+            <li><span class="mk">✓</span> No lo atacan insectos</li>
+            <li><span class="mk">✓</span> Reduce reposiciones</li>
+            <li><span class="mk">✓</span> Fabricado con plástico reciclado</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pageno">03</div>
+  </section>
+
+  <!-- 4 · LÍNEAS DE PRODUCTO -->
+  <section class="slide" style="background:var(--beige)">
+    <div class="pad">
+      <span class="pill">Productos</span>
+      <h2 style="margin-top:16px">Materiales para producir, cerrar y construir en el campo</h2>
+      <div class="prods">
+        <div class="prod"><img src="img/postes.webp" alt="Postes"><div class="ov"></div><div class="lbl"><div class="num">7 medidas</div><h3>Postes y Estacones</h3><p>Cuadrados, redondos y con puntal para alambrados.</p></div></div>
+        <div class="prod"><img src="img/varillas.webp" alt="Varillas"><div class="ov"></div><div class="lbl"><div class="num">7 medidas</div><h3>Varillas y Varillones</h3><p>Para cercos eléctricos y perimetrales.</p></div></div>
+        <div class="prod"><img src="img/tablas.webp" alt="Tablas"><div class="ov"></div><div class="lbl"><div class="num">6 medidas</div><h3>Tablas y Tirantillos</h3><p>Corrales, mangas, comederos y estructuras.</p></div></div>
+        <div class="prod"><img src="img/tranqueras.webp" alt="Tranqueras"><div class="ov"></div><div class="lbl"><div class="num">3 medidas</div><h3>Tranqueras</h3><p>Accesos rurales que duran décadas.</p></div></div>
+        <div class="prod"><img src="img/municipios.webp" alt="Mobiliario"><div class="ov"></div><div class="lbl"><div class="num">2 medidas</div><h3>Mobiliario</h3><p>Bancos para plazas, parques y espacios verdes.</p></div></div>
+      </div>
+    </div>
+    <div class="pageno">04</div>
+  </section>
+
+  <!-- 5 · APLICACIONES REALES (galería) -->
+  <section class="slide" style="background:var(--beige)">
+    <div class="pad" style="padding-top:18mm;padding-bottom:9mm;flex:0 0 auto">
+      <span class="pill">Proyectos reales</span>
+      <h2 style="margin-top:13px">Donde la madera <span style="color:var(--bordeaux)">ya quedó atrás</span></h2>
+    </div>
+    <div class="gal">
+      <div class="cell"><img src="img/cercos.webp" alt=""><div class="cap"><h4>Cercos y alambrados</h4><p>Postes y varillas para divisiones y perímetros.</p></div></div>
+      <div class="cell"><img src="img/corrales.webp" alt=""><div class="cap"><h4>Corrales y feedlots</h4><p>Tablas y tirantillos para contacto animal y humedad.</p></div></div>
+      <div class="cell"><img src="img/municipios.webp" alt=""><div class="cap"><h4>Municipios y espacios públicos</h4><p>Mobiliario exterior sin mantenimiento.</p></div></div>
+      <div class="cell"><img src="img/obras-medida.webp" alt=""><div class="cap"><h4>Obras a medida</h4><p>Soluciones según necesidad, medida y destino.</p></div></div>
+    </div>
+  </section>
+
+  <!-- 6 · SUSTENTABILIDAD -->
+  <section class="slide dark" style="background:var(--green)">
+    <div class="pad" style="display:flex;flex-direction:column;height:100%">
+      <span class="pill" style="background:rgba(219,143,51,.2);color:var(--mustard)">Sustentabilidad</span>
+      <h2 style="margin-top:16px;color:#fff;max-width:168mm">Reciclado que vuelve al campo <span style="color:var(--mustard)">como solución</span></h2>
+      <div style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:16mm;flex:1;align-items:stretch;margin-top:9mm">
+        <div style="display:flex;flex-direction:column;justify-content:center">
+          <div style="font-size:64pt;font-weight:700;color:#fff;letter-spacing:-.035em;line-height:.96;white-space:nowrap">+75.000<span style="font-size:23pt;font-weight:600"> kg</span></div>
+          <div style="width:54px;height:3px;background:var(--mustard);border-radius:2px;margin:14px 0 12px"></div>
+          <p style="color:rgba(255,255,255,.74);font-size:13pt;line-height:1.5">de plástico ya reciclado y transformado en productos duraderos.</p>
+        </div>
+        <div class="items">
+          <div class="item"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></div><div><h4>Menos residuos plásticos</h4><p>Usamos plástico post-consumo que terminaría en basureros o cursos de agua.</p></div></div>
+          <div class="item"><div class="ic"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div><div><h4>Menos tala de árboles</h4><p>Cada poste Tablanova es un árbol que no se corta para reemplazarlo.</p></div></div>
+          <div class="item"><div class="ic"><svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div><div><h4>Rendimiento sin resignar nada</h4><p>Cuidar el ambiente sin perder resistencia ni durabilidad.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="pageno">06</div>
+  </section>
+
+  <!-- 7 · NÚMEROS Y GARANTÍA -->
+  <section class="slide dark" style="background:var(--bordeaux)">
+    <div class="pad" style="display:flex;flex-direction:column;height:100%">
+      <span class="pill" style="background:rgba(219,143,51,.2);color:var(--mustard)">Respaldo</span>
+      <h2 style="margin-top:16px;color:#fff">Números que dan tranquilidad</h2>
+      <div class="stats">
+        <div class="stat"><div class="n">100%</div><div class="l">Plástico reciclado</div></div>
+        <div class="stat"><div class="n">60+</div><div class="l">Años de vida útil estimada</div></div>
+        <div class="stat"><div class="n">0</div><div class="l">Mantenimiento requerido</div></div>
+        <div class="stat"><div class="n">10</div><div class="l">Años de garantía</div></div>
+      </div>
+      <div style="margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:10mm">
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:22px 26px">
+          <p class="tag" style="color:var(--mustard)">Condiciones de pago</p>
+          <p style="color:rgba(255,255,255,.9);font-size:12pt;line-height:1.5;margin-top:6px">50% de adelanto al confirmar la compra y 50% restante contra entrega del producto.</p>
+        </div>
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:22px 26px">
+          <p class="tag" style="color:var(--mustard)">Opciones de color</p>
+          <p style="color:rgba(255,255,255,.9);font-size:12pt;line-height:1.5;margin-top:6px">Color reciclado (base). También en negro (+15%) o marrón (+35%).</p>
+        </div>
+      </div>
+    </div>
+    <div class="pageno">07</div>
+  </section>
+
+  <!-- 8 · CONTACTO -->
+  <section class="slide dark cover">
+    <img class="full" src="img/cta-bg.webp" alt="">
+    <div class="ovl" style="background:linear-gradient(105deg,rgba(20,6,10,.94) 45%,rgba(20,6,10,.62) 100%)"></div>
+    <div class="pad" style="position:relative;display:flex;flex-direction:column;height:100%">
+      <img class="logo logo--white" src="img/logo.png" alt="Tablanova">
+      <div style="margin-top:auto">
+        <h2 style="color:#fff;max-width:200mm">Cotizá materiales Tablanova para tu campo</h2>
+        <div class="crow">
+          <div class="cinfo">
+            <span class="k">WhatsApp / Teléfono</span>
+            <p>342 5 683285 &nbsp;·&nbsp; 3496 506699</p>
+            <span class="k">Dónde estamos</span>
+            <p>Calle Soler Nº 613 · Esperanza, Santa Fe</p>
+          </div>
+          <div class="cinfo">
+            <span class="k">Online</span>
+            <p>www.tablanova.com.ar</p>
+            <p>Instagram · @tablanova.ar</p>
+            <span class="k">Envíos</span>
+            <p>A todo el país</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footwww" style="color:var(--mustard)">Práctico y ecológico</div>
+  </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tablanova — Catálogo y lista de precios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bordeaux:#5E0F29; --mustard:#DB8F33; --green:#414B28;
+    --beige:#F5F0E8; --beige2:#E8DCC8; --border:#D1C4A8; --text:#111827; --muted:#6B7280;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{font-family:'Inter',sans-serif;background:#3a3a3a;color:var(--text);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .doc{display:flex;flex-direction:column;align-items:center;gap:18px;padding:28px}
+  .page{width:210mm;height:297mm;overflow:hidden;background:var(--beige);position:relative;box-shadow:0 10px 40px rgba(0,0,0,.35);padding:16mm 15mm 22mm}
+  /* portada */
+  .cover{padding:0;color:#fff}
+  .cover .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .cover .ov{position:absolute;inset:0;background:linear-gradient(160deg,rgba(20,6,10,.93) 32%,rgba(20,6,10,.58) 100%)}
+  .cover .inner{position:relative;height:100%;display:flex;flex-direction:column;padding:24mm 20mm}
+  .cover .logo{height:46px;width:auto;object-fit:contain;filter:brightness(0) invert(1)}
+  .cover .eyebrow{font-size:10.5pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mustard)}
+  .cover h1{font-size:38pt;font-weight:600;letter-spacing:-.02em;line-height:1.04;margin:13px 0 16px}
+  .cover .sub{font-size:14pt;color:rgba(255,255,255,.82)}
+  .cover .date{display:inline-block;margin-top:18px;background:var(--mustard);color:#fff;font-weight:700;font-size:12.5pt;padding:7px 18px;border-radius:999px}
+  .cover .cfoot{margin-top:14mm;display:flex;flex-direction:column;gap:4px;font-size:10pt;color:rgba(255,255,255,.8);font-weight:500}
+  .cover .cfoot .tag{color:var(--mustard);font-weight:600}
+  .band{background:var(--mustard);margin:-16mm -15mm 0;padding:12mm 15mm 8mm;color:#fff;position:relative}
+  .band .logo{height:32px;width:auto;object-fit:contain;filter:brightness(0) invert(1)}
+  .band .sub{position:absolute;top:12mm;right:15mm;text-align:right;line-height:1.15}
+  .band .sub .s1{font-size:13pt;font-weight:300}
+  .band .sub .s2{font-size:13pt;font-weight:700}
+  .titlebar{background:var(--bordeaux);margin:0 -15mm 7mm;padding:8px 15mm;display:flex;justify-content:space-between;align-items:center}
+  .titlebar.top{margin-top:-16mm}
+  .titlebar h1{color:#fff;font-size:16pt;font-weight:700;letter-spacing:-.01em}
+  .titlebar .when{color:#fff;font-size:13pt;font-weight:700}
+  .when .y{font-weight:300}
+  .ivanote{font-size:9pt;color:var(--muted);text-align:right;margin-top:-4mm;margin-bottom:2mm}
+  .cat{margin-top:8mm}
+  .cat:first-of-type{margin-top:3mm}
+  .cat-h{display:flex;align-items:center;gap:10px;margin-bottom:5mm}
+  .cat-h .bar{width:5px;height:20px;background:var(--mustard);border-radius:3px}
+  .cat-h h2{font-size:15pt;font-weight:700;color:var(--bordeaux);letter-spacing:-.01em}
+  .cat-h .cnt{font-size:9pt;color:var(--muted);margin-left:auto}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm}
+  .card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+  .card .ph{aspect-ratio:4/3;background:#fff;border-bottom:1px solid var(--beige2);display:flex;align-items:center;justify-content:center}
+  .card .ph img{width:100%;height:100%;object-fit:contain;padding:7px}
+  .card .body{padding:10px 13px 13px}
+  .card h3{font-size:10.5pt;font-weight:600;line-height:1.25;min-height:2.5em}
+  .meta{font-size:8.5pt;color:var(--muted);margin:7px 0 9px;padding-top:7px;border-top:1px solid var(--beige2)}
+  .meta b{color:var(--text);font-weight:600}
+  .price{display:flex;align-items:baseline;justify-content:space-between}
+  .price .p{font-size:14pt;font-weight:700;color:var(--bordeaux)}
+  .price .consult{font-size:11.5pt;font-weight:700;color:var(--mustard)}
+  .price .iva{font-size:7.5pt;color:var(--muted)}
+  .cond{margin-top:8mm;background:#fff;border:1px solid var(--border);border-radius:14px;padding:7mm 8mm}
+  .cond h2{font-size:15pt;color:var(--bordeaux);font-weight:700;margin-bottom:5mm}
+  .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+  .cbox .t{font-size:9.5pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:5px}
+  .cbox p{font-size:10.5pt;color:var(--text);line-height:1.55}
+  .warr{display:flex;align-items:baseline;gap:8px}
+  .warr .big{font-size:30pt;font-weight:800;color:var(--bordeaux);line-height:1}
+  .warr .lbl{font-size:13pt;color:var(--text);font-weight:600}
+  .foot{position:absolute;bottom:9mm;left:15mm;right:15mm;border-top:1px solid var(--border);padding-top:6px;display:flex;justify-content:space-between;align-items:center;font-size:8.5pt;color:var(--muted)}
+  .foot b{color:var(--bordeaux)}
+  @media print{
+    html,body{background:#fff}
+    .doc{padding:0;gap:0;display:block}
+    .page{box-shadow:none;page-break-after:always;break-after:page}
+    .page:last-child{page-break-after:avoid;break-after:auto}
+    @page{size:A4;margin:0}
+  }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <!-- PORTADA -->
+  <section class="page cover">
+    <img class="bg" src="img/postes.webp" alt="">
+    <div class="ov"></div>
+    <div class="inner">
+      <img class="logo" src="img/logo.png" alt="Tablanova">
+      <div style="margin-top:auto">
+        <span class="eyebrow">Plástico reciclado · Sector agropecuario</span>
+        <h1>Catálogo y<br>lista de precios</h1>
+        <p class="sub">Madera Plástica · Línea Agro</p>
+        <div class="date">Agosto 2026</div>
+      </div>
+      <div class="cfoot">
+        <span class="tag">Práctico y ecológico</span>
+        <span>Calle Soler Nº 613 · Esperanza, Santa Fe</span>
+        <span>342 5 683285 · 3496 506699 · @tablanova.ar · tablanova.com.ar</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PÁGINA 1 · VARILLAS -->
+  <section class="page">
+    <div class="band">
+      <img class="logo" src="img/logo.png" alt="Tablanova">
+      <div class="sub"><div class="s1">Catálogo y</div><div class="s2">lista de precios</div></div>
+    </div>
+    <div class="titlebar"><h1>Madera Plástica · Línea Agro</h1><div class="when">Agosto <span class="y">2026</span></div></div>
+    <p class="ivanote">* Precios sin IVA — color reciclado (base)</p>
+    <div class="cat">
+      <div class="cat-h"><span class="bar"></span><h2>Varillas</h2><span class="cnt">5 medidas</span></div>
+      <div class="grid">
+        <div class="card"><div class="ph"><img src="img/catalog/varilla-1.webp" alt="Varilla 3,5 × 3,5 × 1,10 m"></div><div class="body"><h3>Varilla 3,5 × 3,5 × 1,10 m</h3><div class="meta"><b>1,1 kg</b> · mínimo 200 u.</div><div class="price"><span class="p">$ 3.750</span><span class="iva">+IVA</span></div></div></div>
+        <div class="card"><div class="ph"><img src="img/catalog/varilla-2.webp" alt="Varilla 3,5 × 3,5 × 1,20 m"></div><div class="body"><h3>Varilla 3,5 × 3,5 × 1,20 m</h3><div class="meta"><b>1,2 kg</b> · mínimo 200 u.</div><div class="price"><span class="p">$ 3.990</span><span class="iva">+IVA</span></div></div></div>
+        <div class="card"><div class="ph"><img src="img/catalog/varilla-3.webp" alt="Varilla 3,5 × 3,5 × 1,40 m"></div><div class="body"><h3>Varilla 3,5 × 3,5 × 1,40 m</h3><div class="meta"><b>1,4 kg</b> · mínimo 200 u.</div><div class="price"><span class="p">$ 4.660</span><span class="iva">+IVA</span></div></div></div>
+        <div class="card"><div class="ph"><img src="img/catalog/varilla-ref-1.webp" alt="Varilla Ref 4,5 × 4,5 × 1,20 m"></div><div class="body"><h3>Varilla Ref 4,5 × 4,5 × 1,20 m</h3><div class="meta"><b>2 kg</b> · mínimo 200 u.</div><div class="price"><span class="p">$ 6.650</span><span class="iva">+IVA</span></div></div></div>
+        <div class="card"><div class="ph"><img src="img/catalog/varilla-ref-2.webp" alt="Varilla Ref 4,5 × 4,5 × 1,40 m"></div><div class="body"><h3>Varilla Ref 4,5 × 4,5 × 1,40 m</h3><div class="meta"><b>2,5 kg</b> · mínimo 200 u.</div><div class="price"><span class="p">$ 8.320</span><span class="iva">+IVA</span></div></div></div>
+      </div>
+    </div>
+    <div class="foot"><span><b>Tablanova</b> · Plástico reciclado para el campo</span><span>342 5 683285 · @tablanova.ar · tablanova.com.ar</span></div>
+  </section>
+
+  <!-- PÁGINA 2 · POSTES -->
+  <section class="page">
+    <div class="titlebar top"><h1>Postes</h1><div class="when">Agosto <span class="y">2026</span></div></div>
+    <div class="cat">
+      <div class="cat-h"><span class="bar"></span><h2>Postes cuadrados y redondos</h2><span class="cnt">5 medidas</span></div>
+      <div class="grid">
+        <div class="card"><div class="ph"><img src="img/catalog/poste-1.webp" alt="Poste 8 × 8 × 2,50 m"></div><div class="body"><h3>Poste 8 × 8 × 2,50 m</h3><div class="meta"><b>15 kg</b> · mínimo 50 u.</div><div class="price"><span class="p">$ 43.260</span><span class="iva">+IVA</span></div></div></div>
+        <div class="card"><div class="ph"><img src="img/catalog/poste-2.webp" alt="Poste 10 × 10 × 2,50 m"></div><div class="body"><h3>Poste 10 × 10 × 2,50 m</h3><div class="meta"><b>20 kg</b> · mínimo 50 u.</div><div class="price"><span class="p">$ 66.550</span><span class="iva">+IVA</span></div></div></div>
+        <div class="card"><div class="ph"><img src="img/catalog/poste-3.webp" alt="Poste redondo Ø 10 × 1,80 m"></div><div class="body"><h3>Poste redondo Ø 10 × 1,80 m</h3><div class="meta"><b>13 kg</b> · mínimo 30 u.</div><div class="price"><span class="p">$ 43.257</span><span class="iva">+IVA</span></div></div></div>
+        <div class="card"><div class="ph"><img src="img/catalog/poste-4.webp" alt="Poste redondo Ø 10 × 2,20 m"></div><div class="body"><h3>Poste redondo Ø 10 × 2,20 m</h3><div class="meta"><b>16 kg</b> · mínimo 25 u.</div><div class="price"><span class="p">$ 54.450</span><span class="iva">+IVA</span></div></div></div>
+        <div class="card"><div class="ph"><img src="img/catalog/poste-5.webp" alt="Poste redondo Ø 10 × 2,40 m"></div><div class="body"><h3>Poste redondo Ø 10 × 2,40 m</h3><div class="meta"><b>18 kg</b> · mínimo 25 u.</div><div class="price"><span class="p">$ 59.900</span><span class="iva">+IVA</span></div></div></div>
+      </div>
+    </div>
+    <div class="foot"><span><b>Tablanova</b> · Plástico reciclado para el campo</span><span>342 5 683285 · @tablanova.ar · tablanova.com.ar</span></div>
+  </section>
+
+  <!-- PÁGINA 3 · ESTACONES + VARILLONES -->
+  <section class="page">
+    <div class="titlebar top"><h1>Estacones y Varillones</h1><div class="when">Agosto <span class="y">2026</span></div></div>
+    <div class="cat">
+      <div class="cat-h"><span class="bar"></span><h2>Estacones</h2><span class="cnt">2 medidas · con puntal</span></div>
+      <div class="grid">
+        <div class="card"><div class="ph"><img src="img/catalog/estacon-1.webp" alt="Estacón Ø 7,5 × 1,90 m"></div><div class="body"><h3>Estacón Ø 7,5 × 1,90 m</h3><div class="meta"><b>8 kg</b> · mínimo 30 u.</div><div class="price"><span class="p">$ 24.000</span><span class="iva">+IVA</span></div></div></div>
+        <div class="card"><div class="ph"><img src="img/catalog/estacon-2.webp" alt="Estacón Ø 7,5 × 2,20 m"></div><div class="body"><h3>Estacón Ø 7,5 × 2,20 m</h3><div class="meta"><b>9,3 kg</b> · mínimo 30 u.</div><div class="price"><span class="p">$ 28.000</span><span class="iva">+IVA</span></div></div></div>
+      </div>
+    </div>
+    <div class="cat">
+      <div class="cat-h"><span class="bar"></span><h2>Varillones</h2><span class="cnt">2 medidas</span></div>
+      <div class="grid">
+        <div class="card"><div class="ph"><img src="img/catalog/varillon-1.webp" alt="Varillón 5,5 × 5,5 × 1,60 m"></div><div class="body"><h3>Varillón 5,5 × 5,5 × 1,60 m</h3><div class="meta"><b>4,5 kg</b> · mínimo 50 u.</div><div class="price"><span class="p">$ 14.980</span><span class="iva">+IVA</span></div></div></div>
+        <div class="card"><div class="ph"><img src="img/catalog/varillon-2.webp" alt="Varillón 5,5 × 5,5 × 1,80 m"></div><div class="body"><h3>Varillón 5,5 × 5,5 × 1,80 m</h3><div class="meta"><b>5,5 kg</b> · mínimo 50 u.</div><div class="price"><span class="p">$ 18.300</span><span class="iva">+IVA</span></div></div></div>
+      </div>
+    </div>
+    <div class="foot"><span><b>Tablanova</b> · Plástico reciclado para el campo</span><span>342 5 683285 · @tablanova.ar · tablanova.com.ar</span></div>
+  </section>
+
+  <!-- PÁGINA 4 · TABLAS -->
+  <section class="page">
+    <div class="titlebar top"><h1>Tablas</h1><div class="when">Agosto <span class="y">2026</span></div></div>
+    <div class="cat">
+      <div class="cat-h"><span class="bar"></span><h2>Tablas</h2><span class="cnt">4 medidas</span></div>
+      <div class="grid">
+        <div class="card"><div class="ph"><img src="img/catalog/tabla-1.webp" alt="Tabla 11 × 3 × 2,00 m"></div><div class="body"><h3>Tabla 11 × 3 × 2,00 m</h3><div class="meta"><b>6,5 kg</b> · mínimo 50 u.</div><div class="price"><span class="p">$ 26.620</span><span class="iva">+IVA</span></div></div></div>
+        <div class="card"><div class="ph"><img src="img/catalog/tabla-2.webp" alt="Tabla 11 × 3 × 3,00 m"></div><div class="body"><h3>Tabla 11 × 3 × 3,00 m</h3><div class="meta"><b>11 kg</b> · mínimo 50 u.</div><div class="price"><span class="p">$ 36.600</span><span class="iva">+IVA</span></div></div></div>
+        <div class="card"><div class="ph"><img src="img/catalog/tabla-4.webp" alt="Tabla 25 × 4 × 1,60 m"></div><div class="body"><h3>Tabla 25 × 4 × 1,60 m</h3><div class="meta"><b>17 kg</b> · mínimo 30 u.</div><div class="price"><span class="p">$ 56.000</span><span class="iva">+IVA</span></div></div></div>
+        <div class="card"><div class="ph"><img src="img/catalog/tabla-3.webp" alt="Tabla 25 × 4 × 2,00 m"></div><div class="body"><h3>Tabla 25 × 4 × 2,00 m</h3><div class="meta"><b>20 kg</b> · mínimo 50 u.</div><div class="price"><span class="p">$ 66.500</span><span class="iva">+IVA</span></div></div></div>
+      </div>
+    </div>
+    <div class="foot"><span><b>Tablanova</b> · Plástico reciclado para el campo</span><span>342 5 683285 · @tablanova.ar · tablanova.com.ar</span></div>
+  </section>
+
+  <!-- PÁGINA 5 · TIRANTILLOS + TRANQUERAS -->
+  <section class="page">
+    <div class="titlebar top"><h1>Tirantillos y Tranqueras</h1><div class="when">Agosto <span class="y">2026</span></div></div>
+    <div class="cat">
+      <div class="cat-h"><span class="bar"></span><h2>Tirantillos</h2><span class="cnt">3 medidas</span></div>
+      <div class="grid">
+        <div class="card"><div class="ph"><img src="img/catalog/tirantillo-1.webp" alt="Tirantillo 4,5 × 4,5 × 2,40 m"></div><div class="body"><h3>Tirantillo 4,5 × 4,5 × 2,40 m</h3><div class="meta"><b>4,5 kg</b> · mínimo 50 u.</div><div class="price"><span class="p">$ 14.400</span><span class="iva">+IVA</span></div></div></div>
+        <div class="card"><div class="ph"><img src="img/catalog/tirantillo-2.webp" alt="Tirantillo 4,5 × 4,5 × 2,80 m"></div><div class="body"><h3>Tirantillo 4,5 × 4,5 × 2,80 m</h3><div class="meta"><b>5 kg</b> · mínimo 50 u.</div><div class="price"><span class="p">$ 16.640</span><span class="iva">+IVA</span></div></div></div>
+        <div class="card"><div class="ph"><img src="img/catalog/tirantillo-3.webp" alt="Tirantillo 5,5 × 5,5 × 2,80 m"></div><div class="body"><h3>Tirantillo 5,5 × 5,5 × 2,80 m</h3><div class="meta"><b>6,5 kg</b> · mínimo 50 u.</div><div class="price"><span class="p">$ 21.630</span><span class="iva">+IVA</span></div></div></div>
+      </div>
+    </div>
+    <div class="cat">
+      <div class="cat-h"><span class="bar"></span><h2>Tranqueras</h2><span class="cnt">ancho × alto</span></div>
+      <div class="grid">
+        <div class="card"><div class="ph"><img src="img/catalog/tranquera-1.webp" alt="Tranquera 1,20 × 1,50 m"></div><div class="body"><h3>Tranquera 1,20 × 1,50 m</h3><div class="meta"><b>70 kg</b> · mínimo 1 u.</div><div class="price"><span class="consult">A consultar</span></div></div></div>
+        <div class="card"><div class="ph"><img src="img/catalog/tranquera-2.webp" alt="Tranquera 1,20 × 2 m"></div><div class="body"><h3>Tranquera 1,20 × 2 m</h3><div class="meta"><b>90 kg</b> · mínimo 1 u.</div><div class="price"><span class="consult">A consultar</span></div></div></div>
+        <div class="card"><div class="ph"><img src="img/catalog/tranquera-3.webp" alt="Tranquera 1,20 × 3 m"></div><div class="body"><h3>Tranquera 1,20 × 3 m</h3><div class="meta"><b>160 kg</b> · mínimo 1 u.</div><div class="price"><span class="consult">A consultar</span></div></div></div>
+      </div>
+    </div>
+    <div class="foot"><span><b>Tablanova</b> · Plástico reciclado para el campo</span><span>342 5 683285 · @tablanova.ar · tablanova.com.ar</span></div>
+  </section>
+
+  <!-- PÁGINA 6 · MOBILIARIO + CONDICIONES -->
+  <section class="page">
+    <div class="titlebar top"><h1>Mobiliario y Condiciones</h1><div class="when">Agosto <span class="y">2026</span></div></div>
+    <div class="cat">
+      <div class="cat-h"><span class="bar"></span><h2>Mobiliario para espacios verdes</h2></div>
+      <div class="grid">
+        <div class="card"><div class="ph"><img src="img/catalog/banco-1.webp" alt="Banco Americano / Canadiense 1,20 × 1,50 m"></div><div class="body"><h3>Banco Americano / Canadiense 1,20 × 1,50 m</h3><div class="meta"><b>100 kg</b> · mínimo 1 u.</div><div class="price"><span class="p">$ 980.000</span><span class="iva">+IVA</span></div></div></div>
+        <div class="card"><div class="ph"><img src="img/catalog/banco-2.webp" alt="Banco Americano / Canadiense 1,20 × 1,90 m"></div><div class="body"><h3>Banco Americano / Canadiense 1,20 × 1,90 m</h3><div class="meta"><b>130 kg</b> · mínimo 1 u.</div><div class="price"><span class="p">$ 1.170.000</span><span class="iva">+IVA</span></div></div></div>
+      </div>
+    </div>
+    <div class="cond">
+      <h2>Condiciones</h2>
+      <div class="cgrid">
+        <div class="cbox"><p class="t">Material 100% reciclado</p><p>Precios de color reciclado (base). También color <b>negro (+15%)</b> o <b>marrón (+35%)</b>.</p></div>
+        <div class="cbox"><p class="t">Condiciones de pago</p><p><b>50%</b> de adelanto al confirmar y el <b>50% restante</b> contra entrega.</p></div>
+        <div class="cbox"><p class="t">Garantía</p><div class="warr"><span class="big">10</span><span class="lbl">años de garantía</span></div></div>
+        <div class="cbox"><p class="t">Aclaraciones</p><p>Todos los precios son <b>sin IVA</b>. Envíos a todo el país. Consultá por fabricaciones a medida.</p></div>
+      </div>
+    </div>
+    <div class="foot"><span>Calle Soler Nº 613 · Esperanza, Santa Fe</span><span><b>342 5 683285 · 3496 506699</b> · @tablanova.ar · tablanova.com.ar</span></div>
+  </section>
+
+</div>
+</body>
+</html>
