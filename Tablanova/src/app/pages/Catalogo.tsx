@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Search, X, Filter, Package, Weight, Layers, ArrowRight, MessageCircle, ZoomIn } from 'lucide-react';
+import { Search, X, Package, Weight, Layers, ArrowRight, MessageCircle, ZoomIn } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { trackWhatsApp } from '../lib/analytics';
 import imgCatalogoHero from '../../assets/catalogo-hero.webp';
@@ -22,6 +22,8 @@ import imgTabla1 from '../../assets/catalog/tabla-1.webp';
 import imgTabla2 from '../../assets/catalog/tabla-2.webp';
 import imgTabla3 from '../../assets/catalog/tabla-3.webp';
 import imgTabla4 from '../../assets/catalog/tabla-4.webp';
+import imgTabla5 from '../../assets/catalog/tabla-5.webp';
+import imgTabla6 from '../../assets/catalog/tabla-6.webp';
 import imgTirantillo1 from '../../assets/catalog/tirantillo-1.webp';
 import imgTirantillo2 from '../../assets/catalog/tirantillo-2.webp';
 import imgTirantillo3 from '../../assets/catalog/tirantillo-3.webp';
@@ -101,6 +103,8 @@ export const Catalogo = () => {
     // TABLAS
     { id: 'tab-1', name: 'Tabla 11 × 3 cm × 2,00 m', dimensions: '11 × 3 cm × 2,00 m', weight: 6.5, minQuantity: 50, category: 'Tablas', image: imgTabla1 },
     { id: 'tab-2', name: 'Tabla 11 × 3 cm × 3,00 m', dimensions: '11 × 3 cm × 3,00 m', weight: 11, minQuantity: 50, category: 'Tablas', image: imgTabla2 },
+    { id: 'tab-5', name: 'Tabla negra 15 × 2,5 cm × 2,00 m', dimensions: '15 × 2,5 cm × 2,00 m', weight: 7.5, minQuantity: 50, category: 'Tablas', isNew: true, image: imgTabla5 },
+    { id: 'tab-6', name: 'Tabla negra 15 × 2,5 cm × 3,00 m', dimensions: '15 × 2,5 cm × 3,00 m', weight: 11.5, minQuantity: 50, category: 'Tablas', isNew: true, image: imgTabla6 },
     { id: 'tab-4', name: 'Tabla 25 × 4 cm × 1,60 m', dimensions: '25 × 4 cm × 1,60 m', weight: 17, minQuantity: 30, category: 'Tablas', isNew: true, image: imgTabla4 },
     { id: 'tab-3', name: 'Tabla 25 × 4 cm × 2,00 m', dimensions: '25 × 4 cm × 2,00 m', weight: 20, minQuantity: 50, category: 'Tablas', image: imgTabla3 },
     // TIRANTILLOS
@@ -303,7 +307,7 @@ export const Catalogo = () => {
                   {product.image ? (
                     <button
                       type="button"
-                      onClick={() => setLightbox({ src: product.image!, alt: `${product.name} de plástico reciclado para el campo — Tablanova` })}
+                      onClick={() => product.image && setLightbox({ src: product.image, alt: `${product.name} de plástico reciclado para el campo — Tablanova` })}
                       aria-label={`Ampliar foto de ${product.name}`}
                       className="group/zoom w-full h-full block relative"
                       style={{ border: 'none', padding: 0, background: 'transparent', cursor: 'zoom-in' }}

@@ -77,7 +77,7 @@ const agroProducts = [
       'Fabricados con plástico reciclado de alta calidad, nuestras tablas y tirantillos son una solución durable y sustentable para aplicaciones rurales y agropecuarias. Ideales para corrales, comederos, pasillos de trabajo y estructuras expuestas a la intemperie, ofrecen máxima resistencia a la humedad, al barro y al contacto permanente con animales. No se pudren, no requieren tratamiento ni mantenimiento, garantizando una larga vida útil con un mínimo costo operativo.',
     image: imgTablas,
     benefits: [
-      'Tablas 11 × 3 cm (2,00 / 3,00 m) y 25 × 4 cm (1,60 / 2,00 m)',
+      'Tablas 11 × 3 cm (2,00 / 3,00 m), 15 × 2,5 cm negras (2,00 / 3,00 m) y 25 × 4 cm (1,60 / 2,00 m)',
       'Tirantillos 4,5 × 4,5 cm (2,40 / 2,80 m) y 5,5 × 5,5 cm (2,80 m)',
       'Largos de 1,60 a 3,00 m',
       'De 4,5 a 20 kg por unidad',
