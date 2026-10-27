@@ -103,8 +103,8 @@ export const Catalogo = () => {
     // TABLAS
     { id: 'tab-1', name: 'Tabla 11 × 3 cm × 2,00 m', dimensions: '11 × 3 cm × 2,00 m', weight: 6.5, minQuantity: 50, category: 'Tablas', image: imgTabla1 },
     { id: 'tab-2', name: 'Tabla 11 × 3 cm × 3,00 m', dimensions: '11 × 3 cm × 3,00 m', weight: 11, minQuantity: 50, category: 'Tablas', image: imgTabla2 },
-    { id: 'tab-5', name: 'Tabla negra 15 × 2,5 cm × 2,00 m', dimensions: '15 × 2,5 cm × 2,00 m', weight: 7.5, minQuantity: 50, category: 'Tablas', isNew: true, image: imgTabla5 },
-    { id: 'tab-6', name: 'Tabla negra 15 × 2,5 cm × 3,00 m', dimensions: '15 × 2,5 cm × 3,00 m', weight: 11.5, minQuantity: 50, category: 'Tablas', isNew: true, image: imgTabla6 },
+    { id: 'tab-5', name: 'Tabla negra 15 × 2,6 cm × 2,00 m', dimensions: '15 × 2,6 cm × 2,00 m', weight: 7.5, minQuantity: 50, category: 'Tablas', isNew: true, image: imgTabla5 },
+    { id: 'tab-6', name: 'Tabla negra 15 × 2,6 cm × 3,00 m', dimensions: '15 × 2,6 cm × 3,00 m', weight: 11.5, minQuantity: 50, category: 'Tablas', isNew: true, image: imgTabla6 },
     { id: 'tab-4', name: 'Tabla 25 × 4 cm × 1,60 m', dimensions: '25 × 4 cm × 1,60 m', weight: 17, minQuantity: 30, category: 'Tablas', isNew: true, image: imgTabla4 },
     { id: 'tab-3', name: 'Tabla 25 × 4 cm × 2,00 m', dimensions: '25 × 4 cm × 2,00 m', weight: 20, minQuantity: 50, category: 'Tablas', image: imgTabla3 },
     // TIRANTILLOS
